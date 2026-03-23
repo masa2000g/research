@@ -8,13 +8,15 @@ This file describes the purpose, workflows, conventions, and AI instructions for
 
 This repository is dedicated to **AI-driven multi-angle deep research with comparative analysis**.
 
-The core philosophy: a single research pass is never enough. By approaching a topic from multiple independent angles, comparing the results for commonalities and contradictions, and then structuring those findings into a coherent analytical framework, we produce insights that no single-pass research can achieve.
+The core philosophy: a single research pass is never enough. By approaching a topic from multiple independent angles — including live community signals from Discord — comparing the results for commonalities and contradictions, and then structuring those findings into a coherent analytical framework, we produce insights that no single-pass research can achieve.
 
 **High-level flow:**
 
 ```
 Topic
   └─► Multi-angle Research (parallel streams)
+  │     ├─ Web / academic research (per angle)
+  │     └─ Discord community research (via MCP)
         └─► Cross-angle Comparison (commonalities / differences)
               └─► Synthesis & Structural Analysis (framework / diagram)
                     └─► Final Report + Notebook + Audio
@@ -36,7 +38,8 @@ research/
 │       │   ├── economic.md
 │       │   ├── social.md
 │       │   ├── policy.md
-│       │   └── future_outlook.md
+│       │   ├── future_outlook.md
+│       │   └── discord_community.md # Community signals gathered via Discord MCP
 │       ├── comparison.md            # Cross-angle: commonalities & differences
 │       ├── framework.md             # Synthesized structural analysis / framework
 │       ├── report.md                # Final comprehensive report
@@ -73,6 +76,8 @@ Before starting, define 4–6 distinct lenses through which to examine the topic
 
 Adjust angles based on topic — not all angles are relevant for every topic.
 
+The **Discord Community** angle is always included when a relevant server is available — it captures real practitioner sentiment, emerging debates, and tacit knowledge not found in formal sources.
+
 ### Step 2: Multi-Angle Deep Research
 
 For **each angle independently**:
@@ -83,6 +88,52 @@ For **each angle independently**:
 - Output each angle to `topics/<topic-slug>/angles/<angle>.md`
 
 > **Important:** Treat each angle as if it were a standalone research task. The goal is genuine depth per angle, not a surface overview from all angles.
+
+#### Discord Community Angle (via MCP)
+
+When a Discord server is provided as part of the research brief, use the Discord MCP to gather community intelligence:
+
+**What to collect:**
+- Dominant topics and recurring questions in relevant channels
+- Strong opinions and debates (what people fight about)
+- Practitioner workarounds, tips, and undocumented knowledge
+- Sentiment trends: excitement, frustration, confusion, distrust
+- Influential voices and their positions
+- Links, tools, or resources frequently shared by the community
+
+**How to structure `angles/discord_community.md`:**
+
+```markdown
+# Discord Community Research: <Topic>
+
+## Server(s) Analyzed
+- Server: <name> | Invite: <url>
+- Channels reviewed: #channel-a, #channel-b, ...
+- Date range analyzed: YYYY-MM-DD to YYYY-MM-DD
+
+## Key Themes
+1. <Theme> — summary of what people are saying
+2. ...
+
+## Major Debates / Disagreements
+- <Topic>: <Side A> vs <Side B>
+
+## Practitioner Insights (not in official docs)
+- ...
+
+## Sentiment Summary
+- Overall tone: [enthusiastic / cautious / frustrated / mixed]
+- Top positive signals: ...
+- Top pain points: ...
+
+## Influential Voices
+- @username — known for: ...
+
+## Frequently Shared Resources
+- [Title](URL) — why it's popular
+```
+
+**Discord MCP setup** (see [MCP Setup](#discord-mcp-setup) section below).
 
 ### Step 3: Cross-Angle Comparison
 
@@ -217,11 +268,91 @@ When writing `framework.md`, use this structure:
 
 ---
 
+## Discord MCP Setup
+
+To enable Claude to read Discord channels directly, configure a Discord MCP server.
+
+### Option A: v-3/discordmcp (recommended — simple setup)
+
+**GitHub:** [https://github.com/v-3/discordmcp](https://github.com/v-3/discordmcp)
+
+```bash
+# Install
+npm install -g discordmcp
+
+# Add to Claude Code MCP config (~/.claude/settings.json or .claude/settings.json)
+```
+
+```json
+{
+  "mcpServers": {
+    "discord": {
+      "command": "discordmcp",
+      "env": {
+        "DISCORD_TOKEN": "<your-discord-bot-token>",
+        "DISCORD_GUILD_ID": "<optional-default-server-id>"
+      }
+    }
+  }
+}
+```
+
+### Option B: SaseQ/discord-mcp (Docker-based, more features)
+
+**GitHub:** [https://github.com/SaseQ/discord-mcp](https://github.com/SaseQ/discord-mcp)
+
+```bash
+docker pull saseq/discord-mcp
+```
+
+```json
+{
+  "mcpServers": {
+    "discord": {
+      "command": "docker",
+      "args": ["run", "--rm", "-e", "DISCORD_TOKEN", "saseq/discord-mcp"],
+      "env": {
+        "DISCORD_TOKEN": "<your-discord-bot-token>"
+      }
+    }
+  }
+}
+```
+
+### Creating a Discord Bot Token
+
+1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications)
+2. Create a new application → Bot → Reset Token → copy the token
+3. Enable **Message Content Intent** under Privileged Gateway Intents
+4. Invite the bot to your server with at minimum `Read Messages` and `Read Message History` permissions
+5. Set `DISCORD_TOKEN` in your MCP config (never commit this to the repo — use env vars or a secrets manager)
+
+### Key MCP Tools Available
+
+Once configured, Claude can use these tools:
+
+| Tool | What it does |
+|------|-------------|
+| `discord_read_messages` | Read recent messages from a channel |
+| `discord_list_channels` | List all channels in a server |
+| `discord_get_server_info` | Get server metadata |
+| `discord_search_messages` | Search messages by keyword |
+| `discord_get_thread` | Read a specific thread |
+
+### Security Notes
+
+- **Never commit `DISCORD_TOKEN` to git** — add it to `.env` and `.gitignore`
+- Bot only accesses servers it has been explicitly invited to
+- Use read-only permissions unless write access is needed
+- Treat gathered Discord data as potentially sensitive; do not publish raw message logs
+
+---
+
 ## Report Quality Standards
 
 | Criterion | Requirement |
 |-----------|-------------|
-| Multi-angle coverage | At least 4 distinct angles researched independently |
+| Multi-angle coverage | At least 4 distinct angles researched independently (Discord angle included when server available) |
 | Comparison depth | Explicit commonalities AND differences documented |
 | Framework quality | A synthesized model that goes beyond summarizing each angle |
 | Evidence | Data, statistics, citations per angle |
@@ -265,7 +396,9 @@ When working in this repository, Claude should:
 5. **Be explicit about uncertainty** — if a claim is uncertain or contested, say so and note which angle makes the claim
 6. **Produce complete files** — do not leave placeholders like `[TODO]` in final outputs
 7. **Check existing work** before starting — if angle files already exist, read them first
-8. **Update this CLAUDE.md** if the project structure or workflow evolves
+8. **Use Discord MCP** when a server is provided — community signals are a first-class research source, not an afterthought
+9. **Never share raw Discord message logs** in reports — synthesize and anonymize
+10. **Update this CLAUDE.md** if the project structure or workflow evolves
 
 ---
 
@@ -326,4 +459,4 @@ EOF
 
 ---
 
-*This CLAUDE.md was last updated: 2026-03-23*
+*This CLAUDE.md was last updated: 2026-03-23 (added Discord MCP integration)*
