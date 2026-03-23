@@ -6,107 +6,228 @@ This file describes the purpose, workflows, conventions, and AI instructions for
 
 ## Repository Purpose
 
-This repository is dedicated to **AI-driven deep research**. The workflow is:
+This repository is dedicated to **AI-driven multi-angle deep research with comparative analysis**.
 
-1. **Research** — Claude performs comprehensive deep research on a given topic
-2. **Review & Expand** — Claude reviews its own research, identifies gaps, and performs additional targeted research
-3. **Report Generation** — Claude produces a high-quality, information-dense, multi-angle report
-4. **Notebook Integration** — Reports are automatically structured into Jupyter Notebooks (`.ipynb`)
-5. **Audio Commentary** — Reports are converted into audio narration scripts or audio files
+The core philosophy: a single research pass is never enough. By approaching a topic from multiple independent angles, comparing the results for commonalities and contradictions, and then structuring those findings into a coherent analytical framework, we produce insights that no single-pass research can achieve.
+
+**High-level flow:**
+
+```
+Topic
+  └─► Multi-angle Research (parallel streams)
+        └─► Cross-angle Comparison (commonalities / differences)
+              └─► Synthesis & Structural Analysis (framework / diagram)
+                    └─► Final Report + Notebook + Audio
+```
 
 ---
 
-## Directory Structure (Intended)
+## Directory Structure
 
 ```
 research/
-├── CLAUDE.md                  # This file
-├── topics/                    # One subdirectory per research topic
+├── CLAUDE.md                        # This file
+├── topics/                          # One subdirectory per research topic
 │   └── <topic-slug>/
-│       ├── brief.md           # Initial research brief / prompt
-│       ├── research.md        # Raw research output (first pass)
-│       ├── review.md          # Self-review notes and gap analysis
-│       ├── deep_research.md   # Follow-up focused research
-│       ├── report.md          # Final synthesized report
-│       ├── notebook.ipynb     # Jupyter Notebook version of the report
-│       └── audio_script.md    # Narration script for audio commentary
-├── templates/                 # Reusable templates
+│       ├── brief.md                 # Research question and scope definition
+│       ├── angles/                  # Independent research by angle
+│       │   ├── technical.md
+│       │   ├── historical.md
+│       │   ├── economic.md
+│       │   ├── social.md
+│       │   ├── policy.md
+│       │   └── future_outlook.md
+│       ├── comparison.md            # Cross-angle: commonalities & differences
+│       ├── framework.md             # Synthesized structural analysis / framework
+│       ├── report.md                # Final comprehensive report
+│       ├── notebook.ipynb           # Jupyter Notebook version of the report
+│       └── audio_script.md          # Narration script for audio commentary
+├── templates/                       # Reusable templates
+│   ├── angle_template.md
+│   ├── comparison_template.md
+│   ├── framework_template.md
 │   ├── report_template.md
 │   ├── notebook_template.ipynb
 │   └── audio_script_template.md
-└── scripts/                   # Automation scripts
-    ├── generate_notebook.py   # Converts report.md → notebook.ipynb
-    └── generate_audio.py      # Converts audio_script.md → audio file
+└── scripts/                         # Automation scripts
+    ├── generate_notebook.py         # Converts report.md → notebook.ipynb
+    └── generate_audio.py            # Converts audio_script.md → audio file
 ```
 
 ---
 
 ## Research Workflow for Claude
 
-### Step 1: Initial Deep Research
+### Step 1: Define Research Angles
 
-When given a research topic:
-- Search broadly across multiple angles: technical, historical, economic, social, policy, and future outlook
-- Cite sources with URLs where possible
-- Identify key players, key data points, and competing perspectives
-- Output to `topics/<topic-slug>/research.md`
+Before starting, define 4–6 distinct lenses through which to examine the topic. Default angles:
 
-### Step 2: Self-Review and Gap Analysis
+| Angle | What to investigate |
+|-------|---------------------|
+| **Technical** | Mechanisms, how it works, current state of technology |
+| **Historical** | Origins, evolution, key milestones and turning points |
+| **Economic** | Market dynamics, incentives, costs, winners and losers |
+| **Social** | Human impact, culture, equity, public perception |
+| **Policy / Regulatory** | Laws, governance, geopolitics, standards bodies |
+| **Future Outlook** | Trends, forecasts, expert predictions, open questions |
 
-After initial research:
-- Re-read the research output critically
-- Ask: What is missing? What is shallow? What is contested?
-- Identify 3–7 specific gaps or questions that need deeper investigation
-- Output gap analysis to `topics/<topic-slug>/review.md`
+Adjust angles based on topic — not all angles are relevant for every topic.
 
-### Step 3: Targeted Deep Dive
+### Step 2: Multi-Angle Deep Research
 
-For each identified gap:
-- Perform focused research to fill that specific gap
-- Prioritize primary sources, recent data, and expert opinions
-- Output to `topics/<topic-slug>/deep_research.md`
+For **each angle independently**:
+- Research deeply and thoroughly from that angle's perspective
+- Do not let other angles contaminate — stay in the lane of this angle
+- Cite sources with URLs
+- Capture key data points, quotes, and findings
+- Output each angle to `topics/<topic-slug>/angles/<angle>.md`
 
-### Step 4: Final Report Synthesis
+> **Important:** Treat each angle as if it were a standalone research task. The goal is genuine depth per angle, not a surface overview from all angles.
 
-Synthesize all research into a final report:
-- Use clear section headers
-- Include an executive summary (3–5 bullet points)
-- Present multiple perspectives (not just one viewpoint)
-- Include data, statistics, and concrete examples
-- End with conclusions and open questions
-- Output to `topics/<topic-slug>/report.md`
+### Step 3: Cross-Angle Comparison
 
-### Step 5: Notebook Generation
+After all angles are complete, perform a structured comparison:
+
+**Identify Commonalities:**
+- What conclusions appear across multiple angles independently?
+- Where do different disciplines converge on the same insight?
+- What facts or data points are corroborated by multiple angles?
+
+**Identify Differences and Tensions:**
+- Where do angles contradict each other?
+- What does one angle see as a benefit that another sees as a risk?
+- What assumptions differ between angles?
+- What would each angle prioritize differently?
+
+**Identify Blind Spots:**
+- What does each angle miss or underweight?
+- Which angle's framing is most commonly adopted in public discourse, and what does that hide?
+
+Output the full comparison to `topics/<topic-slug>/comparison.md`.
+
+### Step 4: Structural Analysis and Framework
+
+Using the comparison as input, build a **synthesized analytical framework**:
+
+- Construct a mental model or diagram that captures the core dynamics
+- Name and define the key forces, tensions, and feedback loops
+- Show how the different angles relate to each other
+- Propose a 2x2 matrix, a causal map, a timeline overlay, or a systems diagram — whichever best fits the topic
+- Articulate the "core insight" that only emerges from combining all angles
+
+Output to `topics/<topic-slug>/framework.md`.
+
+The framework section should include:
+1. **Framework title** — a short name for the model
+2. **Core insight** — 1–3 sentences summarizing the key finding
+3. **Diagram or structured description** — ASCII or Mermaid diagram if applicable
+4. **Key tensions** — the 2–4 central trade-offs or contradictions
+5. **Implications** — what this framework suggests for decision-makers, researchers, or practitioners
+
+### Step 5: Final Report Synthesis
+
+Synthesize all previous steps into a final report:
+- Executive summary (5–7 bullet points capturing the most important findings)
+- One section per angle (summarized, not repeated verbatim)
+- Cross-angle comparison section
+- Framework section (with diagram)
+- Conclusions and open questions
+- Full citations list
+
+Output to `topics/<topic-slug>/report.md`.
+
+### Step 6: Notebook Generation
 
 Convert the report into a Jupyter Notebook:
 - Each major section becomes a Markdown cell
 - Data tables become structured cells
-- Charts or visualizations are included where applicable
+- Include Python code cells for any data visualizations where data is available
+- Framework diagrams rendered as images or Mermaid code cells
 - Output to `topics/<topic-slug>/notebook.ipynb`
 
-### Step 6: Audio Script
+### Step 7: Audio Script
 
 Create an audio narration script:
-- Conversational tone (as if explaining to a smart friend)
-- No markdown formatting — plain spoken language
-- Estimated reading time noted at the top
+- Conversational tone (explaining to a smart, curious friend)
+- No markdown — plain spoken language
+- Structure: Hook → Context → Angle-by-angle tour → Comparison highlights → Framework reveal → Key takeaways → Closing question
+- Estimated reading time at the top (assume 150 words/minute)
 - Output to `topics/<topic-slug>/audio_script.md`
+
+---
+
+## Comparison Template
+
+When writing `comparison.md`, use this structure:
+
+```markdown
+# Cross-Angle Comparison: <Topic>
+
+## Commonalities (What all/most angles agree on)
+- ...
+- ...
+
+## Key Differences and Tensions
+| Dimension | Angle A says... | Angle B says... | Tension |
+|-----------|-----------------|-----------------|---------|
+| ...       | ...             | ...             | ...     |
+
+## Surprising Contradictions
+- ...
+
+## Blind Spots by Angle
+| Angle | What it misses |
+|-------|----------------|
+| ...   | ...            |
+
+## Emerging Synthesis Questions
+(Questions that only arise when you compare angles)
+- ...
+```
+
+---
+
+## Framework Template
+
+When writing `framework.md`, use this structure:
+
+```markdown
+# Analytical Framework: <Framework Title>
+
+## Core Insight
+<1–3 sentence summary of the insight that only emerges from multi-angle analysis>
+
+## Diagram
+<ASCII, Mermaid, or structured description>
+
+## Key Forces / Components
+1. **<Force A>** — description
+2. **<Force B>** — description
+...
+
+## Central Tensions
+- <Tension 1>: <Angle X> pulls toward X, while <Angle Y> pulls toward Y
+- ...
+
+## Implications
+- For practitioners: ...
+- For policy: ...
+- For future research: ...
+```
 
 ---
 
 ## Report Quality Standards
 
-A high-quality report in this repository must meet these standards:
-
 | Criterion | Requirement |
 |-----------|-------------|
-| Coverage | Multiple angles covered (technical, social, economic, etc.) |
-| Depth | Not just surface-level; goes into mechanisms and causes |
-| Balance | Competing perspectives acknowledged |
-| Evidence | Data, statistics, citations included |
+| Multi-angle coverage | At least 4 distinct angles researched independently |
+| Comparison depth | Explicit commonalities AND differences documented |
+| Framework quality | A synthesized model that goes beyond summarizing each angle |
+| Evidence | Data, statistics, citations per angle |
+| Balance | No single angle's framing dominates the final report |
 | Clarity | Readable by a non-expert; jargon explained |
-| Structure | Clear sections, executive summary, conclusions |
-| Length | Proportional to topic complexity (typically 1,500–5,000 words) |
+| Length | Proportional to complexity (typically 3,000–8,000 words for full report) |
 
 ---
 
@@ -114,19 +235,21 @@ A high-quality report in this repository must meet these standards:
 
 ### File Naming
 - Use lowercase with hyphens for topic slugs: `climate-finance`, `llm-safety`, `quantum-computing`
-- Date-prefix versions if iterating: `report_v2.md`, `report_2026-03.md`
+- Angle files: `technical.md`, `economic.md`, `social.md`, etc.
 
 ### Markdown Style
 - Use `#` for top-level headings, `##` for sections, `###` for subsections
 - Use tables for comparative information
 - Use blockquotes (`>`) for direct quotes from sources
 - Use footnote-style links when citing: `[Source Title](URL)`
+- Use Mermaid fenced code blocks for diagrams: ` ```mermaid `
 
 ### Git Commits
 - Commit message format: `research(<topic>): <what was done>`
 - Examples:
-  - `research(ai-governance): add initial deep research`
-  - `research(ai-governance): add self-review and gap analysis`
+  - `research(ai-governance): add technical and historical angle research`
+  - `research(ai-governance): add cross-angle comparison`
+  - `research(ai-governance): add analytical framework`
   - `research(ai-governance): add final report and notebook`
 
 ---
@@ -135,31 +258,31 @@ A high-quality report in this repository must meet these standards:
 
 When working in this repository, Claude should:
 
-1. **Always follow the 6-step workflow** described above for any new research topic
-2. **Never skip the self-review step** — this is critical to quality
-3. **Actively search the web** for recent information; do not rely solely on training data
-4. **Be explicit about uncertainty** — if a claim is uncertain, say so
-5. **Produce complete files** — do not leave placeholders like `[TODO]` in final outputs
-6. **Check existing research** before starting — if `research.md` already exists, read it first
-7. **Update this CLAUDE.md** if the project structure or workflow evolves
+1. **Always research each angle independently** — do not blend angles during the research phase
+2. **Never skip the comparison step** — the comparison is where the real insight lives
+3. **Build a genuine framework** — not just a summary, but a structural model that reveals something new
+4. **Actively search the web** for recent information; do not rely solely on training data
+5. **Be explicit about uncertainty** — if a claim is uncertain or contested, say so and note which angle makes the claim
+6. **Produce complete files** — do not leave placeholders like `[TODO]` in final outputs
+7. **Check existing work** before starting — if angle files already exist, read them first
+8. **Update this CLAUDE.md** if the project structure or workflow evolves
 
 ---
 
 ## Audio Generation Notes
 
-For audio commentary:
 - Target voice: clear, neutral, educational (like a podcast or documentary narration)
-- Script structure: Hook → Context → Deep Dive → Key Takeaways → Closing
-- Estimated duration: 5–15 minutes per report
-- Tool integration (future): scripts in `scripts/generate_audio.py` will call a TTS API
+- Script structure: Hook → Context → Angle Tour → Comparison Highlights → Framework Reveal → Key Takeaways → Closing
+- Estimated duration: 8–20 minutes per report
+- Tool integration (future): `scripts/generate_audio.py` calls a TTS API
 
 ---
 
 ## Notebook Generation Notes
 
-For Jupyter Notebooks:
 - Reports become structured notebooks with Markdown and code cells
 - Where data is available, include Python code to fetch/visualize it
+- Framework diagrams rendered as Mermaid code or matplotlib figures
 - Notebooks should be runnable (no broken imports or missing data)
 - Tool integration: `scripts/generate_notebook.py` converts `report.md` to `.ipynb`
 
@@ -168,13 +291,37 @@ For Jupyter Notebooks:
 ## Getting Started (for a new research topic)
 
 ```bash
-# Create the topic directory
-mkdir -p topics/<topic-slug>
+# Create the topic directory structure
+mkdir -p topics/<topic-slug>/angles
 
 # Add the research brief
-echo "# Research Brief: <Topic Title>\n\nResearch question: ..." > topics/<topic-slug>/brief.md
+cat > topics/<topic-slug>/brief.md << 'EOF'
+# Research Brief: <Topic Title>
 
-# Then ask Claude to execute the full 6-step research workflow
+## Core Question
+<What do we want to understand?>
+
+## Scope
+<What is in / out of scope?>
+
+## Angles to Research
+- [ ] Technical
+- [ ] Historical
+- [ ] Economic
+- [ ] Social
+- [ ] Policy / Regulatory
+- [ ] Future Outlook
+
+## Key Deliverables
+- [ ] angles/*.md (one per angle)
+- [ ] comparison.md
+- [ ] framework.md
+- [ ] report.md
+- [ ] notebook.ipynb
+- [ ] audio_script.md
+EOF
+
+# Then instruct Claude to execute the full 7-step workflow
 ```
 
 ---
