@@ -42,7 +42,8 @@
       font-size: 1.2rem; color: #0f172a; font-weight: 700;
       border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 8px;
     }
-    .axis-summary { font-size: 0.8rem; color: #64748b; margin-bottom: 16px; }
+    .axis-summary { font-size: 0.8rem; color: #64748b; margin-bottom: 6px; }
+    .source-distribution { margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
     .no-data { color: #9ca3af; font-style: italic; padding: 12px 0; }
     .axis-overview-card, .topic-links-card {
       margin-bottom: 16px; padding: 20px;
@@ -50,15 +51,10 @@
       border: 1px solid #e5e7eb;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-    .topic-links-list {
-      list-style: none; padding: 0;
-    }
-    .topic-links-list li {
-      padding: 6px 0; font-size: 0.9rem;
-    }
-    .topic-link-meta {
-      color: #64748b; font-size: 0.8rem;
-    }
+    .topic-links-list { list-style: none; padding: 0; }
+    .topic-links-list li { padding: 6px 0; font-size: 0.9rem; }
+    .topic-link-meta { color: #64748b; font-size: 0.8rem; }
+    .topic-categories { display: inline-flex; gap: 4px; margin-left: 4px; }
     .topic-detail {
       margin-bottom: 10px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0 16px;
     }
@@ -72,9 +68,9 @@
       display: inline-block; padding: 2px 10px;
       border-radius: 4px; margin-bottom: 4px;
     }
-    .summary-section:nth-child(1) .summary-label { background: #2563eb; }
-    .summary-section:nth-child(2) .summary-label { background: #7c3aed; }
-    .summary-section:nth-child(3) .summary-label { background: #059669; }
+    .label-key, .label-summary { background: #2563eb; }
+    .label-bg { background: #7c3aed; }
+    .label-outlook { background: #059669; }
     .summary-text {
       font-size: 0.9rem; color: #374151; line-height: 1.7;
       padding: 4px 0 0 2px;
@@ -85,17 +81,17 @@
     .sources-label {
       font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 6px;
     }
-    .sources-list {
-      list-style: none; padding: 0;
-    }
+    .sources-list { list-style: none; padding: 0; }
     .sources-list li {
-      font-size: 0.82rem; color: #475569; padding: 2px 0;
+      font-size: 0.82rem; color: #475569; padding: 3px 0;
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
     }
-    .source-name {
-      font-weight: 600; color: #334155;
-    }
-    .source-meta {
-      color: #64748b; font-size: 0.78rem;
+    .source-name { font-weight: 600; color: #334155; }
+    .source-meta { color: #64748b; font-size: 0.78rem; }
+    .cat-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 600;
+      border-radius: 4px; padding: 1px 6px;
+      white-space: nowrap;
     }
     .lang-badge {
       display: inline-block; font-size: 0.65rem; font-weight: 700;
@@ -110,7 +106,7 @@
     @media (max-width: 640px) {
       body { padding: 12px 8px; }
       .header { padding: 18px; }
-      .topic-card { padding: 14px; }
+      .sources-list li { flex-direction: column; align-items: flex-start; gap: 2px; }
     }
   </style>
 </head>
@@ -124,9 +120,9 @@
     <h1>デイリーインテリジェンス</h1>
     <p class="date">2026-04-08</p>
     <div class="meta">
-      <span>トピック数: 50</span>
-      <span>ソース記事数: 115</span>
-      <span>生成: 2026-04-07 21:11:30 JST</span>
+      <span>トピック数: 37</span>
+      <span>ソース記事数: 87</span>
+      <span>生成: 2026-04-08 01:07:24 JST</span>
     </div>
   </header>
 
@@ -148,19 +144,20 @@
     
       <section id="politics_security" style="margin-bottom:40px;">
         <h2 class="axis-title">🏛️ 政治・安全保障</h2>
-        <p class="axis-summary">5件の注目トピック ／ 10件のソース記事</p>
+        <p class="axis-summary">4件の注目トピック ／ 9件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 5</span> <span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 4</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">政治・安全保障では国内では「国会 今年度予算が成立 「国家情報局」設置法案など論戦続く」「政府 “原油 年を越えて供給確保にめど” 代替調達など詳細は」や「中道 立民 公明 来春の統一地方選 協力進めることで基本合意」が焦点。また、War on the Rocksなどからは2件の海外トピックが入っている。合計5件のトピックを10件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">政治・安全保障では、（高市首相動静 2026年4月7日）。今年度予算が7日、成立しましたのほか、緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す…といった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党… また、一般会計の総額が過去最大の122兆円あまりとなる今年度予算は、7日に成立しました。後半国…。一方で、緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す… また、高市総理大臣は、日本の原油の輸入に占める割合が最も高いUAE＝アラブ首長国連邦のムハンマ…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党…。一般会計の総額が過去最大の122兆円あまりとなる今年度予算は、7日に成立しました。後半国会では政府が目指す「国家情報局」や「防災庁」の設置に必要な法案などをめぐって論戦が続きます。また、緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す…。高市総理大臣は、日本の原油の輸入に占める割合が最も高いUAE＝アラブ首長国連邦のムハンマド大統…。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">外交・安全保障の動きは連鎖的に波及しやすく、今後数日間の続報で方向性が見えてくる。関連する閣僚発言や国際会議の日程にも注目したい。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">外交・安全保障の動きは連鎖的に波及しやすく、今回報じられた「高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請」の展開は周辺分野にも影響が及ぶ可能性がある。海外の反応と国内政策の連動にも注目したい。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -168,132 +165,111 @@
           <ul class="topic-links-list">
             
           <li>
+            <a href="#politics_security-高市首相-UAE大統領と電話会談-原油安定供給へ協力継続を要請">高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース5件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#politics_security-高市首相動静-2026年4月7日">高市首相動静 2026年4月7日</a>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
             <a href="#politics_security-国会-今年度予算が成立--国家情報局-設置法案など論戦続く">国会 今年度予算が成立 「国家情報局」設置法案など論戦続く</a>
             <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
           </li>
 
           <li>
-            <a href="#politics_security-政府--原油-年を越えて供給確保にめど--代替調達など詳細は">政府 “原油 年を越えて供給確保にめど” 代替調達など詳細は</a>
-            <span class="topic-link-meta">（ソース2件）</span>
-          </li>
-
-          <li>
-            <a href="#politics_security-中道-立民-公明-来春の統一地方選-協力進めることで基本合意">中道 立民 公明 来春の統一地方選 協力進めることで基本合意</a>
+            <a href="#politics_security-中国関連">中国関連</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#politics_security-Iran-s-Anti-Access-and-Area-Denial-Strategy-Is-Cruder-Than-China-s-But-Still-Dangerous">Iran’s Anti-Access and Area Denial Strategy Is Cruder Than China’s But Still Dangerous</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#politics_security-The-Hidden-System-Turning-Chinese-Tech-Companies-into-Military-Suppliers">The Hidden System Turning Chinese Tech Companies into Military Suppliers</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
           </ul>
         </div>
         
+        <details class="topic-detail" id="politics_security-高市首相-UAE大統領と電話会談-原油安定供給へ協力継続を要請">
+          <summary>高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す…。また、高市総理大臣は、日本の原油の輸入に占める割合が最も高いUAE＝アラブ首長国連邦のムハンマド大統領と電話で会談し、日本への原油の安定供給に向け、協力の継続を要請しました。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す…。高市総理大臣は、日本の原油の輸入に占める割合が最も高いUAE＝アラブ首長国連邦のムハンマド大統領と電話で会談し、日本への原油の安定供給に向け、協力の継続を要請しました。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（5件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/in-brief-the-iran-wars-widening-impacts-in-the-middle-east-and-north-africa/" target="_blank" rel="noopener">イラン情勢・中東情勢</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/closing-the-air-and-missile-defense-gap-in-the-indo-pacific/" target="_blank" rel="noopener">海外報道（War on the Rocks）</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/irans-anti-access-and-area-denial-strategy-is-cruder-than-chinas-but-still-dangerous/" target="_blank" rel="noopener">イラン情勢・中国関連</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094431000" target="_blank" rel="noopener">政府 “原油 年を越えて供給確保にめど” 代替調達など詳細は</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094451000" target="_blank" rel="noopener">高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="politics_security-高市首相動静-2026年4月7日">
+          <summary>高市首相動静 2026年4月7日</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">（高市首相動静 2026年4月7日）</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">（高市首相動静 2026年4月7日）</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094571000" target="_blank" rel="noopener">高市首相動静 2026年4月7日</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
         <details class="topic-detail" id="politics_security-国会-今年度予算が成立--国家情報局-設置法案など論戦続く">
           <summary>国会 今年度予算が成立 「国家情報局」設置法案など論戦続く</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党… 関連: 参院与野党トップ NW９広内キャスターが直撃 審議の舞台裏は…。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党…。また、一般会計の総額が過去最大の122兆円あまりとなる今年度予算は、7日に成立しました。後半国会では政府が目指す「国家情報局」や「防災庁」の設置に必要な法案などをめぐって論戦が続きます。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党…　また、一般会計の総額が過去最大の122兆円あまりとなる今年度予算は、7日に成立しました。後半国会では政府が目指す「国家情報局」や「防災庁」の設置に必要な法案などをめぐって論戦が続きます。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">今年度予算が7日、成立しました。成立が年度のかわったあとにずれ込んだのは2015年以来です。今回の「異例」の予算審議。その舞台裏で何が起きていたのか、ニュースウオッチ9の広内キャスターが参議院の与野党…。一般会計の総額が過去最大の122兆円あまりとなる今年度予算は、7日に成立しました。後半国会では政府が目指す「国家情報局」や「防災庁」の設置に必要な法案などをめぐって論戦が続きます。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094421000" target="_blank" rel="noopener">国会 今年度予算が成立 「国家情報局」設置法案など論戦続く</a></li>
-                <li><span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094351000" target="_blank" rel="noopener">参院与野党トップ NW９広内キャスターが直撃 審議の舞台裏は…</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094421000" target="_blank" rel="noopener">国会 今年度予算が成立 「国家情報局」設置法案など論戦続く</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094351000" target="_blank" rel="noopener">参院与野党トップ NW９広内キャスターが直撃 審議の舞台裏は…</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="politics_security-政府--原油-年を越えて供給確保にめど--代替調達など詳細は">
-          <summary>政府 “原油 年を越えて供給確保にめど” 代替調達など詳細は</summary>
+        <details class="topic-detail" id="politics_security-中国関連">
+          <summary>中国関連 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す… 関連: 高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">中国関連に関してDJIの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">緊迫するイラン情勢を受け、政府はホルムズ海峡を通らないルートで原油の調達を進めたところ年を越えて供給を確保できるめどが立ったとしていて、今後、さらにその割合を高めることなどを通じて安定供給に万全を期す…　また、高市総理大臣は、日本の原油の輸入に占める割合が最も高いUAE＝アラブ首長国連邦のムハンマド大統領と電話で会談し、日本への原油の安定供給に向け、協力の継続を要請しました。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">中国関連に関してDJIの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094431000" target="_blank" rel="noopener">政府 “原油 年を越えて供給確保にめど” 代替調達など詳細は</a></li>
-                <li><span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094451000" target="_blank" rel="noopener">高市首相 UAE大統領と電話会談 原油安定供給へ協力継続を要請</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="politics_security-中道-立民-公明-来春の統一地方選-協力進めることで基本合意">
-          <summary>中道 立民 公明 来春の統一地方選 協力進めることで基本合意</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">来年春の統一地方選挙をめぐり、中道改革連合と立憲民主党、公明党の3党は都道府県ごとに協議の場を設け、選挙協力を進めることで基本合意しました。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">来年春の統一地方選挙をめぐり、中道改革連合と立憲民主党、公明党の3党は都道府県ごとに協議の場を設け、選挙協力を進めることで基本合意しました。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094391000" target="_blank" rel="noopener">中道 立民 公明 来春の統一地方選 協力進めることで基本合意</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="politics_security-Iran-s-Anti-Access-and-Area-Denial-Strategy-Is-Cruder-Than-China-s-But-Still-Dangerous">
-          <summary>Iran’s Anti-Access and Area Denial Strategy Is Cruder Than China’s But Still Dangerous <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">The war with Iran has had ripple effects across the Middle East and North Africa. The Gulf Arab states, Iraq, and Jordan have suffered direct attacks from Iran, and Iraq also faces violence from Iran…</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">The war with Iran has had ripple effects across the Middle East and North Africa. The Gulf Arab states, Iraq, and Jordan have suffered direct attacks from Iran, and Iraq also faces violence from Iran…　また、During last summer’s 12-day war between Iran, Israel, and the United States, the U.S. military supported Israeli air and missile defense operations by utilizing its regionally deployed air and …</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/in-brief-the-iran-wars-widening-impacts-in-the-middle-east-and-north-africa/" target="_blank" rel="noopener">The Iran War’s Widening Impacts in the Middle East and North Africa</a></li>
-                <li><span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/closing-the-air-and-missile-defense-gap-in-the-indo-pacific/" target="_blank" rel="noopener">Closing the Air and Missile Defense Gap in the Indo-Pacific</a></li>
-                <li><span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/irans-anti-access-and-area-denial-strategy-is-cruder-than-chinas-but-still-dangerous/" target="_blank" rel="noopener">Iran’s Anti-Access and Area Denial Strategy Is Cruder Than China’s But Still Da…</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="politics_security-The-Hidden-System-Turning-Chinese-Tech-Companies-into-Military-Suppliers">
-          <summary>The Hidden System Turning Chinese Tech Companies into Military Suppliers <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">In October 2022, Unitree Robotics joined Boston Dynamics, Agility Robotics, and three other firms in signing an open letter pledging not to weaponize their machines and to review customers’ intended …</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">In October 2022, Unitree Robotics joined Boston Dynamics, Agility Robotics, and three other firms in signing an open letter pledging not to weaponize their machines and to review customers’ intended …　また、Two retired U.S. admirals with deep experience at sea and in the air joined Ryan to discuss the military challenge of reopening the Strait of Hormuz. Adm. (ret.) Jamie Foggo and Vice Adm. (ret.…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/the-hidden-system-turning-chinese-tech-companies-into-military-suppliers-2/" target="_blank" rel="noopener">The Hidden System Turning Chinese Tech Companies into Military Suppliers</a></li>
-                <li><span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/reopening-the-strait-of-hormuz-saving-downed-pilots/" target="_blank" rel="noopener">Reopening the Strait of Hormuz &amp; Saving Downed Pilots</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">War on the Rocks</span> <span class="source-meta">（安全保障系メディア）</span> — <a href="https://warontherocks.com/2026/04/the-hidden-system-turning-chinese-tech-companies-into-military-suppliers-2/" target="_blank" rel="noopener">中国関連</a></li>
               </ul>
             </div>
           </div>
@@ -302,19 +278,20 @@
 
       <section id="regulation_policy" style="margin-bottom:40px;">
         <h2 class="axis-title">⚖️ 法規制・制度変更</h2>
-        <p class="axis-summary">5件の注目トピック ／ 15件のソース記事</p>
+        <p class="axis-summary">3件の注目トピック ／ 10件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁 10</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">法規制・制度変更ではSEC Press Releases・UK Gov Regulationなどからは5件の海外トピックが入っている。合計5件のトピックを15件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">法規制・制度変更では、金融市場・規制・コンプライアンスを巡る新たな展開が報じられている。GCFに関する新たな動きが伝えられているのほか、医療・製薬に関してHIVの新たな動きが伝えられているといった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、The Securities and Exchange Commission today announced enforcement results for the fiscal year that ended on September 30, 2025.Central to an effecti…。一方で、The Securities and Exchange Commission today approved an amendment to the National Market System Plan governing the Consolidated Audit Trail (“CAT”) …。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">金融市場・規制・コンプライアンスを巡る新たな展開が報じられている。暗号資産に関してSECの新たな動きが伝えられている。また、GCFに関する新たな動きが伝えられている。UKに関する新たな動きが伝えられている。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">規制動向は施行スケジュールと対象範囲の確認が最優先。国内外で並行して進む制度変更が、業界実務にどう影響するかを追跡する必要がある。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">規制動向は施行スケジュールと対象範囲の確認が最優先。「医療・製薬」については今後の具体的な運用基準の策定が焦点となる。国内外の制度変更が業界実務に与える影響を引き続き追跡する。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -322,137 +299,87 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#regulation_policy-SEC-Announces-Agenda-and-Panelists-for-Roundtable-on-Options-Market-Structure">SEC Announces Agenda and Panelists for Roundtable on Options Market Structure</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース4件）</span>
-          </li>
-
-          <li>
-            <a href="#regulation_policy-SEC-Approves-Amendment-to-NMS-Plan-to-Further-Reduce-the-Costs-of-the-Consolidated-Audit-Trail">SEC Approves Amendment to NMS Plan to Further Reduce the Costs of the Consolidated Audit Trail</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース2件）</span>
-          </li>
-
-          <li>
-            <a href="#regulation_policy-Statement-by-Executive-Vice-President-M-nzatu--Commissioners-Lahbib-and-Kos-ahead-of-International-Roma-Day">Statement by Executive Vice-President Mînzatu, Commissioners Lahbib and Kos ahead of International Roma Day</a> <span class="lang-badge">EN</span>
+            <a href="#regulation_policy-SEC関連-SEC-Press-Releases-">SEC関連（SEC Press Releases）</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース5件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span></span>
           </li>
 
           <li>
-            <a href="#regulation_policy-Twelfth-UK-Caribbean-Ministerial-Forum--communiqu--and-action-plan">Twelfth UK-Caribbean Ministerial Forum: communiqué and action plan</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
+            <a href="#regulation_policy-GCF関連-UK-Gov-Regulation-">GCF関連（UK Gov Regulation）</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース4件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span></span>
           </li>
 
           <li>
-            <a href="#regulation_policy-Introducing-the-Government-Commercial-Function--GCF--Strategy-2026-29">Introducing the Government Commercial Function (GCF) Strategy 2026-29</a> <span class="lang-badge">EN</span>
+            <a href="#regulation_policy-医療・製薬">医療・製薬</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="regulation_policy-SEC-Announces-Agenda-and-Panelists-for-Roundtable-on-Options-Market-Structure">
-          <summary>SEC Announces Agenda and Panelists for Roundtable on Options Market Structure <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="regulation_policy-SEC関連-SEC-Press-Releases-">
+          <summary>SEC関連（SEC Press Releases） <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">The Securities and Exchange Commission today announced enforcement results for the fiscal year that ended on September 30, 2025.Central to an effective enforcement program is determining which cases …</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">金融市場・規制・コンプライアンスを巡る新たな展開が報じられている。また、暗号資産に関してSECの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">The Securities and Exchange Commission today announced enforcement results for the fiscal year that ended on September 30, 2025.Central to an effective enforcement program is determining which cases …</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">金融市場・規制・コンプライアンスを巡る新たな展開が報じられている。暗号資産に関してSECの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（5件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-34" target="_blank" rel="noopener">SEC Announces Enforcement Results for Fiscal Year 2025</a></li>
-                <li><span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-33" target="_blank" rel="noopener">SEC Announces Agenda and Panelists for Roundtable on Options Market Structure</a></li>
-                <li><span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-32-sec-highlights-financial-independence-during-financial-literacy-month" target="_blank" rel="noopener">SEC Highlights Financial Independence During Financial Literacy Month</a></li>
-                <li><span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/code-of-practice-for-labour-market-enforcement-undertakings-and-orders" target="_blank" rel="noopener">Code of practice for labour market enforcement undertakings and orders</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-34" target="_blank" rel="noopener">SECの規制・コンプライアンス関連動向</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-33" target="_blank" rel="noopener">SECの金融市場関連動向</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-32-sec-highlights-financial-independence-during-financial-literacy-month" target="_blank" rel="noopener">SEC関連（SEC Press Releases）</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/code-of-practice-for-labour-market-enforcement-undertakings-and-orders" target="_blank" rel="noopener">金融市場・規制・コンプライアンス</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets" target="_blank" rel="noopener">SECの暗号資産関連動向</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="regulation_policy-SEC-Approves-Amendment-to-NMS-Plan-to-Further-Reduce-the-Costs-of-the-Consolidated-Audit-Trail">
-          <summary>SEC Approves Amendment to NMS Plan to Further Reduce the Costs of the Consolidated Audit Trail <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="regulation_policy-GCF関連-UK-Gov-Regulation-">
+          <summary>GCF関連（UK Gov Regulation） <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">The Securities and Exchange Commission today approved an amendment to the National Market System Plan governing the Consolidated Audit Trail (“CAT”) and provided exemptive relief from certain require…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">GCFに関する新たな動きが伝えられている。また、UKに関する新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">The Securities and Exchange Commission today approved an amendment to the National Market System Plan governing the Consolidated Audit Trail (“CAT”) and provided exemptive relief from certain require…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">GCFに関する新たな動きが伝えられている。UKに関する新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（4件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-31-sec-approves-amendment-nms-plan-further-reduce-costs-consolidated-audit-trail" target="_blank" rel="noopener">SEC Approves Amendment to NMS Plan to Further Reduce the Costs of the Consolida…</a></li>
-                <li><span class="source-name">SEC Press Releases</span> <span class="source-meta">（証券規制当局）</span> — <a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets" target="_blank" rel="noopener">SEC Clarifies the Application of Federal Securities Laws to Crypto Assets</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/speech_26_777" target="_blank" rel="noopener">海外報道（EU Press Corner）</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/protecting-lives-building-hope-a-plan-to-halve-knife-crime" target="_blank" rel="noopener">海外報道（UK Gov Regulation）</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/twelfth-uk-caribbean-ministerial-forum-communique-and-action-plan" target="_blank" rel="noopener">UK関連（UK Gov Regulation）</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/introducing-the-government-commercial-function-gcf-strategy-2026-29" target="_blank" rel="noopener">GCF関連（UK Gov Regulation）</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="regulation_policy-Statement-by-Executive-Vice-President-M-nzatu--Commissioners-Lahbib-and-Kos-ahead-of-International-Roma-Day">
-          <summary>Statement by Executive Vice-President Mînzatu, Commissioners Lahbib and Kos ahead of International Roma Day <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="regulation_policy-医療・製薬">
+          <summary>医療・製薬 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">European Commission Press release Lyon, 07 Apr 2026 The European Commission intends to pledge €700 million to the Global Fund to defeat HIV, tuberculosis and malaria. It will also invest €46.5 millio…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">医療・製薬に関してHIVの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">European Commission Press release Lyon, 07 Apr 2026 The European Commission intends to pledge €700 million to the Global Fund to defeat HIV, tuberculosis and malaria. It will also invest €46.5 millio…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">医療・製薬に関してHIVの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_776" target="_blank" rel="noopener">Commission announces new global health commitments at One Health Summit</a></li>
-                <li><span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_773" target="_blank" rel="noopener">Commission greenlights Finland's fourth payment request for €267.1 million unde…</a></li>
-                <li><span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/speech_26_777" target="_blank" rel="noopener">Speech by President von der Leyen on the occasion of the award of the Lower Sax…</a></li>
-                <li><span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/mex_26_775" target="_blank" rel="noopener">Daily News 07 / 04 / 2026</a></li>
-                <li><span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/statement_26_772" target="_blank" rel="noopener">Statement by Executive Vice-President Mînzatu, Commissioners Lahbib and Kos ahe…</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="regulation_policy-Twelfth-UK-Caribbean-Ministerial-Forum--communiqu--and-action-plan">
-          <summary>Twelfth UK-Caribbean Ministerial Forum: communiqué and action plan <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Twelfth UK-Caribbean Ministerial Forum: communiqué and action plan。Digital and Data Benefits framework。Protecting lives, building hope: a plan to halve knife crime。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/twelfth-uk-caribbean-ministerial-forum-communique-and-action-plan" target="_blank" rel="noopener">Twelfth UK-Caribbean Ministerial Forum: communiqué and action plan</a></li>
-                <li><span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/digital-and-data-benefits-framework" target="_blank" rel="noopener">Digital and Data Benefits framework</a></li>
-                <li><span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/protecting-lives-building-hope-a-plan-to-halve-knife-crime" target="_blank" rel="noopener">Protecting lives, building hope: a plan to halve knife crime</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="regulation_policy-Introducing-the-Government-Commercial-Function--GCF--Strategy-2026-29">
-          <summary>Introducing the Government Commercial Function (GCF) Strategy 2026-29 <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">[object Object]</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UK Gov Regulation</span> <span class="source-meta">（政府機関）</span> — <a href="https://www.gov.uk/government/publications/introducing-the-government-commercial-function-gcf-strategy-2026-29" target="_blank" rel="noopener">Introducing the Government Commercial Function (GCF) Strategy 2026-29</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_776" target="_blank" rel="noopener">医療・製薬</a></li>
               </ul>
             </div>
           </div>
@@ -461,19 +388,20 @@
 
       <section id="macro_economy" style="margin-bottom:40px;">
         <h2 class="axis-title">📈 マクロ経済・市場</h2>
-        <p class="axis-summary">7件の注目トピック ／ 15件のソース記事</p>
+        <p class="axis-summary">4件の注目トピック ／ 15件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙 15</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">マクロ経済・市場では国内では「米、イラン石油拠点の島を再攻撃 トランプ氏「滅亡か革命か」警告」や「北日本銀行、サステナ投融資を加速 「ユニークバンク」へ人材生かす」が焦点。また、Bloomberg Markets・FT Marketsなどからは5件の海外トピックが入っている。合計7件のトピックを15件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">マクロ経済・市場では、日経平均、大幅続伸で始まる 上げ幅1700円、トランプ大統領が2週間の停戦方針。イラン情勢・金融市場・人道・紛争を巡る新たな展開が報じられているのほか、信用・金利を巡る新たな展開が報じられているといった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">背景として、DoubleLine Capital Deputy CIO Jeffrey Sherman discusses the massive economic ramifications that could come from oil disruption, and how the oil market is 'doing the hiking for the Fed.' He talks with…。他のトピックについても、個別の深掘りセクションで詳細を確認できる。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">イラン情勢・金融市場・人道・紛争を巡る新たな展開が報じられている。イラン情勢・中東情勢を巡る新たな展開が報じられている。また、規制・コンプライアンスに関してUSの新たな動きが伝えられている。イラン情勢に関してIMFの新たな動きが伝えられている。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">金融政策と市場の反応は相互に影響し合う局面にある。次回の経済指標発表や中央銀行の声明がターニングポイントとなり得る。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">金融政策と市場の反応は相互に影響し合う局面にある。「日経平均、大幅続伸で始まる 上げ幅1700円、トランプ大統領が2週間の停戦方針」を起点に、次回の経済指標発表や中央銀行の声明がターニングポイントとなり得る。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -481,185 +409,117 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#macro_economy-Emerging-Assets-Edge-Higher-as-Markets-in--Waiting-Mode--on-Iran">Emerging Assets Edge Higher as Markets in ‘Waiting Mode’ on Iran</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース4件）</span>
+            <a href="#macro_economy-日経平均-大幅続伸で始まる-上げ幅1700円-トランプ大統領が2週間の停戦方針">日経平均、大幅続伸で始まる 上げ幅1700円、トランプ大統領が2週間の停戦方針</a>
+            <span class="topic-link-meta">（ソース5件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span></span>
           </li>
 
           <li>
-            <a href="#macro_economy-米-イラン石油拠点の島を再攻撃-トランプ氏-滅亡か革命か-警告">米、イラン石油拠点の島を再攻撃 トランプ氏「滅亡か革命か」警告</a>
-            <span class="topic-link-meta">（ソース3件）</span>
+            <a href="#macro_economy-イラン情勢・エネルギー・原油">イラン情勢・エネルギー・原油</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース6件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span></span>
           </li>
 
           <li>
-            <a href="#macro_economy-北日本銀行-サステナ投融資を加速--ユニークバンク-へ人材生かす">北日本銀行、サステナ投融資を加速 「ユニークバンク」へ人材生かす</a>
+            <a href="#macro_economy-中国関連">中国関連</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span></span>
           </li>
 
           <li>
-            <a href="#macro_economy-Fertilizer-Prices-Are-Still-Soaring">Fertilizer Prices Are Still Soaring</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#macro_economy-Oil-shock-sorts-cruise-lines-into-the-hedged-and-hedged-nots">Oil shock sorts cruise lines into the hedged and hedged nots</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#macro_economy-IMF-warns-of-emerging-markets--exposure-to--flighty--hedge-funds">IMF warns of emerging markets’ exposure to ‘flighty’ hedge funds</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#macro_economy-BP-chair-faces-re-election-battle-after-board-blocks-climate-resolution">BP chair faces re-election battle after board blocks climate resolution</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
+            <a href="#macro_economy-海外報道-FT-Markets-">海外報道（FT Markets）</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="macro_economy-Emerging-Assets-Edge-Higher-as-Markets-in--Waiting-Mode--on-Iran">
-          <summary>Emerging Assets Edge Higher as Markets in ‘Waiting Mode’ on Iran <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="macro_economy-日経平均-大幅続伸で始まる-上げ幅1700円-トランプ大統領が2週間の停戦方針">
+          <summary>日経平均、大幅続伸で始まる 上げ幅1700円、トランプ大統領が2週間の停戦方針</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">DoubleLine Capital Deputy CIO Jeffrey Sherman discusses the massive economic ramifications that could come from oil disruption, and how the oil market is 'doing the hiking for the Fed.' He talks with…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日経 経済による報道。詳細は原文を参照。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">DoubleLine Capital Deputy CIO Jeffrey Sherman discusses the massive economic ramifications that could come from oil disruption, and how the oil market is 'doing the hiking for the Fed.' He talks with…　また、Vietnam’s stocks will be included in FTSE Russell’s secondary emerging markets grouping from September, boosting their visibility among global investors and paving the way for capital inflows.</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日経 経済による報道。詳細は原文を参照。日経 経済による報道。詳細は原文を参照。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（5件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-07/emerging-markets-extend-rebound-as-traders-weigh-ceasefire-odds" target="_blank" rel="noopener">Emerging Assets Edge Higher as Markets in ‘Waiting Mode’ on Iran</a></li>
-                <li><span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-06/stock-market-today-dow-s-p-live-updates" target="_blank" rel="noopener">S&amp;P 500 Erases 1.2% Decline on Ceasefire Hopes: Markets Wrap</a></li>
-                <li><span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-07/ftse-confirms-vietnam-s-entry-to-emerging-cohort-in-september" target="_blank" rel="noopener">FTSE Confirms Vietnam’s Entry to Emerging Cohort in September</a></li>
-                <li><span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/videos/2026-04-07/doubleline-s-sherman-oil-doing-the-hiking-for-the-fed-video" target="_blank" rel="noopener">DoubleLine's Sherman: Oil Doing the Hiking for the Fed</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOFL080IL0Y6A400C2000000/" target="_blank" rel="noopener">債券寄り付き 長期金利、2.360%に低下 米イランが2週間の停戦合意で</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOUB080I50Y6A400C2000000/" target="_blank" rel="noopener">円上昇、一時158円台後半 米イラン2週間停戦報道で</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOKC080PU0Y6A400C2000000/" target="_blank" rel="noopener">守田英正、フル出場で0-1 欧州CL準々決勝</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOFL080PQ0Y6A400C2000000/" target="_blank" rel="noopener">日経平均、大幅続伸で始まる 上げ幅1700円、トランプ大統領が2週間の停戦方針</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOUB080I70Y6A400C2000000/" target="_blank" rel="noopener">日経平均株価、一時2000円高 米イラン攻撃停止で買い</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="macro_economy-米-イラン石油拠点の島を再攻撃-トランプ氏-滅亡か革命か-警告">
-          <summary>米、イラン石油拠点の島を再攻撃 トランプ氏「滅亡か革命か」警告</summary>
+        <details class="topic-detail" id="macro_economy-イラン情勢・エネルギー・原油">
+          <summary>イラン情勢・エネルギー・原油 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">米、イラン石油拠点の島を再攻撃 トランプ氏「滅亡か革命か」警告。五嶋みどり、ルツェルンの室内管と協演 人間の技を通り越した奇跡。5分でわかる決算書 損益計算書、5つの利益が企業経営語る。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">イラン情勢・金融市場・人道・紛争を巡る新たな展開が報じられている。また、イラン情勢・中東情勢を巡る新たな展開が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">イラン情勢・金融市場・人道・紛争を巡る新たな展開が報じられている。イラン情勢・中東情勢を巡る新たな展開が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（6件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOGN07BBJ0X00C26A4000000/" target="_blank" rel="noopener">米、イラン石油拠点の島を再攻撃 トランプ氏「滅亡か革命か」警告</a></li>
-                <li><span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOUD02CXA0S6A400C2000000/" target="_blank" rel="noopener">五嶋みどり、ルツェルンの室内管と協演 人間の技を通り越した奇跡</a></li>
-                <li><span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOUB03CVK0T00C26A4000000/" target="_blank" rel="noopener">5分でわかる決算書 損益計算書、5つの利益が企業経営語る</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/videos/2026-04-08/iran-coordinated-safe-passage-a-concession-yacoubian-video" target="_blank" rel="noopener">イラン情勢</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-07/-freak-out-indicator-soars-to-record-as-war-spurs-trader-angst" target="_blank" rel="noopener">人道・紛争</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-07/latest-oil-market-news-and-analysis-for-april-8" target="_blank" rel="noopener">USのイラン情勢関連動向</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-07/stock-market-today-dow-s-p-live-updates" target="_blank" rel="noopener">イラン情勢・エネルギー・原油</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/articles/2026-04-08/treasuries-rise-as-ceasefire-spurs-oil-drop-fed-rate-cut-hopes" target="_blank" rel="noopener">エネルギー・原油・金融政策</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/ddb0ca75-1dc3-42da-b907-e0aed5b571c3" target="_blank" rel="noopener">エネルギー・原油</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="macro_economy-北日本銀行-サステナ投融資を加速--ユニークバンク-へ人材生かす">
-          <summary>北日本銀行、サステナ投融資を加速 「ユニークバンク」へ人材生かす</summary>
+        <details class="topic-detail" id="macro_economy-中国関連">
+          <summary>中国関連 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">北日本銀行、サステナ投融資を加速 「ユニークバンク」へ人材生かす。新たな環境、周りを観察し自分で考えて行動を（小野伸二）。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">信用・金利を巡る新たな展開が報じられている。また、中国関連を巡る新たな展開が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">信用・金利を巡る新たな展開が報じられている。中国関連を巡る新たな展開が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQOCC27BM20X20C26A3000000/" target="_blank" rel="noopener">北日本銀行、サステナ投融資を加速 「ユニークバンク」へ人材生かす</a></li>
-                <li><span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.nikkei.com/article/DGXZQODH26B470W6A320C2000000/" target="_blank" rel="noopener">新たな環境、周りを観察し自分で考えて行動を（小野伸二）</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/0f912a19-761b-4991-a58f-104c3935266d" target="_blank" rel="noopener">中国関連</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/8f321444-2927-40df-89cd-12d437077cf9" target="_blank" rel="noopener">信用・金利</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="macro_economy-Fertilizer-Prices-Are-Still-Soaring">
-          <summary>Fertilizer Prices Are Still Soaring <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="macro_economy-海外報道-FT-Markets-">
+          <summary>海外報道（FT Markets） <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Who makes money from rising prices?</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">規制・コンプライアンスに関してUSの新たな動きが伝えられている。また、イラン情勢に関してIMFの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Who makes money from rising prices?</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">規制・コンプライアンスに関してUSの新たな動きが伝えられている。イラン情勢に関してIMFの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="https://www.bloomberg.com/news/newsletters/2026-04-07/fertilizer-prices-are-still-soaring" target="_blank" rel="noopener">Fertilizer Prices Are Still Soaring</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="macro_economy-Oil-shock-sorts-cruise-lines-into-the-hedged-and-hedged-nots">
-          <summary>Oil shock sorts cruise lines into the hedged and hedged nots <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Carnival is paying the price for not locking in its fuel exposure when compared to competitors</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Carnival is paying the price for not locking in its fuel exposure when compared to competitors</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/ddb0ca75-1dc3-42da-b907-e0aed5b571c3" target="_blank" rel="noopener">Oil shock sorts cruise lines into the hedged and hedged nots</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="macro_economy-IMF-warns-of-emerging-markets--exposure-to--flighty--hedge-funds">
-          <summary>IMF warns of emerging markets’ exposure to ‘flighty’ hedge funds <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Non-bank lenders rapidly reduce holdings of EM debt during shocks such as the Iran war, analysis suggests 関連: IMF warns of emerging markets’ exposure to ‘flighty’ hedge funds、Hedge funds make record bets against European stocks。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Non-bank lenders rapidly reduce holdings of EM debt during shocks such as the Iran war, analysis suggests　また、Short positions rise sharply as traders eye economic fallout from Iran war</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/d5ce429b-15af-4867-8e3f-b20f482ec1fd" target="_blank" rel="noopener">The big state gamble on prediction markets</a></li>
-                <li><span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/297349ac-34b1-478e-9b15-304175b70e4f" target="_blank" rel="noopener">IMF warns of emerging markets’ exposure to ‘flighty’ hedge funds</a></li>
-                <li><span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/77ceeaeb-8e2c-4aa2-90d8-430fef4e7f04" target="_blank" rel="noopener">Hedge funds make record bets against European stocks</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="macro_economy-BP-chair-faces-re-election-battle-after-board-blocks-climate-resolution">
-          <summary>BP chair faces re-election battle after board blocks climate resolution <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Glass Lewis recommends voting against Albert Manifold at annual meeting, while L&amp;G also plans to oppose him</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Glass Lewis recommends voting against Albert Manifold at annual meeting, while L&amp;G also plans to oppose him</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/4605ebd8-6e3a-40e7-875e-8bf10f2aa948" target="_blank" rel="noopener">BP chair faces re-election battle after board blocks climate resolution</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/d5ce429b-15af-4867-8e3f-b20f482ec1fd" target="_blank" rel="noopener">海外報道（FT Markets）</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">FT Markets</span> <span class="source-meta">（経済紙）</span> — <a href="https://www.ft.com/content/297349ac-34b1-478e-9b15-304175b70e4f" target="_blank" rel="noopener">IMF関連（FT Markets）</a></li>
               </ul>
             </div>
           </div>
@@ -668,19 +528,20 @@
 
       <section id="industry_corporate" style="margin-bottom:40px;">
         <h2 class="axis-title">🏢 産業・企業動向</h2>
-        <p class="axis-summary">8件の注目トピック ／ 15件のソース記事</p>
+        <p class="axis-summary">6件の注目トピック ／ 13件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 8</span> <span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース 5</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">産業・企業動向では国内では「「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)」「事業共創カンパニーのRelic、国内外で数々のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化。4月1日付で村越陽平氏がCDOに就任」や「巨大不動産をのみ込む米KKR、キーパーソンを直撃「事業計画にも踏み込む」 (「不動産メタボ企業」が危ない)」が焦点。また、Crunchbase Newsなどからは1件の海外トピックが入っている。合計8件のトピックを15件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">産業・企業動向では、黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。[特定非営利活動法人共に暮らす] [画像1: https://prcdn.freetls.fastly.net/release_image/181299/1/181299-1-b21f50addc0e013ea90e64ab046ff517-3712x2337.png?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;am...のほか、「不動産を持つ企業はウォッチしている」といった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する…。一方で、U.S. and Canadian companies secured a staggering $252.6 billion in seed- through growth-stage funding rounds in the first quarter of 2026 per Crunchb…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">[特定非営利活動法人共に暮らす] [画像1: https://prcdn.freetls.fastly.net/release_image/181299/1/181299-1-b21f50addc0e013ea90e64ab046ff517-3712x2337.png?width=536&amp;quali。[株式会社芋匠] [画像1: https://prcdn.freetls.fastly.net/…。また、黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する…。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">企業間の合従連衡や投資判断は、中長期的な業界地図を塗り替える可能性がある。関連セクターへの波及効果を含めて追跡したい。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">「「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)」に見られる企業の動きは、中長期的な業界地図の変化を示唆する。関連セクターへの波及効果を含めて追跡したい。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -688,43 +549,39 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#industry_corporate--CLO-が会社を動かす-野村・伊藤忠のPEファンド-薄氷の米・イラン-2026年4月8日版---日経ビジネスAUDIOモーニング-">「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)</a>
-            <span class="topic-link-meta">（ソース3件）</span>
+            <a href="#industry_corporate--CLO-が会社を動かす-野村・伊藤忠のPEファンド-薄氷の米・イラン-2026年4月8日版---日経ビジネスAUDIOモーニング-">「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDI…</a>
+            <span class="topic-link-meta">（ソース4件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
 
           <li>
-            <a href="#industry_corporate-5-Interesting-Startup-Deals-You-May-Have-Missed--A-Credit-Card-Backed-By-Mineral-Rights--Flying-Ferries--And-A-Foundation-AI-Model-For-Plants">5 Interesting Startup Deals You May Have Missed: A Credit Card Backed By Mineral Rights, Flying Ferries, And A Foundation AI Model For Plants</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース5件）</span>
-          </li>
-
-          <li>
-            <a href="#industry_corporate-事業共創カンパニーのRelic-国内外で数-のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化-4月1日付で村越陽平氏がCDOに就任">事業共創カンパニーのRelic、国内外で数々のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化。4月1日付で村越陽平氏がCDOに就任</a>
+            <a href="#industry_corporate-スタートアップ・VC">スタートアップ・VC</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
+          </li>
+
+          <li>
+            <a href="#industry_corporate--amp--OIMO-TOKYO-湘南フルーツクラフトの初コラボ-季節の蜜芋プリンアラモード-湘南ゴールド-登場">&amp; OIMO TOKYO×湘南フルーツクラフトの初コラボ。季節の蜜芋プリンアラモード「湘南ゴールド」登場</a>
+            <span class="topic-link-meta">（ソース3件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span></span>
           </li>
 
           <li>
             <a href="#industry_corporate-巨大不動産をのみ込む米KKR-キーパーソンを直撃-事業計画にも踏み込む----不動産メタボ企業-が危ない-">巨大不動産をのみ込む米KKR、キーパーソンを直撃「事業計画にも踏み込む」 (「不動産メタボ企業」が危ない)</a>
             <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
 
           <li>
-            <a href="#industry_corporate-後を絶たぬパワハラ-権力が生む-あまりに幼稚な万能感の末路--河合薫-上司と部下の力学-">後を絶たぬパワハラ 権力が生む、あまりに幼稚な万能感の末路 (河合薫 上司と部下の力学)</a>
+            <a href="#industry_corporate-AIのAI・機械学習関連動向">AIのAI・機械学習関連動向</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
 
           <li>
-            <a href="#industry_corporate-北海道・木育-もくいく-フェスタ2026-第76回北海道植樹祭の参加者募集--">北海道・木育（もくいく）フェスタ2026 第76回北海道植樹祭の参加者募集！！</a>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#industry_corporate--累計償還額255億円超-TECROWD87号ファンド-実績年利回り11-82-で配当・償還完了">【累計償還額255億円超】TECROWD87号ファンド、実績年利回り11.82%で配当・償還完了</a>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#industry_corporate--個人・組織・チーム-3つの視点で-quot-プロジェクトが止まる理由-quot-を整理-ホワイトペーパー3点セットを無料公開">「個人・組織・チーム」3つの視点で&quot;プロジェクトが止まる理由&quot;を整理。ホワイトペーパー3点セットを無料公開</a>
-            <span class="topic-link-meta">（ソース1件）</span>
+            <a href="#industry_corporate-九州の動物園で初採用-平川動物公園で免許不要の近距離モビリティ-ウィル-移動サービス導入">九州の動物園で初採用！平川動物公園で免許不要の近距離モビリティ「ウィル」移動サービス導入</a>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span></span>
           </li>
           </ul>
         </div>
@@ -733,64 +590,63 @@
           <summary>「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する。 関連: 薄氷米イラン フーシ派狙うパイプライン、報復応酬なら原油200ドルも (トランプ2.0の世界)、あきらめ廃業に待った 野村と伊藤忠が異色のPEファンド、長い目で承継を支援 (資本市場サバイバル)。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する。また、トランプ米大統領が設定したイラン攻撃の「猶予」期限が迫る。日本時間8日午前9時までに交渉がまとまらなければ、イランを壊滅させると強調する。しかしイランが更なる過激な報復に出れば、原油価格1バレル200ドルを超える事態が懸念される。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する。　また、トランプ米大統領が設定したイラン攻撃の「猶予」期限が迫る。日本時間8日午前9時までに交渉がまとまらなければ、イランを壊滅させると強調する。しかしイランが更なる過激な報復に出れば、原油価格1バレル200ドルを超える事態が懸念される。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">黒字でありながら後継者が見つからず、廃業を選択する「あきらめ廃業」が深刻化している。こうした問題の解決策として、野村ホールディングスや伊藤忠商事などは従業員による事業承継に特化したPEファンドを設立した。後継者不足の中小企業の選択肢として広がってきたM＆A（合併・買収）に代わる新たな方法を提示する。トランプ米大統領が設定したイラン攻撃の「猶予」期限が迫る。日本時間8日午前9時までに交渉がまとまらなければ、イランを壊滅させると強調する。しかしイランが更なる過激な報復に出れば、原油価格1バレル200ドルを超える事態が懸念される。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（4件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/audio/22/00001/040700850/" target="_blank" rel="noopener">「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)</a></li>
-                <li><span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00685/040700067/" target="_blank" rel="noopener">薄氷米イラン フーシ派狙うパイプライン、報復応酬なら原油200ドルも (トランプ2.0の世界)</a></li>
-                <li><span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00798/040700017/" target="_blank" rel="noopener">あきらめ廃業に待った 野村と伊藤忠が異色のPEファンド、長い目で承継を支援 (資本市場サバイバル)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/audio/22/00001/040700850/" target="_blank" rel="noopener">「CLO」が会社を動かす／野村・伊藤忠のPEファンド／薄氷の米・イラン（2026年4月8日版） (日経ビジネスAUDIOモーニング)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00685/040700067/" target="_blank" rel="noopener">薄氷米イラン フーシ派狙うパイプライン、報復応酬なら原油200ドルも (トランプ2.0の世界)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/seminar/19/00030/031900746/" target="_blank" rel="noopener">イランへの攻撃「2週間停止で合意」、トランプ氏が表明 (Views)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00798/040700017/" target="_blank" rel="noopener">あきらめ廃業に待った 野村と伊藤忠が異色のPEファンド、長い目で承継を支援 (資本市場サバイバル)</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="industry_corporate-5-Interesting-Startup-Deals-You-May-Have-Missed--A-Credit-Card-Backed-By-Mineral-Rights--Flying-Ferries--And-A-Foundation-AI-Model-For-Plants">
-          <summary>5 Interesting Startup Deals You May Have Missed: A Credit Card Backed By Mineral Rights, Flying Ferries, And A Foundation AI Model For Plants <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="industry_corporate-スタートアップ・VC">
+          <summary>スタートアップ・VC <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">U.S. and Canadian companies secured a staggering $252.6 billion in seed- through growth-stage funding rounds in the first quarter of 2026 per Crunchbase data. That’s more than 3x the total raised in …</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">スタートアップ・VCを巡る新たな展開が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">U.S. and Canadian companies secured a staggering $252.6 billion in seed- through growth-stage funding rounds in the first quarter of 2026 per Crunchbase data. That’s more than 3x the total raised in …　また、A total of 47 seed- and early stage companies joined the unicorn ranks in the first quarter of this year, per Crunchbase data. Barring a major slowdown, that puts 2026 on track to deliver the l…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">スタートアップ・VCを巡る新たな展開が報じられている。スタートアップ・VCを巡る新たな展開が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/funding-surges-all-stages-ai-north-america-q1-2026/" target="_blank" rel="noopener">North America Q1 Funding Surges Across Stages To Record Level</a></li>
-                <li><span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/data-early-stage-unicorns-seed-ai-defense-tech/" target="_blank" rel="noopener">This Is A Momentous Year For Early-Stage Unicorns</a></li>
-                <li><span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/interesting-startup-deals-mineral-rights-flying-ferry-ai-clean-tech/" target="_blank" rel="noopener">5 Interesting Startup Deals You May Have Missed: A Credit Card Backed By Minera…</a></li>
-                <li><span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-ai-defense-wearables-energy-saronic/" target="_blank" rel="noopener">The Week’s 10 Biggest Funding Rounds: Largest Financings Went To Defense, Weara…</a></li>
-                <li><span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/ai/strategic-risks-automating-everything-sagie/" target="_blank" rel="noopener">Just Because We Can: The Strategic Risks Of Automating Everything</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/funding-surges-all-stages-ai-north-america-q1-2026/" target="_blank" rel="noopener">スタートアップ・VC</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/data-early-stage-unicorns-seed-ai-defense-tech/" target="_blank" rel="noopener">海外報道（Crunchbase News）</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="industry_corporate-事業共創カンパニーのRelic-国内外で数-のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化-4月1日付で村越陽平氏がCDOに就任">
-          <summary>事業共創カンパニーのRelic、国内外で数々のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化。4月1日付で村越陽平氏がCDOに就任</summary>
+        <details class="topic-detail" id="industry_corporate--amp--OIMO-TOKYO-湘南フルーツクラフトの初コラボ-季節の蜜芋プリンアラモード-湘南ゴールド-登場">
+          <summary>&amp; OIMO TOKYO×湘南フルーツクラフトの初コラボ。季節の蜜芋プリンアラモード「湘南ゴールド」登場</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">[株式会社INFASパブリケーションズ] [画像1: https://prcdn.freetls.fastly.net/release_image/80364/185/80364-185-16dd7c10794b941f858d1d351197c993-1200x630.jpg?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">[特定非営利活動法人共に暮らす] [画像1: https://prcdn.freetls.fastly.net/release_image/181299/1/181299-1-b21f50addc0e013ea90e64ab046ff517-3712x2337.png?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;am...。また、[株式会社芋匠] [画像1: https://prcdn.freetls.fastly.net/release_image/70426/56/70426-56-23918992ae095af18a833153d669edea-1045x1306.jpg?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;am...。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">[株式会社INFASパブリケーションズ] [画像1: https://prcdn.freetls.fastly.net/release_image/80364/185/80364-185-16dd7c10794b941f858d1d351197c993-1200x630.jpg?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;…　また、[Relic] [画像1: https://prcdn.freetls.fastly.net/release_image/16318/471/16318-471-86dbc7032676e02ab973d05c8d55105f-2400x1260.png?width=536&amp;quality=85%2C75&amp;format=jpeg&amp;auto=webp&amp;fit=bounds&amp;...</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">[特定非営利活動法人共に暮らす] [画像1: https://prcdn.freetls.fastly.net/release_image/181299/1/181299-1-b21f50addc0e013ea90e64ab046ff517-3712x2337.png?width=536&amp;quali。[株式会社芋匠] [画像1: https://prcdn.freetls.fastly.net/release_image/70426/56/70426-56-23918992ae095af18a833153d669edea-1045x13。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（3件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000471.000016318.html" target="_blank" rel="noopener">事業共創カンパニーのRelic、国内外で数々のデザイン賞を受賞するデザインコンサルティングファームSEESAWを完全子会社化。4月1日付で村越陽平氏がCDOに…</a></li>
-                <li><span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000185.000080364.html" target="_blank" rel="noopener">【WWDJAPAN最新号】2026年入社のニューカマーたちに捧げる「ファッション＆ビューティ業界ガイド」</a></li>
+                <li><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span> <span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000056.000070426.html" target="_blank" rel="noopener">&amp; OIMO TOKYO×湘南フルーツクラフトの初コラボ。季節の蜜芋プリンアラモード「湘南ゴールド」登場</a></li>
+                <li><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span> <span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000342.000010697.html" target="_blank" rel="noopener">1 “MASU”とのコラボレーションを2026年4月12日（日）より発売、2 「THE POWERPUFF GIRLS x PUMA」コレ…</a></li>
+                <li><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span> <span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000001.000181299.html" target="_blank" rel="noopener">外国にルーツをもつ子どもたちが“自分の物語”を日本語で絵本に。「ことばのヤングケアラー」支援へ、100冊寄贈を目指すクラウドファンディング…</a></li>
               </ul>
             </div>
           </div>
@@ -800,97 +656,58 @@
           <summary>巨大不動産をのみ込む米KKR、キーパーソンを直撃「事業計画にも踏み込む」 (「不動産メタボ企業」が危ない)</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
+              <div class="summary-label label-key">何が起きたか</div>
               <p class="summary-text">「不動産を持つ企業はウォッチしている」。こう語るのは米KKRでアジア不動産事業を担当するデイビッド・チョン氏。日数々の巨額案件を主導し、「爆買い」を続けるKKRのキーパーソンを直撃した。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
+              <div class="summary-label label-bg">なぜ重要か</div>
               <p class="summary-text">「不動産を持つ企業はウォッチしている」。こう語るのは米KKRでアジア不動産事業を担当するデイビッド・チョン氏。日数々の巨額案件を主導し、「爆買い」を続けるKKRのキーパーソンを直撃した。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00862/040600009/" target="_blank" rel="noopener">巨大不動産をのみ込む米KKR、キーパーソンを直撃「事業計画にも踏み込む」 (「不動産メタボ企業」が危ない)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/gen/19/00862/040600009/" target="_blank" rel="noopener">巨大不動産をのみ込む米KKR、キーパーソンを直撃「事業計画にも踏み込む」 (「不動産メタボ企業」が危ない)</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="industry_corporate-後を絶たぬパワハラ-権力が生む-あまりに幼稚な万能感の末路--河合薫-上司と部下の力学-">
-          <summary>後を絶たぬパワハラ 権力が生む、あまりに幼稚な万能感の末路 (河合薫 上司と部下の力学)</summary>
+        <details class="topic-detail" id="industry_corporate-AIのAI・機械学習関連動向">
+          <summary>AIのAI・機械学習関連動向 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">権力を持つ者が教育や指導という名目で自らの感情を優先させる行為が、日本におけるパワハラであり、それは組織人としてのプロフェッショナリズムの明らかな欠損である。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">AI・機械学習に関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">権力を持つ者が教育や指導という名目で自らの感情を優先させる行為が、日本におけるパワハラであり、それは組織人としてのプロフェッショナリズムの明らかな欠損である。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">AI・機械学習に関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="https://business.nikkei.com/atcl/seminar/19/00118/00402/" target="_blank" rel="noopener">後を絶たぬパワハラ 権力が生む、あまりに幼稚な万能感の末路 (河合薫 上司と部下の力学)</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="https://news.crunchbase.com/venture/interesting-startup-deals-mineral-rights-flying-ferry-ai-clean-tech/" target="_blank" rel="noopener">AIのAI・機械学習関連動向</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="industry_corporate-北海道・木育-もくいく-フェスタ2026-第76回北海道植樹祭の参加者募集--">
-          <summary>北海道・木育（もくいく）フェスタ2026 第76回北海道植樹祭の参加者募集！！</summary>
+        <details class="topic-detail" id="industry_corporate-九州の動物園で初採用-平川動物公園で免許不要の近距離モビリティ-ウィル-移動サービス導入">
+          <summary>九州の動物園で初採用！平川動物公園で免許不要の近距離モビリティ「ウィル」移動サービス導入</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">[北海道] 道では、北海道植樹の日・育樹の日の普及啓発を通じて、将来を担う若い世代をはじめとする道民の森林づくりに対する理解を深めるとともに、「道民ひとり１本植樹・育樹運動」の目標とする５００万本の植樹・育...</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">[SMILEGATE, INC., MEGAPORT BRANCH] スマイルゲート・メガポート（以下、スマイルゲート）は、自社でサービス中であり、SUPER CREATIVEが開発するローグライクRPG『カオスゼロナイトメア』（以下、『カオゼロ』）のサービス開始0.5周年を記念し、...。また、[WHILL株式会社] 鹿児島市平川動物公園（所在：鹿児島県鹿児島市、園長：福守朗、以下「平川動物公園」）は、WHILL株式会社（以下「WHILL社」）が開発する免許不要の近距離モビリティWHILL（ウィル）の移動サービスを開始したこ...。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">[北海道] 道では、北海道植樹の日・育樹の日の普及啓発を通じて、将来を担う若い世代をはじめとする道民の森林づくりに対する理解を深めるとともに、「道民ひとり１本植樹・育樹運動」の目標とする５００万本の植樹・育...</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">[SMILEGATE, INC., MEGAPORT BRANCH] スマイルゲート・メガポート（以下、スマイルゲート）は、自社でサービス中であり、SUPER CREATIVEが開発するローグライクRPG『カオスゼロナイトメア』（以下、『カオゼロ』）のサービス開始0.5周年を記念し、...。[WHILL株式会社] 鹿児島市平川動物公園（所在：鹿児島県鹿児島市、園長：福守朗、以下「平川動物公園」）は、WHILL株式会社（以下「WHILL社」）が開発する免許不要の近距離モビリティWHILL（ウィル）の移動サービスを開始したこ...。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000001112.000088209.html" target="_blank" rel="noopener">北海道・木育（もくいく）フェスタ2026 第76回北海道植樹祭の参加者募集！！</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="industry_corporate--累計償還額255億円超-TECROWD87号ファンド-実績年利回り11-82-で配当・償還完了">
-          <summary>【累計償還額255億円超】TECROWD87号ファンド、実績年利回り11.82%で配当・償還完了</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">[TECRA株式会社] 1口10万円から投資ができる不動産クラウドファンディング「TECROWD」の87号ファンド（出資総額約5.6億円）が2026年4月7日(火)に元本償還および配当金支払が終了したことをお知らせいたします。 [画像1: https://p...</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">[TECRA株式会社] 1口10万円から投資ができる不動産クラウドファンディング「TECROWD」の87号ファンド（出資総額約5.6億円）が2026年4月7日(火)に元本償還および配当金支払が終了したことをお知らせいたします。 [画像1: https://p...</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000270.000061009.html" target="_blank" rel="noopener">【累計償還額255億円超】TECROWD87号ファンド、実績年利回り11.82%で配当・償還完了</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="industry_corporate--個人・組織・チーム-3つの視点で-quot-プロジェクトが止まる理由-quot-を整理-ホワイトペーパー3点セットを無料公開">
-          <summary>「個人・組織・チーム」3つの視点で&quot;プロジェクトが止まる理由&quot;を整理。ホワイトペーパー3点セットを無料公開</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">[株式会社enco] 社内プロジェクトの停滞や社員の当事者意識の不足が多くの企業で共通課題となる中、「自分ごと化」を軸にした人材育成・組織開発を展開する株式会社enco（本社：愛知県名古屋市西区那古野二丁目14番1号、代表取締...</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">[株式会社enco] 社内プロジェクトの停滞や社員の当事者意識の不足が多くの企業で共通課題となる中、「自分ごと化」を軸にした人材育成・組織開発を展開する株式会社enco（本社：愛知県名古屋市西区那古野二丁目14番1号、代表取締...</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000011.000161959.html" target="_blank" rel="noopener">「個人・組織・チーム」3つの視点で&quot;プロジェクトが止まる理由&quot;を整理。ホワイトペーパー3点セットを無料公開</a></li>
+                <li><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span> <span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000292.000011151.html" target="_blank" rel="noopener">九州の動物園で初採用！平川動物公園で免許不要の近距離モビリティ「ウィル」移動サービス導入</a></li>
+                <li><span class="cat-badge" style="background:#f1f5f9;color:#475569;border:1px solid #94a3b8;">プレスリリース</span> <span class="source-name">PR TIMES</span> <span class="source-meta">（プレスリリース配信）</span> — <a href="https://prtimes.jp/main/html/rd/p/000000160.000137745.html" target="_blank" rel="noopener">『カオスゼロナイトメア』アニメイトカフェグラッテとのコラボが東京・大阪・京都・仙台にて4月より開催！</a></li>
               </ul>
             </div>
           </div>
@@ -899,19 +716,20 @@
 
       <section id="technology_research" style="margin-bottom:40px;">
         <h2 class="axis-title">🔬 テクノロジー・研究</h2>
-        <p class="axis-summary">8件の注目トピック ／ 30件のソース記事</p>
+        <p class="axis-summary">6件の注目トピック ／ 14件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 10</span> <span class="cat-badge" style="background:#f0fdf4;color:#166534;border:1px solid #22c55e;">コミュニティ 2</span> <span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 2</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">テクノロジー・研究ではarXiv CS.AI・arXiv CS.CLなどからは8件の海外トピックが入っている。合計8件のトピックを30件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">テクノロジー・研究では、AI・機械学習を巡り、LLMが規制・制限を導入した（IC3）。AI・機械学習に関してTBPNの新たな動きが伝えられているのほか、AI・機械学習に関してVIGILの新たな動きが伝えられているといった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、arXiv:2604.03234v1 Announce Type: new Abstract: The Minimum Set Cover Problem (MSCP) is a classical NP-hard combinatorial optimization problem with n…。一方で、arXiv:2604.03286v1 Announce Type: new Abstract: The control of complex laboratory instrumentation often requires significant programming expertise, c…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">AI・機械学習に関してVIGILの新たな動きが伝えられている。サイバーセキュリティに関してAIの新たな動きが伝えられている。また、AI・機械学習を巡り、LLMが規制・制限を導入した（IC3）。AI・機械学習に関してAIの新たな動きが伝えられている。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">技術革新のスピードが増しており、発表から実装までの時間軸が短縮している。競合動向とオープンソースコミュニティの反応にも注目。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">技術革新のスピードが増しており、発表から実装までの時間軸が短縮している。「LLMのAI・機械学習関連動向」の実用化・普及の行方が次の焦点。海外発の技術動向が先行しており、国内への波及タイミングに注意。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -919,224 +737,166 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#technology_research-Structural-Segmentation-of-the-Minimum-Set-Cover-Problem--Exploiting-Universe-Decomposability-for-Metaheuristic-Optimization">Structural Segmentation of the Minimum Set Cover Problem: Exploiting Universe Decomposability for Metaheuristic Optimization</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース6件）</span>
+            <a href="#technology_research-LLMのAI・機械学習関連動向">LLMのAI・機械学習関連動向</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
           </li>
 
           <li>
-            <a href="#technology_research-SoLA--Leveraging-Soft-Activation-Sparsity-and-Low-Rank-Decomposition-for-Large-Language-Model-Compression">SoLA: Leveraging Soft Activation Sparsity and Low-Rank Decomposition for Large Language Model Compression</a> <span class="lang-badge">EN</span>
+            <a href="#technology_research-TBPN関連-OpenAI-Blog-">TBPN関連（OpenAI Blog）</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース5件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
           </li>
 
           <li>
-            <a href="#technology_research-System-Card--Claude-Mythos-Preview--pdf-">System Card: Claude Mythos Preview [pdf]</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース5件）</span>
-          </li>
-
-          <li>
-            <a href="#technology_research-Announcing-the-OpenAI-Safety-Fellowship">Announcing the OpenAI Safety Fellowship</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#technology_research-AI-and-the-human-mind--only-one-is-a-black-box">AI and the human mind: only one is a black box</a> <span class="lang-badge">EN</span>
+            <a href="#technology_research-GLM関連-Hacker-News-Best-">GLM関連（Hacker News Best）</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース4件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="cat-badge" style="background:#f0fdf4;color:#166534;border:1px solid #22c55e;">コミュニティ</span> <span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
 
           <li>
-            <a href="#technology_research-Representation-without-power-in-science-isn-t-equity">Representation without power in science isn’t equity</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#technology_research-The-one-piece-of-data-that-could-actually-shed-light-on-your-job-and-AI">The one piece of data that could actually shed light on your job and AI</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#technology_research-Codex-now-offers-more-flexible-pricing-for-teams">Codex now offers more flexible pricing for teams</a> <span class="lang-badge">EN</span>
+            <a href="#technology_research-金融市場">金融市場</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
+          </li>
+
+          <li>
+            <a href="#technology_research-医療・製薬">医療・製薬</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
+          </li>
+
+          <li>
+            <a href="#technology_research-中東情勢">中東情勢</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="technology_research-Structural-Segmentation-of-the-Minimum-Set-Cover-Problem--Exploiting-Universe-Decomposability-for-Metaheuristic-Optimization">
-          <summary>Structural Segmentation of the Minimum Set Cover Problem: Exploiting Universe Decomposability for Metaheuristic Optimization <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-LLMのAI・機械学習関連動向">
+          <summary>LLMのAI・機械学習関連動向 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">arXiv:2604.03234v1 Announce Type: new Abstract: The Minimum Set Cover Problem (MSCP) is a classical NP-hard combinatorial optimization problem with numerous applications in science and engineering. A…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">AI・機械学習を巡り、LLMが規制・制限を導入した（IC3）。また、AI・機械学習に関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">arXiv:2604.03234v1 Announce Type: new Abstract: The Minimum Set Cover Problem (MSCP) is a classical NP-hard combinatorial optimization problem with numerous applications in science and engineering. A…　また、arXiv:2604.03244v1 Announce Type: new Abstract: AI evaluations have become the primary evidence for deploying generative AI systems across high-stakes domains. However, current evaluation parad…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">AI・機械学習を巡り、LLMが規制・制限を導入した（IC3）。AI・機械学習に関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03234" target="_blank" rel="noopener">Structural Segmentation of the Minimum Set Cover Problem: Exploiting Universe D…</a></li>
-                <li><span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03244" target="_blank" rel="noopener">Position: Science of AI Evaluation Requires Item-level Benchmark Data</a></li>
-                <li><span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03239" target="_blank" rel="noopener">To Throw a Stone with Six Birds: On Agents and Agenthood</a></li>
-                <li><span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03260" target="_blank" rel="noopener">Why Attend to Everything? Focus is the Key</a></li>
-                <li><span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03261" target="_blank" rel="noopener">VIGIL: An Extensible System for Real-Time Detection and Mitigation of Cognitive…</a></li>
-                <li><span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/" target="_blank" rel="noopener">Enabling agent-first process redesign</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03232" target="_blank" rel="noopener">LLMのAI・機械学習関連動向</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03244" target="_blank" rel="noopener">AIのAI・機械学習関連動向</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="technology_research-SoLA--Leveraging-Soft-Activation-Sparsity-and-Low-Rank-Decomposition-for-Large-Language-Model-Compression">
-          <summary>SoLA: Leveraging Soft Activation Sparsity and Low-Rank Decomposition for Large Language Model Compression <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-TBPN関連-OpenAI-Blog-">
+          <summary>TBPN関連（OpenAI Blog） <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">arXiv:2604.03286v1 Announce Type: new Abstract: The control of complex laboratory instrumentation often requires significant programming expertise, creating a barrier for researchers lacking computat…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">AI・機械学習に関してTBPNの新たな動きが伝えられている。また、海外で新たな動向が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">arXiv:2604.03286v1 Announce Type: new Abstract: The control of complex laboratory instrumentation often requires significant programming expertise, creating a barrier for researchers lacking computat…　また、arXiv:2604.03257v1 Announce Type: new Abstract: The ability to rigorously estimate the failure rates of large language models (LLMs) is a prerequisite for their safe deployment. Currently, howe…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">AI・機械学習に関してTBPNの新たな動きが伝えられている。海外で新たな動向が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（5件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03286" target="_blank" rel="noopener">Toward Full Autonomous Laboratory Instrumentation Control with Large Language M…</a></li>
-                <li><span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03257" target="_blank" rel="noopener">Robust LLM Performance Certification via Constrained Maximum Likelihood Estimat…</a></li>
-                <li><span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03258" target="_blank" rel="noopener">SoLA: Leveraging Soft Activation Sparsity and Low-Rank Decomposition for Large …</a></li>
-                <li><span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03232" target="_blank" rel="noopener">IC3-Evolve: Proof-/Witness-Gated Offline LLM-Driven Heuristic Evolution for IC3…</a></li>
-                <li><span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03253" target="_blank" rel="noopener">Self-Execution Simulation Improves Coding Models</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03234" target="_blank" rel="noopener">海外報道（arXiv CS.AI）</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03253" target="_blank" rel="noopener">海外報道（arXiv CS.CL）</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/introducing-openai-safety-fellowship" target="_blank" rel="noopener">海外報道（OpenAI Blog）</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/openai-acquires-tbpn" target="_blank" rel="noopener">TBPN関連（OpenAI Blog）</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-00913-1" target="_blank" rel="noopener">海外報道（Nature News）</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="technology_research-System-Card--Claude-Mythos-Preview--pdf-">
-          <summary>System Card: Claude Mythos Preview [pdf] <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-GLM関連-Hacker-News-Best-">
+          <summary>GLM関連（Hacker News Best） <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Article URL: https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf Comments URL: https://news.ycombinator.com/item?id=47679258 Points: 319 # Comments: 199 関連: Project Glasswing: Securing critical software for the AI era、GLM-5.1: Towards Long-Horizon Tasks。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">AI・機械学習に関してVIGILの新たな動きが伝えられている。また、サイバーセキュリティに関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Article URL: https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf Comments URL: https://news.ycombinator.com/item?id=47679258 Points: 319 # Comments: 199</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">AI・機械学習に関してVIGILの新たな動きが伝えられている。サイバーセキュリティに関してAIの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（4件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf" target="_blank" rel="noopener">System Card: Claude Mythos Preview [pdf]</a></li>
-                <li><span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener">Project Glasswing: Securing critical software for the AI era</a></li>
-                <li><span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://z.ai/blog/glm-5.1" target="_blank" rel="noopener">GLM-5.1: Towards Long-Horizon Tasks</a></li>
-                <li><span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://jola.dev/posts/dropping-cloudflare" target="_blank" rel="noopener">Dropping Cloudflare for Bunny.net</a></li>
-                <li><span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://sam-burns.com/posts/concrete-laptop-stand/" target="_blank" rel="noopener">Show HN: Brutalist Concrete Laptop Stand (2024)</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.CL</span> <span class="source-meta">（論文プレプリント）</span> — <a href="https://arxiv.org/abs/2604.03261" target="_blank" rel="noopener">VIGIL関連（arXiv CS.CL）</a></li>
+                <li><span class="cat-badge" style="background:#f0fdf4;color:#166534;border:1px solid #22c55e;">コミュニティ</span> <span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://z.ai/blog/glm-5.1" target="_blank" rel="noopener">GLM関連（Hacker News Best）</a></li>
+                <li><span class="cat-badge" style="background:#f0fdf4;color:#166534;border:1px solid #22c55e;">コミュニティ</span> <span class="source-name">Hacker News Best</span> <span class="source-meta">（開発者コミュニティ）</span> — <a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf" target="_blank" rel="noopener">海外報道（Hacker News Best）</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/07/1134966/enabling-agent-first-process-redesign/" target="_blank" rel="noopener">海外報道（MIT Tech Review）</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="technology_research-Announcing-the-OpenAI-Safety-Fellowship">
-          <summary>Announcing the OpenAI Safety Fellowship <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-金融市場">
+          <summary>金融市場 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">OpenAI acquires TBPN to accelerate global conversations around AI and support independent media, expanding dialogue with builders, businesses, and the broader tech community. 関連: OpenAI acquires TBPN、Gradient Labs gives every bank customer an AI account manager。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">金融市場を巡る新たな展開が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">OpenAI acquires TBPN to accelerate global conversations around AI and support independent media, expanding dialogue with builders, businesses, and the broader tech community.　また、Gradient Labs uses GPT-4.1 and GPT-5.4 mini and nano to power AI agents that automate banking support workflows with low latency and high reliability.</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">金融市場を巡る新たな展開が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/introducing-openai-safety-fellowship" target="_blank" rel="noopener">Announcing the OpenAI Safety Fellowship</a></li>
-                <li><span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/openai-acquires-tbpn" target="_blank" rel="noopener">OpenAI acquires TBPN</a></li>
-                <li><span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/gradient-labs" target="_blank" rel="noopener">Gradient Labs gives every bank customer an AI account manager</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01095-6" target="_blank" rel="noopener">金融市場</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="technology_research-AI-and-the-human-mind--only-one-is-a-black-box">
-          <summary>AI and the human mind: only one is a black box <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-医療・製薬">
+          <summary>医療・製薬 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Nature, Published online: 07 April 2026; doi:10.1038/d41586-026-00913-1The problem of page numbering in reprinted articles, and experiments to find the source of a typhoid outbreak, in our weekly dip…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">医療・製薬に関してKRASの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Nature, Published online: 07 April 2026; doi:10.1038/d41586-026-00913-1The problem of page numbering in reprinted articles, and experiments to find the source of a typhoid outbreak, in our weekly dip…　また、For years Mike McClary sold the Guardian LTE Flashlight, a heavy-duty black model, online through his small outdoor brand. The product, designed for brightness and durability, became one of his…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">医療・製薬に関してKRASの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01094-7" target="_blank" rel="noopener">AI and the human mind: only one is a black box</a></li>
-                <li><span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-00913-1" target="_blank" rel="noopener">When page-renumbering causes outrage</a></li>
-                <li><span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/industrial-policy-for-the-intelligence-age" target="_blank" rel="noopener">Industrial policy for the Intelligence Age</a></li>
-                <li><span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/06/1135118/ai-online-seller-alibaba-accio/" target="_blank" rel="noopener">AI is changing how small online sellers decide what to make</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01016-7" target="_blank" rel="noopener">医療・製薬</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="technology_research-Representation-without-power-in-science-isn-t-equity">
-          <summary>Representation without power in science isn’t equity <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="technology_research-中東情勢">
+          <summary>中東情勢 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Nature, Published online: 07 April 2026; doi:10.1038/d41586-026-01118-2Images snapped during a flyby capture a solar eclipse and unprecedented details of the far side of the Moon. 関連: Don’t rush use of lymphatic surgery in Alzheimer’s disease、First photos from Artemis II: see stunning 'Earthset' and more。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">イラン情勢に関してMITの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Nature, Published online: 07 April 2026; doi:10.1038/d41586-026-01118-2Images snapped during a flyby capture a solar eclipse and unprecedented details of the far side of the Moon.</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">イラン情勢に関してMITの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01095-6" target="_blank" rel="noopener">Representation without power in science isn’t equity</a></li>
-                <li><span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01093-8" target="_blank" rel="noopener">Don’t rush use of lymphatic surgery in Alzheimer’s disease</a></li>
-                <li><span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="https://www.nature.com/articles/d41586-026-01118-2" target="_blank" rel="noopener">First photos from Artemis II: see stunning 'Earthset' and more</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="technology_research-The-one-piece-of-data-that-could-actually-shed-light-on-your-job-and-AI">
-          <summary>The one piece of data that could actually shed light on your job and AI <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The one piece of data that could actually shed light on your …</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The one piece of data that could actually shed light on your …　また、This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Within Silicon Valley’s orbit, an AI-fueled jobs apocal…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/07/1135208/the-download-ai-impact-jobs-data-centres-space/" target="_blank" rel="noopener">The Download: AI’s impact on jobs, and data centres in space</a></li>
-                <li><span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/06/1135187/the-one-piece-of-data-that-could-actually-shed-light-on-your-job-and-ai/" target="_blank" rel="noopener">The one piece of data that could actually shed light on your job and AI</a></li>
-                <li><span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/07/1135235/desalination-technology-water/" target="_blank" rel="noopener">Desalination plants in the Middle East are increasingly vulnerable</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="technology_research-Codex-now-offers-more-flexible-pricing-for-teams">
-          <summary>Codex now offers more flexible pricing for teams <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Codex now includes pay-as-you-go pricing for ChatGPT Business and Enterprise, providing teams a more flexible option to start and scale adoption.</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Codex now includes pay-as-you-go pricing for ChatGPT Business and Enterprise, providing teams a more flexible option to start and scale adoption.</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="https://openai.com/index/codex-flexible-pricing-for-teams" target="_blank" rel="noopener">Codex now offers more flexible pricing for teams</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">MIT Tech Review</span> <span class="source-meta">（テックメディア）</span> — <a href="https://www.technologyreview.com/2026/04/07/1135235/desalination-technology-water/" target="_blank" rel="noopener">中東情勢</a></li>
               </ul>
             </div>
           </div>
@@ -1145,19 +905,20 @@
 
       <section id="society_labor" style="margin-bottom:40px;">
         <h2 class="axis-title">👥 社会・労働・人口</h2>
-        <p class="axis-summary">10件の注目トピック ／ 15件のソース記事</p>
+        <p class="axis-summary">7件の注目トピック ／ 14件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 5</span> <span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他 5</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関 4</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">社会・労働・人口では国内では「クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明」「九州国際大付 野球部の元部員が提訴 “部員からいじめや暴行”」や「日大三高 わいせつ動画拡散問題 5月まで対外試合禁止の処分」が焦点。また、UN Newsなどからは4件の海外トピックが入っている。合計10件のトピックを15件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">社会・労働・人口では、7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。朝日新聞 社会による報道のほか、これまでに入っているニュースを、まとめて1分の動画でお伝えしますといった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ… また、7日午後、川崎市にある製鉄所でクレーンの解体作業中に高さおよそ40メートルの足場が崩れて…。一方で、北九州市にある九州国際大付属高校の野球部の元部員が、チームメートからいじめや暴行などを受けたのに学校側が適切な対応を取らなかったとして、2000万円余りの賠償を求める訴えを福岡地方裁判所小倉支部に起こ…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ…。7日午後、川崎市にある製鉄所でクレーンの解体作業中に高さおよそ40メートルの足場が崩れて作業員5人が転落し、2人が死亡した事故で、警察によりますと、病院で治療を受けていた別の作業員1人の死亡が確…。また、ことし2月の働く人1人当たりの現金給与の総額は、前の年の同じ月と比べて50か月連続のプラスでした。物価の上昇率を上回る高い伸びとなった結果、実質賃金は1.9％増え、2か月連続でプラスとなりました。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">社会構造の変化は政策対応を迫るが、データが出揃うまで全体像が見えにくい。人口動態・雇用統計の次回発表を待ちたい。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">社会構造の変化は政策対応を迫るが、データが出揃うまで全体像が見えにくい。「川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に」の推移は今後の政策議論に直結する。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -1165,74 +926,151 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#society_labor-クレーン解体中に5人落下か--ドンドン-響く音-2人死亡1人不明">クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明</a>
-            <span class="topic-link-meta">（ソース3件）</span>
+            <a href="#society_labor-川崎-製鉄所で足場崩れる-作業員1人の死亡確認-死者は3人に">川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に</a>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#society_labor-新たに1人死亡確認-死者3人に-不明者の捜索再開-川崎・足場崩落">新たに1人死亡確認、死者3人に 不明者の捜索再開 川崎・足場崩落</a>
+            <span class="topic-link-meta">（ソース5件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span></span>
+          </li>
+
+          <li>
+            <a href="#society_labor-中国関連・ロシア・ウクライナ情勢">中国関連・ロシア・ウクライナ情勢</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span></span>
+          </li>
+
+          <li>
+            <a href="#society_labor--動画-Pickup-NEWS-4月8日-">【動画】Pickup NEWS（4月8日）</a>
+            <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span></span>
+          </li>
+
+          <li>
+            <a href="#society_labor-2月の実質賃金-2か月連続プラス-給与総額は物価上昇率上回る">2月の実質賃金 2か月連続プラス 給与総額は物価上昇率上回る</a>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
           </li>
 
           <li>
             <a href="#society_labor-九州国際大付-野球部の元部員が提訴--部員からいじめや暴行-">九州国際大付 野球部の元部員が提訴 “部員からいじめや暴行”</a>
             <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
           </li>
 
           <li>
-            <a href="#society_labor-日大三高-わいせつ動画拡散問題-5月まで対外試合禁止の処分">日大三高 わいせつ動画拡散問題 5月まで対外試合禁止の処分</a>
+            <a href="#society_labor-医療・製薬">医療・製薬</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor-サッカーJ1-ガンバ大阪-持続可能性に取り組む専門組織発足">サッカーJ1 ガンバ大阪 持続可能性に取り組む専門組織発足</a>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor-熊本地震10年に合わせ-ブルーインパルス飛行へ-ルートと時刻は">熊本地震10年に合わせ、ブルーインパルス飛行へ ルートと時刻は</a>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor--買う側-処罰に賛否-売春防止法見直し-法務省検討会がヒアリング">「買う側」処罰に賛否 売春防止法見直し、法務省検討会がヒアリング</a>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor-From-misdiagnosis-to-medical-bias--Why-women-are-living-longer-but-not-better">From misdiagnosis to medical bias: Why women are living longer but not better</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース2件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor-MIDDLE-EAST-LIVE-7-April--Humanitarian-and-economic-pressures-grow--Russia-and-China-veto-resolution-on-Strait-of-Hormuz">MIDDLE EAST LIVE 7 April: Humanitarian and economic pressures grow; Russia and China veto resolution on Strait of Hormuz</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor--Entire-families-brutally-erased---Remembering-the-victims-of-the-1994-genocide-against-the-Tutsi-in-Rwanda">‘Entire families brutally erased’: Remembering the victims of the 1994 genocide against the Tutsi in Rwanda</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#society_labor-World-News-in-Brief---Skyrocketing--needs-outpace-Sudan-funding--Ukraine-strikes-update--global-water-security">World News in Brief: ‘Skyrocketing’ needs outpace Sudan funding, Ukraine strikes update, global water security</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="society_labor-クレーン解体中に5人落下か--ドンドン-響く音-2人死亡1人不明">
-          <summary>クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明</summary>
+        <details class="topic-detail" id="society_labor-川崎-製鉄所で足場崩れる-作業員1人の死亡確認-死者は3人に">
+          <summary>川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ… 関連: 川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に、クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ…。また、7日午後、川崎市にある製鉄所でクレーンの解体作業中に高さおよそ40メートルの足場が崩れて作業員5人が転落し、2人が死亡した事故で、警察によりますと、病院で治療を受けていた別の作業員1人の死亡が確認され…。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ…　また、7日午後、川崎市にある製鉄所でクレーンの解体作業中に高さおよそ40メートルの足場が崩れて作業員5人が転落し、2人が死亡した事故で、警察によりますと、病院で治療を受けていた別の作業員1人の死亡が確認され…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">7日、川崎市にある製鉄所で、クレーンの解体作業中に足場が崩れ、作業員5人が転落しこのうち3人が死亡しました。警察などは、クレーンに取り付けていたおよそ500トンの重りの落下が原因とみて詳しい状況を調べ…。7日午後、川崎市にある製鉄所でクレーンの解体作業中に高さおよそ40メートルの足場が崩れて作業員5人が転落し、2人が死亡した事故で、警察によりますと、病院で治療を受けていた別の作業員1人の死亡が確認され…。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094461000" target="_blank" rel="noopener">川崎 製鉄所の足場崩れ作業員3人死亡 行方不明1人の発見急ぐ</a></li>
-                <li><span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094161000" target="_blank" rel="noopener">川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に</a></li>
-                <li><span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV472RW2V47ULOB00TM.html?ref=rss" target="_blank" rel="noopener">クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094461000" target="_blank" rel="noopener">川崎 製鉄所の足場崩れ作業員3人死亡 行方不明1人の発見急ぐ</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094161000" target="_blank" rel="noopener">川崎 製鉄所で足場崩れる 作業員1人の死亡確認 死者は3人に</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor-新たに1人死亡確認-死者3人に-不明者の捜索再開-川崎・足場崩落">
+          <summary>新たに1人死亡確認、死者3人に 不明者の捜索再開 川崎・足場崩落</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">朝日新聞 社会による報道。詳細は原文を参照。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">朝日新聞 社会による報道。詳細は原文を参照。朝日新聞 社会による報道。詳細は原文を参照。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（5件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span> <span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV477F0BV47ULOB01XM.html?ref=rss" target="_blank" rel="noopener">新たに1人死亡確認、死者3人に 不明者の捜索再開 川崎・足場崩落</a></li>
+                <li><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span> <span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV4224F3V42OXIE00XM.html?ref=rss" target="_blank" rel="noopener">神社で発見の剣、刀匠・国永の作と鑑定 本物そっくりのお菓子も登場</a></li>
+                <li><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span> <span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV472D0PV47UTIL00HM.html?ref=rss" target="_blank" rel="noopener">「反戦ビラ事件」を著書「平和を求める自由」に 米弁護士レペタさん</a></li>
+                <li><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span> <span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV472GX9V47UTIL008M.html?ref=rss" target="_blank" rel="noopener">143億円相当の覚醒剤押収、密輸の疑いで男を逮捕 容疑を否認</a></li>
+                <li><span class="cat-badge" style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;">その他</span> <span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV472RW2V47ULOB00TM.html?ref=rss" target="_blank" rel="noopener">クレーン解体中に5人落下か 「ドンドン」響く音 2人死亡1人不明</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor-中国関連・ロシア・ウクライナ情勢">
+          <summary>中国関連・ロシア・ウクライナ情勢 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">中国関連に関してMIDDLEの新たな動きが伝えられている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">中国関連に関してMIDDLEの新たな動きが伝えられている。中国関連に関してUNの新たな動きが伝えられている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167261" target="_blank" rel="noopener">中国関連・ロシア・ウクライナ情勢</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167257" target="_blank" rel="noopener">MIDDLEの中国関連関連動向</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor--動画-Pickup-NEWS-4月8日-">
+          <summary>【動画】Pickup NEWS（4月8日）</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">これまでに入っているニュースを、まとめて1分の動画でお伝えします。（データ放送では動画をご覧いただけません）。また、国連動向に関してUNの新たな動きが伝えられている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">これまでに入っているニュースを、まとめて1分の動画でお伝えします。（データ放送では動画をご覧いただけません）。国連動向に関してUNの新たな動きが伝えられている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094051000" target="_blank" rel="noopener">【動画】Pickup NEWS（4月8日）</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167256" target="_blank" rel="noopener">海外報道（UN News）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor-2月の実質賃金-2か月連続プラス-給与総額は物価上昇率上回る">
+          <summary>2月の実質賃金 2か月連続プラス 給与総額は物価上昇率上回る</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">ことし2月の働く人1人当たりの現金給与の総額は、前の年の同じ月と比べて50か月連続のプラスでした。物価の上昇率を上回る高い伸びとなった結果、実質賃金は1.9％増え、2か月連続でプラスとなりました。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">ことし2月の働く人1人当たりの現金給与の総額は、前の年の同じ月と比べて50か月連続のプラスでした。物価の上昇率を上回る高い伸びとなった結果、実質賃金は1.9％増え、2か月連続でプラスとなりました。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094241000" target="_blank" rel="noopener">2月の実質賃金 2か月連続プラス 給与総額は物価上昇率上回る</a></li>
               </ul>
             </div>
           </div>
@@ -1242,180 +1080,37 @@
           <summary>九州国際大付 野球部の元部員が提訴 “部員からいじめや暴行”</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
+              <div class="summary-label label-key">何が起きたか</div>
               <p class="summary-text">北九州市にある九州国際大付属高校の野球部の元部員が、チームメートからいじめや暴行などを受けたのに学校側が適切な対応を取らなかったとして、2000万円余りの賠償を求める訴えを福岡地方裁判所小倉支部に起こ…</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
+              <div class="summary-label label-bg">なぜ重要か</div>
               <p class="summary-text">北九州市にある九州国際大付属高校の野球部の元部員が、チームメートからいじめや暴行などを受けたのに学校側が適切な対応を取らなかったとして、2000万円余りの賠償を求める訴えを福岡地方裁判所小倉支部に起こ…</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094331000" target="_blank" rel="noopener">九州国際大付 野球部の元部員が提訴 “部員からいじめや暴行”</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094331000" target="_blank" rel="noopener">九州国際大付 野球部の元部員が提訴 “部員からいじめや暴行”</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="society_labor-日大三高-わいせつ動画拡散問題-5月まで対外試合禁止の処分">
-          <summary>日大三高 わいせつ動画拡散問題 5月まで対外試合禁止の処分</summary>
+        <details class="topic-detail" id="society_labor-医療・製薬">
+          <summary>医療・製薬 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">知り合いの女子生徒にSNSでわいせつな動画を送らせて拡散するなどしたとして野球部員2人が書類送検された東京の日大三高について、日本学生野球協会は5月まで3か月間の対外試合禁止の処分としました。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">医療・製薬に関してUNの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">知り合いの女子生徒にSNSでわいせつな動画を送らせて拡散するなどしたとして野球部員2人が書類送検された東京の日大三高について、日本学生野球協会は5月まで3か月間の対外試合禁止の処分としました。</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">医療・製薬に関してUNの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094321000" target="_blank" rel="noopener">日大三高 わいせつ動画拡散問題 5月まで対外試合禁止の処分</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor-サッカーJ1-ガンバ大阪-持続可能性に取り組む専門組織発足">
-          <summary>サッカーJ1 ガンバ大阪 持続可能性に取り組む専門組織発足</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">地球温暖化などの気候変動が世界的な問題となる中、サッカーJ1のガンバ大阪は、将来にわたってスポーツができる環境作りに取り組もうと、クラブの職員が参加する専門の組織を発足させました。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">地球温暖化などの気候変動が世界的な問題となる中、サッカーJ1のガンバ大阪は、将来にわたってスポーツができる環境作りに取り組もうと、クラブの職員が参加する専門の組織を発足させました。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094271000" target="_blank" rel="noopener">サッカーJ1 ガンバ大阪 持続可能性に取り組む専門組織発足</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor-熊本地震10年に合わせ-ブルーインパルス飛行へ-ルートと時刻は">
-          <summary>熊本地震10年に合わせ、ブルーインパルス飛行へ ルートと時刻は</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">熊本地震10年に合わせ、ブルーインパルス飛行へ ルートと時刻は。旧統一教会が新団体設立へ 献金の受け皿に、名称案は「FFWPU」。鳥取県米子市議を受託収賄容疑で逮捕 サルの飼育施設の管理めぐり。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV4733D7V47TLVB009M.html?ref=rss" target="_blank" rel="noopener">熊本地震10年に合わせ、ブルーインパルス飛行へ ルートと時刻は</a></li>
-                <li><span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV472VX6V47UTIL00BM.html?ref=rss" target="_blank" rel="noopener">旧統一教会が新団体設立へ 献金の受け皿に、名称案は「FFWPU」</a></li>
-                <li><span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV473V53V47OXIE03TM.html?ref=rss" target="_blank" rel="noopener">鳥取県米子市議を受託収賄容疑で逮捕 サルの飼育施設の管理めぐり</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor--買う側-処罰に賛否-売春防止法見直し-法務省検討会がヒアリング">
-          <summary>「買う側」処罰に賛否 売春防止法見直し、法務省検討会がヒアリング</summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">本文要約なし。</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">詳細は参照ソースを確認。</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">朝日新聞 社会</span> <span class="source-meta">（新聞社）</span> — <a href="http://www.asahi.com/articles/ASV473VTTV47UTIL003M.html?ref=rss" target="_blank" rel="noopener">「買う側」処罰に賛否 売春防止法見直し、法務省検討会がヒアリング</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor-From-misdiagnosis-to-medical-bias--Why-women-are-living-longer-but-not-better">
-          <summary>From misdiagnosis to medical bias: Why women are living longer but not better <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">For 25 years, the world has made significant progress in advancing women’s right to health, particularly in sexual and reproductive care. Women are living longer than ever before – but they are not l…</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">For 25 years, the world has made significant progress in advancing women’s right to health, particularly in sexual and reproductive care. Women are living longer than ever before – but they are not l…　また、The UN has issued an urgent call for international support as Cuba grapples with a ‘worsening’ humanitarian crisis fuelled by a prolonged energy blockade and the lingering devastation caused by…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167259" target="_blank" rel="noopener">From misdiagnosis to medical bias: Why women are living longer but not better</a></li>
-                <li><span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167254" target="_blank" rel="noopener">Cuba energy crisis: Humanitarian needs remain despite fuel supplies</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor-MIDDLE-EAST-LIVE-7-April--Humanitarian-and-economic-pressures-grow--Russia-and-China-veto-resolution-on-Strait-of-Hormuz">
-          <summary>MIDDLE EAST LIVE 7 April: Humanitarian and economic pressures grow; Russia and China veto resolution on Strait of Hormuz <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Hostilities continue across the Middle East, with ongoing strikes, rising civilian impacts and mounting pressure on critical infrastructure and humanitarian services. On the diplomatic track in New Y…</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Hostilities continue across the Middle East, with ongoing strikes, rising civilian impacts and mounting pressure on critical infrastructure and humanitarian services. On the diplomatic track in New Y…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167257" target="_blank" rel="noopener">MIDDLE EAST LIVE 7 April: Humanitarian and economic pressures grow; Russia and …</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor--Entire-families-brutally-erased---Remembering-the-victims-of-the-1994-genocide-against-the-Tutsi-in-Rwanda">
-          <summary>‘Entire families brutally erased’: Remembering the victims of the 1994 genocide against the Tutsi in Rwanda <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Thirty-two years ago, a genocidal campaign was unleashed against Rwanda’s Tutsi minority, resulting in more than one million deaths. On Tuesday, the UN is holding commemorations to ensure that the ge…</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Thirty-two years ago, a genocidal campaign was unleashed against Rwanda’s Tutsi minority, resulting in more than one million deaths. On Tuesday, the UN is holding commemorations to ensure that the ge…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167256" target="_blank" rel="noopener">‘Entire families brutally erased’: Remembering the victims of the 1994 genocide…</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="society_labor-World-News-in-Brief---Skyrocketing--needs-outpace-Sudan-funding--Ukraine-strikes-update--global-water-security">
-          <summary>World News in Brief: ‘Skyrocketing’ needs outpace Sudan funding, Ukraine strikes update, global water security <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">The UN is significantly scaling up its presence in the Sudanese capital, Khartoum, to expand life-saving operations as the conflict between rival militaries approaches its third year.</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">The UN is significantly scaling up its presence in the Sudanese capital, Khartoum, to expand life-saving operations as the conflict between rival militaries approaches its third year.</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167255" target="_blank" rel="noopener">World News in Brief: ‘Skyrocketing’ needs outpace Sudan funding, Ukraine strike…</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UN News</span> <span class="source-meta">（国際機関）</span> — <a href="https://news.un.org/feed/view/en/story/2026/04/1167262" target="_blank" rel="noopener">医療・製薬</a></li>
               </ul>
             </div>
           </div>
@@ -1424,19 +1119,20 @@
 
       <section id="environment_infrastructure" style="margin-bottom:40px;">
         <h2 class="axis-title">🌍 環境・資源・インフラ</h2>
-        <p class="axis-summary">2件の注目トピック ／ 5件のソース記事</p>
+        <p class="axis-summary">1件の注目トピック ／ 4件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 4</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">環境・資源・インフラではCarbon Briefなどからは2件の海外トピックが入っている。合計2件のトピックを5件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">環境・資源・インフラでは、イラン情勢・中国関連・気候・エネルギーを巡る新たな展開が報じられている。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、Carbon Brief’s editorial team is supported by an international group of academics, each specialising in... The post Introducing Carbon Brief’s 2026 c…。一方で、Welcome to Carbon Brief’s DeBriefed. An essential guide to the week’s key developments relating to climate... The post DeBriefed 2 April 2026: Countr…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">イラン情勢・中国関連・気候・エネルギーを巡る新たな展開が報じられている。気候・エネルギーに関してUKの新たな動きが伝えられている。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">エネルギー転換とインフラ整備は長期投資サイクルのテーマ。政策目標の進捗と民間投資の動向を合わせて読む必要がある。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">エネルギー転換とインフラ整備は長期投資サイクルのテーマ。「UKの気候・エネルギー関連動向」の進展は政策目標の実現可能性を左右する。民間投資と政策の整合性を合わせて読む必要がある。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -1444,55 +1140,31 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#environment_infrastructure-Analysis--How-Chinese-media-is-covering-the-Iran-energy-crisis">Analysis: How Chinese media is covering the Iran energy crisis</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース3件）</span>
-          </li>
-
-          <li>
-            <a href="#environment_infrastructure-DeBriefed-2-April-2026--Countries--revive--energy-crisis-measures---Record-UK-renewables---Plug-in-solar-savings">DeBriefed 2 April 2026: Countries ‘revive’ energy-crisis measures | Record UK renewables | Plug-in solar savings</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース2件）</span>
+            <a href="#environment_infrastructure-UKの気候・エネルギー関連動向">UKの気候・エネルギー関連動向</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース4件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="environment_infrastructure-Analysis--How-Chinese-media-is-covering-the-Iran-energy-crisis">
-          <summary>Analysis: How Chinese media is covering the Iran energy crisis <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="environment_infrastructure-UKの気候・エネルギー関連動向">
+          <summary>UKの気候・エネルギー関連動向 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Carbon Brief’s editorial team is supported by an international group of academics, each specialising in... The post Introducing Carbon Brief’s 2026 cohort of contributing editors appeared first on Ca…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">イラン情勢・中国関連・気候・エネルギーを巡る新たな展開が報じられている。また、気候・エネルギーに関してUKの新たな動きが伝えられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Carbon Brief’s editorial team is supported by an international group of academics, each specialising in... The post Introducing Carbon Brief’s 2026 cohort of contributing editors appeared first on Ca…　また、The UK avoided the need for gas imports worth £1bn in March 2026 thanks to... The post Analysis: Record wind and solar saved UK from gas imports worth £1bn in March 2026 appeared first on Carbo…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">イラン情勢・中国関連・気候・エネルギーを巡る新たな展開が報じられている。気候・エネルギーに関してUKの新たな動きが伝えられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（4件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/analysis-how-chinese-media-is-covering-the-iran-energy-crisis/" target="_blank" rel="noopener">Analysis: How Chinese media is covering the Iran energy crisis</a></li>
-                <li><span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/introducing-carbon-briefs-2026-cohort-of-contributing-editors/" target="_blank" rel="noopener">Introducing Carbon Brief’s 2026 cohort of contributing editors</a></li>
-                <li><span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/analysis-record-wind-and-solar-saved-uk-from-gas-imports-worth-1bn-in-march-2026/" target="_blank" rel="noopener">Analysis: Record wind and solar saved UK from gas imports worth £1bn in March 2…</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="topic-detail" id="environment_infrastructure-DeBriefed-2-April-2026--Countries--revive--energy-crisis-measures---Record-UK-renewables---Plug-in-solar-savings">
-          <summary>DeBriefed 2 April 2026: Countries ‘revive’ energy-crisis measures | Record UK renewables | Plug-in solar savings <span class="lang-badge">EN</span></summary>
-          <div class="topic-detail-body">
-            <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Welcome to Carbon Brief’s DeBriefed. An essential guide to the week’s key developments relating to climate... The post DeBriefed 2 April 2026: Countries ‘revive’ energy-crisis measures | Record UK re…</p>
-            </div>
-            <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Welcome to Carbon Brief’s DeBriefed. An essential guide to the week’s key developments relating to climate... The post DeBriefed 2 April 2026: Countries ‘revive’ energy-crisis measures | Record UK re…</p>
-            </div>
-            <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
-              <ul class="sources-list">
-                <li><span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/debriefed-2-april-2026/" target="_blank" rel="noopener">DeBriefed 2 April 2026: Countries ‘revive’ energy-crisis measures | Record UK r…</a></li>
-                <li><span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/china-briefing-2-april-2026-ev-profits-rise-ming-yang-rejected-iran-war/" target="_blank" rel="noopener">China Briefing 2 April 2026: EV profits rise | Ming Yang rejected | Iran war</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/analysis-how-chinese-media-is-covering-the-iran-energy-crisis/" target="_blank" rel="noopener">イラン情勢・中国関連</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/introducing-carbon-briefs-2026-cohort-of-contributing-editors/" target="_blank" rel="noopener">気候・エネルギー</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/debriefed-2-april-2026/" target="_blank" rel="noopener">UKの気候・エネルギー関連動向</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="https://www.carbonbrief.org/china-briefing-2-april-2026-ev-profits-rise-ming-yang-rejected-iran-war/" target="_blank" rel="noopener">EVのイラン情勢関連動向</a></li>
               </ul>
             </div>
           </div>
@@ -1501,19 +1173,20 @@
 
       <section id="culture_opinion" style="margin-bottom:40px;">
         <h2 class="axis-title">🎭 文化・世論・消費行動</h2>
-        <p class="axis-summary">5件の注目トピック ／ 10件のソース記事</p>
+        <p class="axis-summary">6件の注目トピック ／ 8件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 5</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 3</span></div>
         <div class="axis-overview-card">
           <div class="summary-section">
-            <div class="summary-label">要約</div>
-            <p class="summary-text">文化・世論・消費行動では国内では「トランプ大統領“今夜 文明がまるごと滅びるだろう”SNSに投稿」や「デジタル貿易に関税課さないルール採択 日本含む66の国・地域」が焦点。また、Pew Researchなどからは3件の海外トピックが入っている。合計5件のトピックを10件のソースから整理した。</p>
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">文化・世論・消費行動では、財務省が発表したことし2月の国際収支によりますと、日本が海外との貿易や投資でどれだけ稼いだかを示す経常収支は、3兆9327億円の黒字でした。台湾の最大野党 国民党のトップ、鄭麗文主席が7日に中国を訪問し、中国政府で台湾政策を担当する高官の歓迎を受け、双方は「台湾独立」に反対する立場を強調しましたのほか、アメリカのトランプ大統領は日本時間の8日朝、事実上、封鎖されているホルムズ海峡について、イランが即時かつ安全な開放に同意することを条件に、イランへの攻撃を2週間停止すると明らかにしましたといった動きも見られた。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">背景</div>
-            <p class="summary-text">これらのトピックの背景として、イラン情勢をめぐって、アメリカのトランプ大統領が主張するイランのエネルギー施設などへの攻撃を行わない期限が8日午前9時に迫っています。トランプ大統領は、激しい攻撃を示唆してホルムズ海峡の開放などに応じ… また、7日のニューヨーク原油市場ではアメリカがイランのエネルギー施設などの攻撃に踏み切るのでは…。一方で、動画やゲームなどを海外からダウンロードする「デジタル貿易」について、日本を含む66の国と地域により関税を課さないという共通ルールが採択されました。利用者にとって、関税の負担が増えるリスクは少なくなりま…。複数のソースを横断すると、同一テーマが異なる立場から報じられている局面が見える。</p>
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">アメリカとイランの仲介役を務めるパキスタンのシャリフ首相は、日本時間8日午前9時前、SNSに「イランとアメリカ、同盟国が、レバノンを含むあらゆる地域で、直ちに発効する即時停戦に合意したと発表できること…。韓国軍の合同参謀本部は、北朝鮮が日本海に向けて飛しょう体を発射したと、8日午前9時ごろに発表しました。韓国軍はアメリカ軍とともに飛しょう体の種類などを分析しています。また、アメリカのトランプ大統領は日本時間の8日朝、事実上、封鎖されているホルムズ海峡について、イランが即時かつ安全な開放に同意することを条件に、イランへの攻撃を2週間停止すると明らかにしました。その上で「こ…。</p>
           </div>
           <div class="summary-section">
-            <div class="summary-label">展望</div>
-            <p class="summary-text">世論や消費トレンドの変化はビジネス戦略に直結する。定量データ（調査結果・検索トレンド）の裏付けが出てくるかが次の焦点。</p>
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">世論や消費トレンドの変化はビジネス戦略に直結する。「中東情勢」の動向は、定量データ（調査結果・検索トレンド）の裏付けが出てくるかが次の焦点。</p>
           </div>
         </div>
         <div class="topic-links-card">
@@ -1521,132 +1194,160 @@
           <ul class="topic-links-list">
             
           <li>
-            <a href="#culture_opinion-トランプ大統領-今夜-文明がまるごと滅びるだろう-SNSに投稿">トランプ大統領“今夜 文明がまるごと滅びるだろう”SNSに投稿</a>
-            <span class="topic-link-meta">（ソース4件）</span>
-          </li>
-
-          <li>
-            <a href="#culture_opinion-デジタル貿易に関税課さないルール採択-日本含む66の国・地域">デジタル貿易に関税課さないルール採択 日本含む66の国・地域</a>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#culture_opinion-Negative-views-of-Israel--Netanyahu-continue-to-rise-among-Americans---especially-young-people">Negative views of Israel, Netanyahu continue to rise among Americans – especially young people</a> <span class="lang-badge">EN</span>
-            <span class="topic-link-meta">（ソース1件）</span>
-          </li>
-
-          <li>
-            <a href="#culture_opinion-Methodology">Methodology</a> <span class="lang-badge">EN</span>
+            <a href="#culture_opinion-中東情勢">中東情勢</a> <span class="lang-badge">EN</span>
             <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
           </li>
 
           <li>
-            <a href="#culture_opinion-Do-Americans-think-Trump-can-make-good-decisions-about-various-foreign-policy-issues-">Do Americans think Trump can make good decisions about various foreign policy issues?</a> <span class="lang-badge">EN</span>
+            <a href="#culture_opinion-2月経常収支-3兆9327億円の黒字-13か月連続黒字も黒字幅は縮小">2月経常収支 3兆9327億円の黒字 13か月連続黒字も黒字幅は縮小</a>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#culture_opinion-台湾-最大野党トップが中国訪問--台湾独立-反対の立場を強調">台湾 最大野党トップが中国訪問 「台湾独立」反対の立場を強調</a>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#culture_opinion-トランプ大統領-条件付きでイランへの攻撃-2週間停止を表明">トランプ大統領 条件付きでイランへの攻撃 2週間停止を表明</a>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#culture_opinion--北朝鮮が日本海に向けて飛しょう体を発射--韓国軍発表">“北朝鮮が日本海に向けて飛しょう体を発射” 韓国軍発表</a>
             <span class="topic-link-meta">（ソース2件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span></span>
+          </li>
+
+          <li>
+            <a href="#culture_opinion-海外報道-Pew-Research-">海外報道（Pew Research）</a> <span class="lang-badge">EN</span>
+            <span class="topic-link-meta">（ソース1件）</span>
+            <span class="topic-categories"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span></span>
           </li>
           </ul>
         </div>
         
-        <details class="topic-detail" id="culture_opinion-トランプ大統領-今夜-文明がまるごと滅びるだろう-SNSに投稿">
-          <summary>トランプ大統領“今夜 文明がまるごと滅びるだろう”SNSに投稿</summary>
+        <details class="topic-detail" id="culture_opinion-中東情勢">
+          <summary>中東情勢 <span class="lang-badge">EN</span></summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">イラン情勢をめぐって、アメリカのトランプ大統領が主張するイランのエネルギー施設などへの攻撃を行わない期限が8日午前9時に迫っています。トランプ大統領は、激しい攻撃を示唆してホルムズ海峡の開放などに応じ… 関連: イラン情勢 トランプ大統領が主張する期限 午前9時が迫る、NY原油 WTI先物価格 一時1バレル＝117ドル台まで上昇。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">イラン情勢・人道・紛争を巡る新たな展開が報じられている。また、中東情勢を巡る新たな展開が報じられている。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">イラン情勢をめぐって、アメリカのトランプ大統領が主張するイランのエネルギー施設などへの攻撃を行わない期限が8日午前9時に迫っています。トランプ大統領は、激しい攻撃を示唆してホルムズ海峡の開放などに応じ…　また、7日のニューヨーク原油市場ではアメリカがイランのエネルギー施設などの攻撃に踏み切るのではないかとの懸念が投資家の間で強まり、国際的な取り引きの指標となるWTIの先物価格が一時、1バレル＝117ドル台ま…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">イラン情勢・人道・紛争を巡る新たな展開が報じられている。中東情勢を巡る新たな展開が報じられている。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094521000" target="_blank" rel="noopener">仲介役パキスタン首相「トランプ氏に期限の2週間延長を要請」</a></li>
-                <li><span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094411000" target="_blank" rel="noopener">イラン情勢 トランプ大統領が主張する期限 午前9時が迫る</a></li>
-                <li><span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094471000" target="_blank" rel="noopener">NY原油 WTI先物価格 一時1バレル＝117ドル台まで上昇</a></li>
-                <li><span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094441000" target="_blank" rel="noopener">トランプ大統領“今夜 文明がまるごと滅びるだろう”SNSに投稿</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/short-reads/2026/04/07/negative-views-of-israel-netanyahu-continue-to-rise-among-americans-especially-young-people/" target="_blank" rel="noopener">中東情勢</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/gas-prices-are-americans-top-concern-in-iran-war/" target="_blank" rel="noopener">イラン情勢・人道・紛争</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="culture_opinion-デジタル貿易に関税課さないルール採択-日本含む66の国・地域">
-          <summary>デジタル貿易に関税課さないルール採択 日本含む66の国・地域</summary>
+        <details class="topic-detail" id="culture_opinion-2月経常収支-3兆9327億円の黒字-13か月連続黒字も黒字幅は縮小">
+          <summary>2月経常収支 3兆9327億円の黒字 13か月連続黒字も黒字幅は縮小</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">動画やゲームなどを海外からダウンロードする「デジタル貿易」について、日本を含む66の国と地域により関税を課さないという共通ルールが採択されました。利用者にとって、関税の負担が増えるリスクは少なくなりま…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">財務省が発表したことし2月の国際収支によりますと、日本が海外との貿易や投資でどれだけ稼いだかを示す経常収支は、3兆9327億円の黒字でした。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">動画やゲームなどを海外からダウンロードする「デジタル貿易」について、日本を含む66の国と地域により関税を課さないという共通ルールが採択されました。利用者にとって、関税の負担が増えるリスクは少なくなりま…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">財務省が発表したことし2月の国際収支によりますと、日本が海外との貿易や投資でどれだけ稼いだかを示す経常収支は、3兆9327億円の黒字でした。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094361000" target="_blank" rel="noopener">デジタル貿易に関税課さないルール採択 日本含む66の国・地域</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094611000" target="_blank" rel="noopener">2月経常収支 3兆9327億円の黒字 13か月連続黒字も黒字幅は縮小</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="culture_opinion-Negative-views-of-Israel--Netanyahu-continue-to-rise-among-Americans---especially-young-people">
-          <summary>Negative views of Israel, Netanyahu continue to rise among Americans – especially young people <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="culture_opinion-台湾-最大野党トップが中国訪問--台湾独立-反対の立場を強調">
+          <summary>台湾 最大野党トップが中国訪問 「台湾独立」反対の立場を強調</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Views of Israel and Benjamin Netanyahu have grown more negative among U.S. adults, with majorities under 50 in both parties rating them poorly.</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">台湾の最大野党 国民党のトップ、鄭麗文主席が7日に中国を訪問し、中国政府で台湾政策を担当する高官の歓迎を受け、双方は「台湾独立」に反対する立場を強調しました。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Views of Israel and Benjamin Netanyahu have grown more negative among U.S. adults, with majorities under 50 in both parties rating them poorly.</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">台湾の最大野党 国民党のトップ、鄭麗文主席が7日に中国を訪問し、中国政府で台湾政策を担当する高官の歓迎を受け、双方は「台湾独立」に反対する立場を強調しました。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/short-reads/2026/04/07/negative-views-of-israel-netanyahu-continue-to-rise-among-americans-especially-young-people/" target="_blank" rel="noopener">Negative views of Israel, Netanyahu continue to rise among Americans – especial…</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094481000" target="_blank" rel="noopener">台湾 最大野党トップが中国訪問 「台湾独立」反対の立場を強調</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="culture_opinion-Methodology">
-          <summary>Methodology <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="culture_opinion-トランプ大統領-条件付きでイランへの攻撃-2週間停止を表明">
+          <summary>トランプ大統領 条件付きでイランへの攻撃 2週間停止を表明</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">The American Trends Panel survey methodology Overview Data in this report comes from Wave 190 of the American Trends Panel (ATP), Pew Research Center’s nationally representative panel of randomly sel…</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">アメリカのトランプ大統領は日本時間の8日朝、事実上、封鎖されているホルムズ海峡について、イランが即時かつ安全な開放に同意することを条件に、イランへの攻撃を2週間停止すると明らかにしました。その上で「こ…</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">The American Trends Panel survey methodology Overview Data in this report comes from Wave 190 of the American Trends Panel (ATP), Pew Research Center’s nationally representative panel of randomly sel…　また、This report is a collaborative effort based on the input and analysis of the following individuals. Jacob Poushter, Associate Director, Global Attitudes ResearchJonathan Schulman, Research Asso…</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">アメリカのトランプ大統領は日本時間の8日朝、事実上、封鎖されているホルムズ海峡について、イランが即時かつ安全な開放に同意することを条件に、イランへの攻撃を2週間停止すると明らかにしました。その上で「こ…</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（1件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/methodology-us-views-of-iran/" target="_blank" rel="noopener">Methodology</a></li>
-                <li><span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/acknowledgments-us-views-of-iran/" target="_blank" rel="noopener">Acknowledgments</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094531000" target="_blank" rel="noopener">トランプ大統領 条件付きでイランへの攻撃 2週間停止を表明</a></li>
               </ul>
             </div>
           </div>
         </details>
 
-        <details class="topic-detail" id="culture_opinion-Do-Americans-think-Trump-can-make-good-decisions-about-various-foreign-policy-issues-">
-          <summary>Do Americans think Trump can make good decisions about various foreign policy issues? <span class="lang-badge">EN</span></summary>
+        <details class="topic-detail" id="culture_opinion--北朝鮮が日本海に向けて飛しょう体を発射--韓国軍発表">
+          <summary>“北朝鮮が日本海に向けて飛しょう体を発射” 韓国軍発表</summary>
           <div class="topic-detail-body">
             <div class="summary-section">
-              <div class="summary-label">要点</div>
-              <p class="summary-text">Public confidence in Trump's handling of the Russia-Ukraine war, as well as his policymaking toward Iran, China and North Korea, has declined since last year. 関連: Gas Prices Are Americans’ Top Concern in Iran War。</p>
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">アメリカとイランの仲介役を務めるパキスタンのシャリフ首相は、日本時間8日午前9時前、SNSに「イランとアメリカ、同盟国が、レバノンを含むあらゆる地域で、直ちに発効する即時停戦に合意したと発表できること…。また、韓国軍の合同参謀本部は、北朝鮮が日本海に向けて飛しょう体を発射したと、8日午前9時ごろに発表しました。韓国軍はアメリカ軍とともに飛しょう体の種類などを分析しています。</p>
             </div>
             <div class="summary-section">
-              <div class="summary-label">背景</div>
-              <p class="summary-text">Public confidence in Trump's handling of the Russia-Ukraine war, as well as his policymaking toward Iran, China and North Korea, has declined since last year.　また、69% of Americans are worried about higher gas prices due to the Iran war, and 45% say the U.S. is not doing enough to avoid civilian causalities.</p>
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">アメリカとイランの仲介役を務めるパキスタンのシャリフ首相は、日本時間8日午前9時前、SNSに「イランとアメリカ、同盟国が、レバノンを含むあらゆる地域で、直ちに発効する即時停戦に合意したと発表できること…。韓国軍の合同参謀本部は、北朝鮮が日本海に向けて飛しょう体を発射したと、8日午前9時ごろに発表しました。韓国軍はアメリカ軍とともに飛しょう体の種類などを分析しています。</p>
             </div>
             <div class="sources-section">
-              <div class="sources-label">参照ソース</div>
+              <div class="sources-label">参照ソース（2件）</div>
               <ul class="sources-list">
-                <li><span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/do-americans-think-trump-can-make-good-decisions-about-various-foreign-policy-issues/" target="_blank" rel="noopener">Do Americans think Trump can make good decisions about various foreign policy i…</a></li>
-                <li><span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/gas-prices-are-americans-top-concern-in-iran-war/" target="_blank" rel="noopener">Gas Prices Are Americans’ Top Concern in Iran War</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094581000" target="_blank" rel="noopener">“北朝鮮が日本海に向けて飛しょう体を発射” 韓国軍発表</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="https://news.web.nhk/newsweb/na/na-k10015094601000" target="_blank" rel="noopener">アメリカとイランが即時停戦で合意 仲介役パキスタン首相発表</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-海外報道-Pew-Research-">
+          <summary>海外報道（Pew Research） <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">ATPに関する新たな動きが伝えられている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">ATPに関する新たな動きが伝えられている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="https://www.pewresearch.org/global/2026/04/07/methodology-us-views-of-iran/" target="_blank" rel="noopener">海外報道（Pew Research）</a></li>
               </ul>
             </div>
           </div>
@@ -1656,7 +1357,7 @@
 
   <footer>
     <p>masa-knowledge デイリーインテリジェンスレポート — 自動生成</p>
-    <p>ソース定義: intelligence-sources.json ／ トピッククラスタリング: ルールベース</p>
+    <p>ソース定義: intelligence-sources.json ／ トピッククラスタリング: ルールベース ／ ソース立ち位置分類: 自動</p>
   </footer>
 </body>
 </html>
