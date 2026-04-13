@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デイリーインテリジェンス — 9999-12-31</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      background: #fafbfc;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { margin-bottom: 24px; font-size: 0.85rem; display: flex; gap: 12px; }
+    .header {
+      margin-bottom: 32px; padding: 28px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #2563eb 100%);
+      color: #fff; border-radius: 14px;
+    }
+    .header h1 { font-size: 1.5rem; margin-bottom: 6px; font-weight: 700; }
+    .header .date { font-size: 1.1rem; opacity: 0.9; }
+    .header .meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.85rem; opacity: 0.75; }
+    .toc {
+      margin-bottom: 28px; padding: 18px;
+      background: #f1f5f9; border-radius: 10px;
+    }
+    .toc-label { font-size: 0.8rem; color: #64748b; font-weight: 600; margin-bottom: 10px; }
+    .toc-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc-links a {
+      font-size: 0.82rem; padding: 5px 12px;
+      background: #e2e8f0; border-radius: 6px;
+      color: #334155; transition: background 0.15s;
+    }
+    .toc-links a:hover { background: #cbd5e1; text-decoration: none; }
+    .axis-title {
+      font-size: 1.2rem; color: #0f172a; font-weight: 700;
+      border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 8px;
+    }
+    .axis-summary { font-size: 0.8rem; color: #64748b; margin-bottom: 6px; }
+    .source-distribution { margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .no-data { color: #9ca3af; font-style: italic; padding: 12px 0; }
+    .axis-overview-card {
+      margin-bottom: 16px; padding: 20px;
+      background: #ffffff; border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .topic-detail {
+      margin-bottom: 10px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0 16px;
+    }
+    .topic-detail summary {
+      cursor: pointer; padding: 14px 0; font-weight: 700; color: #1e3a5f;
+    }
+    .topic-detail-body { padding-bottom: 14px; }
+    .summary-section { margin-bottom: 10px; }
+    .summary-label {
+      font-size: 0.75rem; font-weight: 700; color: #ffffff;
+      display: inline-block; padding: 2px 10px;
+      border-radius: 4px; margin-bottom: 4px;
+    }
+    .label-key, .label-summary { background: #2563eb; }
+    .label-bg { background: #7c3aed; }
+    .label-outlook { background: #059669; }
+    .summary-text {
+      font-size: 0.9rem; color: #374151; line-height: 1.7;
+      padding: 4px 0 0 2px;
+    }
+    .sources-section {
+      padding-top: 10px; border-top: 1px dashed #e5e7eb;
+    }
+    .sources-label {
+      font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 6px;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li {
+      font-size: 0.82rem; color: #475569; padding: 3px 0;
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    }
+    .source-name { font-weight: 600; color: #334155; }
+    .source-meta { color: #64748b; font-size: 0.78rem; }
+    .cat-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 600;
+      border-radius: 4px; padding: 1px 6px;
+      white-space: nowrap;
+    }
+    .lang-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 700;
+      color: #2563eb; background: #dbeafe; border-radius: 3px;
+      padding: 1px 5px; margin-left: 4px; vertical-align: middle;
+    }
+    footer {
+      margin-top: 48px; padding: 16px;
+      border-top: 1px solid #e5e7eb;
+      color: #9ca3af; font-size: 0.72rem; text-align: center;
+    }
+    @media (max-width: 640px) {
+      body { padding: 12px 8px; }
+      .header { padding: 18px; }
+      .sources-list li { flex-direction: column; align-items: flex-start; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html">← ナレッジベース TOP</a>
+    <a href="index.html">レポート一覧</a>
+  </nav>
+
+  <header class="header">
+    <h1>デイリーインテリジェンス</h1>
+    <p class="date">9999-12-31</p>
+    <div class="meta">
+      <span>トピック数: 39</span>
+      <span>ソース記事数: 52</span>
+      <span>生成: 2026-04-13 05:40:37 JST</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-label">目次 — 10軸インテリジェンス</div>
+    <div class="toc-links">
+      <a href="#politics_security">🏛️ 政治・安全保障</a>
+      <a href="#regulation_policy">⚖️ 法規制・制度変更</a>
+      <a href="#macro_economy">📈 マクロ経済・市場</a>
+      <a href="#industry_corporate">🏢 産業・企業動向</a>
+      <a href="#technology_research">🔬 テクノロジー・研究</a>
+      <a href="#health_medical">🏥 医療・ヘルスケア</a>
+      <a href="#society_labor">👥 社会・労働・人口</a>
+      <a href="#environment_infrastructure">🌍 環境・資源・インフラ</a>
+      <a href="#education_academic">🎓 学術・教育</a>
+      <a href="#culture_opinion">🎭 文化・世論・消費行動</a>
+    </div>
+  </nav>
+
+  <main>
+    
+      <section id="politics_security" style="margin-bottom:40px;">
+        <h2 class="axis-title">🏛️ 政治・安全保障</h2>
+        <p class="axis-summary">3件の注目トピック ／ 6件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 3</span> <span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 2</span> <span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">NATO加盟国がAI活用型脅威検知と国境を越えた連携を柱とするサイバーインフラ防衛の統合戦略に合意し、EUもIoT機器メーカーにセキュリティ基準を義務付ける「サイバーレジリエンス法」を施行した。アフリカではAU（アフリカ連合）首脳がサヘル地域向けに20億ドル規模の平和維持基金を創設し、同地域における仏露の影響力競争が主要議題となった。アジアでは日米首脳が先端半導体サプライチェーン強化に向け最大1兆円規模の共同投資枠組みに合意し、TSMC熊本工場の第3期計画への共同支援も協議された。さらにASEAN外相と中国が南シナ海の行動規範（COC）策定交渉を再開し、フィリピンとベトナムが法的拘束力のある合意を要求した。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">欧米のサイバー防衛強化とアフリカの平和維持基金創設は、いずれもロシア・中国の影響力拡大に対する多国間の対抗軸形成という共通の文脈を持つ。NATO・EUのサイバー分野での動きは、ウクライナ侵攻以降に急増した国家支援型サイバー攻撃への対応であり、2027年のEU規制適用期限は欧州IoT市場に大きな構造変化をもたらす。日米半導体合意は、2022年のCHIPS法以降加速する対中デカップリング戦略の延長線上にあり、TSMC熊本工場は日本政府がすでに約1.2兆円の補助金を投じた経済安保の象徴的案件である。南シナ海COC交渉は2002年の行動宣言（DOC）以来20年超にわたり難航しており、中国が法的拘束力を回避し続ける構図が続いている。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">NATO・EUのサイバー防衛統合がどこまで具体的な共同運用体制に発展するか、2027年のサイバーレジリエンス法適用開始に向けた企業対応の進捗が注目点となる。日米半導体協力ではTSMC熊本第3期計画の正式決定時期と投資規模の確定、および中国側の報復措置の有無を注視すべきである。南シナ海COC交渉は次回閣僚級会合での具体的条文案の提示有無が、実質的進展の試金石となる。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="politics_security-NATO・EU・AUが安全保障を多面的に強化--サイバー防衛からサヘル平和維持まで">
+          <summary>NATO・EU・AUが安全保障を多面的に強化——サイバー防衛からサヘル平和維持まで <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">NATO加盟国はAIを活用した脅威検知と加盟国間の越境連携を中核とするサイバーインフラ防衛の統合戦略に合意した。EUは「サイバーレジリエンス法」を施行し、IoT機器メーカーに対してセキュリティ基準の準拠を義務付け、適用期限を2027年に設定した。一方アフリカでは、AU首脳がサヘル地域の安定化に向けて20億ドル規模の平和維持基金の創設に合意し、同地域で影響力を競うフランスとロシアの動向が主要な議論の焦点となった。Reutersがサイバー戦略の技術的側面を、African Argumentsが仏露の地政学的競争という文脈をそれぞれ重点的に報じており、視点の違いが見られる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">欧州とアフリカで同時並行的に進む安全保障枠組みの強化は、ロシア・中国による既存秩序への挑戦に対する多国間の包括的対応を示している。特にサヘル地域ではワグネル・グループ（ロシアの民間軍事会社）の展開が続いており、AU独自の平和維持能力構築は西側諸国の対アフリカ戦略にも影響を与える。EUのIoT規制は世界的なサイバーセキュリティ基準の事実上の標準となる可能性があり、日本を含むアジアの製造業にも波及が見込まれる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（3件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">Reuters World</span> <span class="source-meta">（通信社）</span> — <a href="#mock2" target="_blank" rel="noopener">NATOのNATO動向</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">BBC News World</span> <span class="source-meta">（公共放送）</span> — <a href="#mock4" target="_blank" rel="noopener">EUのEU動向</a></li>
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">African Arguments</span> <span class="source-meta">（アフリカ専門メディア）</span> — <a href="#mock4b" target="_blank" rel="noopener">アフリカ・人道・紛争</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="politics_security-日米首脳が半導体サプライチェーン強化で合意-最大1兆円の共同投資枠組みを設定">
+          <summary>日米首脳が半導体サプライチェーン強化で合意、最大1兆円の共同投資枠組みを設定</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日米両首脳は先端半導体の供給網強化に向けた共同投資枠組みに合意し、日本側は最大1兆円規模の投資を表明した。NHKが首脳間の政治的合意を中心に報じたのに対し、日経は具体的な産業面として熊本県のTSMC工場第3期計画への共同支援協議を詳報しており、政治・経済の両面から合意の実態が浮き彫りになった。TSMC熊本工場はすでに第1期（2024年稼働開始）・第2期が進行中で、第3期はより先端のプロセスノード（回路線幅の微細化レベル）を視野に入れているとされる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">この合意は米国のCHIPS法（半導体産業への約527億ドルの補助金法）と日本の経済安保政策が具体的に連動する象徴的な案件であり、台湾海峡有事を念頭に置いた半導体供給の地政学的リスク分散が加速していることを示す。中国の先端半導体へのアクセス制限と表裏一体の動きであり、米中技術覇権競争の新たな段階を画するものといえる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 政治</span> <span class="source-meta">（公共放送）</span> — <a href="#mock1" target="_blank" rel="noopener">日米首脳会談、半導体サプライチェーンで新合意</a></li>
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="#mock3" target="_blank" rel="noopener">日米半導体協力、TSMC熊本工場への追加投資も視野</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="politics_security-ASEAN・中国が南シナ海行動規範の交渉を再開-比越が法的拘束力を要求">
+          <summary>ASEAN・中国が南シナ海行動規範の交渉を再開、比越が法的拘束力を要求 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">ASEAN各国の外相と中国が、長年停滞していた南シナ海における行動規範（COC: Code of Conduct）の策定交渉を再開した。交渉の場でフィリピンとベトナムが法的拘束力のある合意を強く求め、中国との間で立場の隔たりが改めて浮き彫りとなった。The Diplomatの報道によれば、交渉再開自体は前進だが、実質的な条文案の合意には至っていない。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">南シナ海のCOC交渉は2002年の行動宣言（DOC）署名から20年以上が経過しても法的枠組みが確定しておらず、その間に中国は人工島造成や軍事拠点化を進めてきた。フィリピンが2024年以降セカンド・トーマス礁周辺で中国海警局と繰り返し衝突していることも交渉の緊迫度を高めている。法的拘束力の有無は、南シナ海の航行の自由と地域の安定を左右する核心的論点であり、日本のシーレーン（海上輸送路）安全保障にも直結する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">The Diplomat</span> <span class="source-meta">（アジア安全保障メディア）</span> — <a href="#mock4c" target="_blank" rel="noopener">ASEANの中国関連</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="regulation_policy" style="margin-bottom:40px;">
+        <h2 class="axis-title">⚖️ 法規制・制度変更</h2>
+        <p class="axis-summary">3件の注目トピック ／ 4件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁 4</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">法規制・制度変更の軸では、日本・EU・インドの三極で同時並行的に重要な動きが進んでいる。日本では金融庁がAI規制法案を国会に提出し、高リスクAIシステムの事前審査義務化と生成AIの透明性要件を盛り込んだ包括的な法整備に踏み出した。同じく金融庁はステーブルコイン発行要件の厳格化と利用者保護強化を柱とする暗号資産の新規制案も公表した。EU側では高リスクAI適合性評価（AIシステムが規制要件を満たしているかを検証するプロセス）が完全に運用段階に入り、EU向け輸出を行う日本企業にも新たな対応が求められている。インドでは電子情報技術省がデジタル個人データ保護法（DPDP Act）の施行規則を確定し、データ保護責任者の任命や未成年者データへの検証可能な同意取得が義務化された。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">日本のAI規制法案はEU AI規制法（AI Act）の枠組みと類似したリスクベースのアプローチを採用しており、国際的な規制収斂の流れを反映している。EUの適合性評価が運用開始されたタイミングで日本も包括法案を提出したことは、両地域間での規制整合性を意識した動きとも読める。一方、インドのDPDP Act施行規則の確定は、約14億人の人口を抱える巨大市場におけるデータ保護の実効性を高めるもので、グローバルに事業展開する企業にとってはEU・GDPR、日本・個人情報保護法に加えた第三の主要規制フレームワークへの対応が必要となる。暗号資産規制についても、日本は主要国の中で比較的早期から法整備を進めてきた経緯があり、今回のステーブルコイン規制強化は2023年の改正資金決済法の延長線上に位置づけられる。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">日本のAI規制法案は今国会での審議過程が最大の注目点であり、企業の対応コスト負担に関する修正議論や施行時期の確定が焦点となる。EUのAI適合性評価については、2026年8月に予定される汎用AIモデル向け規制の適用開始に向けた企業側の準備状況を継続的に注視すべきである。インドのDPDP Act施行規則については、具体的な施行日と企業の猶予期間の発表が次の重要なマイルストーンとなる。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="regulation_policy-EU高リスクAI適合性評価の運用開始とインドのデータ保護施行規則確定">
+          <summary>EU高リスクAI適合性評価の運用開始とインドのデータ保護施行規則確定 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">EUでは高リスクAIシステムに対する適合性評価プロセスが完全運用段階に移行し、EU市場に製品を輸出する日本企業を含む域外事業者にも新要件への準拠が求められることになった。一方、インド電子情報技術省はデジタル個人データ保護法（DPDP Act）に基づく施行規則を確定し、企業に対してデータ保護責任者の任命と未成年者データ処理における検証可能な同意取得を義務付けた。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">EUとインドという二大市場で規制の実効段階への移行が同時に進んでおり、グローバル企業はマルチジュリスディクション対応のコストと体制整備に迫られる。特にAIとデータ保護という二つの領域が交差する場面（AIによる個人データ処理など）では、両規制の複合的な影響を見極める必要がある。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">EU Press Corner</span> <span class="source-meta">（EU行政機関）</span> — <a href="#mock7" target="_blank" rel="noopener">EUのEU動向</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">India PIB</span> <span class="source-meta">（政府機関）</span> — <a href="#mock7b" target="_blank" rel="noopener">インド関連・プライバシー・データ保護</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="regulation_policy-日本でAI規制包括法案が国会に提出">
+          <summary>日本でAI規制包括法案が国会に提出</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">金融庁の新着情報によると、高リスクAIシステムの事前審査義務化および生成AIに対する透明性要件を含む包括的なAI規制法案が国会に提出された。法案は企業に対して新たなコンプライアンス体制の構築を求める内容であり、対応コストの増大が産業界から懸念されている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本がリスクベースの包括的AI規制に正式に舵を切ったことを意味し、EU AI規制法との整合性や相互運用性が今後の国際交渉上の論点となる。国内のAI開発企業やAIを活用する金融機関にとっては、事前審査プロセスの具体的な運用基準が事業戦略を左右する重要な変数となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">金融庁 新着情報</span> <span class="source-meta">（金融規制当局）</span> — <a href="#mock5" target="_blank" rel="noopener">AI規制法案、国会に提出</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="regulation_policy-金融庁が暗号資産の新規制案を公表-ステーブルコイン要件を厳格化">
+          <summary>金融庁が暗号資産の新規制案を公表、ステーブルコイン要件を厳格化</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">金融庁はステーブルコイン（法定通貨等に価値を連動させた暗号資産）の発行要件厳格化と利用者保護強化を二本柱とする暗号資産の新規制案を公表した。2023年の改正資金決済法に続く追加的な規制強化の枠組みとなる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本は暗号資産規制で国際的に先行してきた実績があり、今回の規制案はグローバルなステーブルコイン規制の方向性にも影響を与えうる。国内の暗号資産交換業者やステーブルコイン発行を検討する金融機関にとっては、資本要件や利用者保護の具体的な水準がビジネスモデルの実現可能性を左右する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">金融庁 新着情報</span> <span class="source-meta">（金融規制当局）</span> — <a href="#mock6" target="_blank" rel="noopener">金融庁、暗号資産の新規制案を公表</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="macro_economy" style="margin-bottom:40px;">
+        <h2 class="axis-title">📈 マクロ経済・市場</h2>
+        <p class="axis-summary">3件の注目トピック ／ 5件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙 3</span> <span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁 1</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">主要中央銀行が相次いで金利据え置きを決定した。米FRBのパウエル議長はインフレ指標の改善が不十分として追加利下げを見送り、市場は最速で9月の利下げ開始を織り込んでいる。欧州中央銀行（ECB）も預金ファシリティ金利（銀行がECBに預ける際の金利）を3.0%に維持し、ラガルド総裁はサービス分野の根強いインフレと地政学リスクを理由に挙げた。日本銀行も政策金利を0.75%に据え置いたが、植田総裁は物価上昇の持続性を確認しており、年後半の利上げ観測が強まっている。一方、アジア開発銀行（ADB）はアジア新興国の2026年GDP成長率見通しを上方修正し、インドネシアとベトナムの堅調な内需を牽引役として挙げた。日経平均株価は半導体関連株の上昇に支えられ39,000円台を回復した。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">米欧日の三大中央銀行が同時期に金利を据え置いた背景には、インフレの粘着性という共通課題がある。FRBとECBはいずれもサービス価格の高止まりに警戒を示しており、利下げサイクルへの転換が後ずれする構図が鮮明になっている。日銀は逆に正常化方向を模索しており、他の主要中銀と金融政策の方向性が分岐しつつある点が円相場（現在145円台）に影響を与えている。こうした先進国の高金利環境にもかかわらず、ADBがアジア新興国の成長見通しを5.2%へ引き上げたことは、内需主導型の成長が外部環境の逆風に対して一定の耐性を持つことを示唆している。日経平均の39,000円台回復は、米国市場の堅調さとドル安による輸出企業の採算改善期待が重なった結果といえる。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">最大の注目点は米国の9月FOMC会合に向けたインフレ指標（CPI・PCEデフレーター）の推移であり、利下げ開始の可否を左右する。日銀については7月・9月の金融政策決定会合で利上げの有無が焦点となり、円相場と日本株のボラティリティに直結する。ECBも6月理事会で据え置き継続か利下げ転換かの判断を迫られるため、5月のユーロ圏インフレ速報値が重要な材料となる。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="macro_economy-米欧中銀が金利据え置き-ADBはアジア新興国の成長見通しを上方修正">
+          <summary>米欧中銀が金利据え置き、ADBはアジア新興国の成長見通しを上方修正 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">米FRB議長はインフレ改善の不十分さを理由に追加利下げを見送り、市場の利下げ開始予想は9月へ後退した。ECBも預金ファシリティ金利を3.0%に据え置き、ラガルド総裁はサービスインフレの持続と地政学リスクを警戒要因に挙げた。一方、ADBはインドネシア・ベトナムの堅調な内需を背景にアジア新興国の2026年GDP成長率見通しを上方修正した。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">米欧の利下げ後ずれは世界的な高金利環境の長期化を意味し、新興国からの資本流出圧力や企業の資金調達コスト上昇につながる。BloombergとECBの公式発表で共通して示されたインフレの粘着性は、各国の財政・金融政策の余地を狭めている。ADBの上方修正はアジア内需の底堅さを示す一方、先進国の政策転換が遅れた場合の下振れリスクも残る。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（3件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">Bloomberg Markets</span> <span class="source-meta">（金融メディア）</span> — <a href="#mock9" target="_blank" rel="noopener">金融政策</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">ECB Press</span> <span class="source-meta">（中央銀行）</span> — <a href="#mock10b" target="_blank" rel="noopener">ECBのEU動向</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">Asian Development Bank</span> <span class="source-meta">（国際機関）</span> — <a href="#mock10c" target="_blank" rel="noopener">ADBの東南アジア（5.2%）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="macro_economy-日銀-政策金利0-75-に据え置き--年後半の利上げ観測強まる">
+          <summary>日銀、政策金利0.75%に据え置き——年後半の利上げ観測強まる</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日銀は政策金利を0.75%に据え置いた。植田総裁は物価上昇の持続性を確認する姿勢を示し、市場では年後半の追加利上げを織り込む動きが広がっている。為替市場では円が1ドル=145円台で推移している。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">米欧が利下げを模索する中で日銀が利上げ方向にある点は、主要中銀間の政策乖離を拡大させる要因となる。円安の修正度合いは日本の輸入物価と企業収益の双方に影響し、今後の利上げ判断が個人消費や住宅ローン金利にも波及する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="#mock8" target="_blank" rel="noopener">日銀、政策金利0.75%に据え置き</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="macro_economy-日経平均-半導体株主導で39-000円台を回復">
+          <summary>日経平均、半導体株主導で39,000円台を回復</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日経平均株価が39,000円台を回復した。半導体関連銘柄の上昇が指数を牽引し、背景には米国株式市場の好調さとドル安による日本の輸出企業への追い風がある。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">39,000円台回復は市場心理の改善を示すが、上昇が半導体セクターに集中している点はリスク要因でもある。米国の利下げ時期や為替動向次第で相場の方向性が変わりうるため、幅広いセクターへの資金波及が持続性の鍵となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fce7f3;color:#9d174d;border:1px solid #ec4899;">経済紙</span> <span class="source-name">日経 経済</span> <span class="source-meta">（経済紙）</span> — <a href="#mock10" target="_blank" rel="noopener">日経平均、39000円台回復</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="industry_corporate" style="margin-bottom:40px;">
+        <h2 class="axis-title">🏢 産業・企業動向</h2>
+        <p class="axis-summary">4件の注目トピック ／ 4件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 4</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">2026年第1四半期のスタートアップ資金調達はAI・ヘルスケア分野が牽引し総額1.2兆円に達し、10億円超の大型レイターステージラウンドが複数成立した（Crunchbase News）。ソフトバンクグループは英国のAI半導体スタートアップを約5000億円で買収し、傘下のARMとの連携によりAI推論チップ市場への本格参入を図る（日経ビジネス）。東南アジアではライドヘイリング大手Grabが6市場で保険・融資商品を展開し、2027年末までに金融サービス利用者5000万人を目標に掲げた（Deal Street Asia）。トヨタは全固体電池（従来の液体電解質を固体に置き換え、高エネルギー密度を実現する次世代電池）の量産開始を2027年へ1年前倒しし、航続距離1000kmの実現を見込む（日経ビジネス）。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">AI関連投資の過熱はソフトウェアだけでなく半導体ハードウェア領域にも波及しており、ソフトバンクGの買収はNVIDIA一強のAIチップ市場に新たな競争軸を持ち込む動きといえる。第1四半期の資金調達1.2兆円という水準は、2025年通年ペースを上回る勢いであり、AI・ヘルスケアへの資本集中が鮮明になっている。Grabのフィンテック拡大は、東南アジアで銀行口座を持たない人口が依然数億人規模であることを背景に、スーパーアプリ戦略を金融包摂へ接続する試みである。トヨタの全固体電池前倒しは、中国BYDや欧州勢がEV価格競争を加速させるなか、航続距離という差別化要素で巻き返しを図る戦略的判断であり、電池材料のサプライチェーンにも影響が及ぶ。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">ソフトバンクGの買収完了手続きと各国の独占禁止審査の行方が今後数か月の焦点となり、ARM決算（2026年5月予定）でAIチップ戦略の具体像が示される見通し。トヨタの全固体電池については2026年後半に予定されるパイロットライン稼働状況と、競合する中国CATLやサムスンSDIの対抗発表に注目すべきである。Grabは2026年第2四半期決算でフィンテック部門の収益貢献度が初めて可視化される見込みであり、東南アジア・フィンテック市場の成長速度を測る指標となる。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="industry_corporate-2026年Q1スタートアップ資金調達-AI・ヘルスケア牽引で1-2兆円規模に">
+          <summary>2026年Q1スタートアップ資金調達、AI・ヘルスケア牽引で1.2兆円規模に <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">Crunchbase Newsによると、2026年第1四半期のグローバルスタートアップ資金調達総額は1.2兆円に達した。AI（人工知能）とヘルスケア分野が主要な牽引役となり、10億円を超えるレイターステージ（事業拡大期）の大型ラウンドが複数成立した。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">四半期ベースで1.2兆円という規模は、スタートアップ投資環境が2024年後半の調整局面を脱したことを示唆する。AI関連への資本集中が続くなか、バリュエーションの持続可能性や、ヘルスケア分野での規制対応コストが今後の論点となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Crunchbase News</span> <span class="source-meta">（スタートアップ・投資メディア）</span> — <a href="#mock13" target="_blank" rel="noopener">スタートアップ・VC（Q1）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="industry_corporate-東南アジア配車大手Grab-6市場でフィンテック事業を本格展開">
+          <summary>東南アジア配車大手Grab、6市場でフィンテック事業を本格展開 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">Deal Street Asiaの報道によれば、東南アジアのライドヘイリング（配車サービス）最大手Grabが保険および融資商品を6市場で新たに提供開始した。同社は2027年末までに金融サービス利用者を5000万人に拡大する目標を掲げている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">東南アジアでは成人人口の約半数が銀行口座を持たないとされ、Grabの配車アプリ基盤を活用したフィンテック展開は金融包摂を加速させる可能性がある。Sea GroupのShopeePayやGoToなど競合との顧客獲得競争が一段と激化する局面に入る。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Deal Street Asia</span> <span class="source-meta">（アジアビジネスメディア）</span> — <a href="#mock13b" target="_blank" rel="noopener">Southeast Asian ride-hailing giant Grab expands fintech services</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="industry_corporate-ソフトバンクG-英AI半導体スタートアップを約5000億円で買収">
+          <summary>ソフトバンクG、英AI半導体スタートアップを約5000億円で買収</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日経ビジネスによると、ソフトバンクグループは英国のAI半導体スタートアップを約5000億円で買収する。傘下のARM（半導体設計大手）との連携を強化し、AI推論チップ（学習済みモデルを実行するための専用半導体）市場への本格参入を目指す。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">現在AI半導体市場はNVIDIAが圧倒的シェアを持つが、推論用途は学習用途に比べ多様なアーキテクチャが競合しうる領域であり、ARMの省電力設計と組み合わせることでエッジAI分野での差別化が期待される。買収規模の大きさから、各国の独禁審査の帰趨が実現時期を左右する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="#mock11" target="_blank" rel="noopener">ソフトバンクG、英AI半導体スタートアップを買収</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="industry_corporate-トヨタ-全固体電池の量産開始を2027年に1年前倒し">
+          <summary>トヨタ、全固体電池の量産開始を2027年に1年前倒し</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">日経ビジネスの報道によれば、トヨタ自動車はEV向け全固体電池の量産開始時期を従来計画から1年前倒しし2027年とする方針を固めた。同電池の搭載により航続距離1000kmの実現を見込む。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">全固体電池は充電速度・安全性・エネルギー密度でリチウムイオン電池を凌駕する次世代技術とされ、量産化に成功すればEV市場の勢力図を塗り替える可能性がある。中国勢が価格競争で攻勢をかけるなか、トヨタは航続距離という性能軸での差別化を狙っており、固体電解質の原材料である硫化リチウムなどの調達競争にも注目が集まる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">日経ビジネス</span> <span class="source-meta">（業界メディア）</span> — <a href="#mock12" target="_blank" rel="noopener">トヨタ、全固体電池量産を2027年に前倒し</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="technology_research" style="margin-bottom:40px;">
+        <h2 class="axis-title">🔬 テクノロジー・研究</h2>
+        <p class="axis-summary">3件の注目トピック ／ 6件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 6</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">Google DeepMindが100万トークンのコンテキストウィンドウを持つGemini Ultra 2を発表し、長文書全体にわたる推論とマルチモーダル性能の大幅向上を実現した。同時期にOpenAIも推論特化モデルo3を一般提供開始し、数学・コーディング・科学的推論ベンチマークで従来モデルを大幅に上回る成績を示している。素粒子物理学ではCERNのLHCb実験がB中間子崩壊において標準模型の予測から3.8シグマの乖離を示す新データを公開し、新物理の兆候として注目を集めている。AI安全性の分野ではarXivで大規模言語モデル向けの体系的リスク評価フレームワークが提案され、レッドチーミング（AIの脆弱性を意図的に探索するテスト手法）の自動化に道を開いた。量子コンピューティングではIBMとGoogleの競争が加速し、誤り訂正技術の進展により実用化が近づいている。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">Gemini Ultra 2とo3の同時期登場は、大規模言語モデル開発がコンテキスト長の拡大と推論能力の深化という二軸で急速に進化していることを示す。OpenAIがo3のAPI価格を据え置いたことは、高性能モデルの普及を加速させ、企業や研究者のAI活用の裾野を広げる可能性がある。一方、モデルの高度化に伴い安全性評価の重要性も増しており、arXivで提案されたフレームワークはこのギャップを埋める試みといえる。CERNの3.8シグマの乖離は統計的に「発見」とされる5シグマには未達だが、2012年のヒッグス粒子発見以来最大級の異常値であり、追加データ次第では物理学の根幹を揺るがす発見につながりうる。量子コンピューティングの誤り訂正技術の進展は、AIの大規模計算需要とも相互に影響し合う領域であり、中長期的に計算基盤そのものを変革する可能性を秘めている。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">AI分野では、Gemini Ultra 2とo3の実際のユーザー環境でのベンチマーク比較や、各社の次期モデル発表動向を注視すべきである。CERNのLHCb実験については、2026年後半に予定される追加データ解析の結果が5シグマに到達するかが最大の焦点となる。量子コンピューティングではIBMが2026年中に予告している次世代プロセッサの発表時期と、Googleの量子超越性に関する新たな実証実験の進捗が重要な観測ポイントとなる。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="technology_research-Gemini-Ultra-2発表とo3一般提供--AI大手2社が同時期に次世代モデル投入">
+          <summary>Gemini Ultra 2発表とo3一般提供——AI大手2社が同時期に次世代モデル投入 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">Google DeepMindが100万トークンのコンテキストウィンドウを備えたGemini Ultra 2を発表し、長文書全体の推論処理とマルチモーダル性能を大幅に強化した。同時期にOpenAIは推論特化モデルo3を一般提供に移行し、数学・コーディング・科学的推論の各ベンチマークで前世代モデルを大きく上回る性能を示した。OpenAIはo3のAPI価格を従来と同水準に据え置いている。また、CERNのLHCb実験はB中間子崩壊で標準模型予測から3.8シグマの乖離を検出し、既知の物理法則を超える新物理の可能性を示唆した。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">コンテキスト長100万トークンの実現は、法務文書全文解析や大規模コードベースの一括処理など従来不可能だったユースケースを開拓する。o3の価格据え置きは高性能推論モデルの民主化を意味し、研究・産業の両面でAI活用の加速が見込まれる。CERNの異常値が確認されれば、素粒子物理学の標準模型の修正が必要となり、科学史的な転換点となりうる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（3件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Google AI Blog</span> <span class="source-meta">（研究機関ブログ）</span> — <a href="#mock14" target="_blank" rel="noopener">Google DeepMind unveils Gemini Ultra 2 with 1M token context</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">OpenAI Blog</span> <span class="source-meta">（AI企業公式ブログ）</span> — <a href="#mock15" target="_blank" rel="noopener">OpenAI releases reasoning-focused model o3 to general availability</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">CERN News</span> <span class="source-meta">（研究機関）</span> — <a href="#mock17c" target="_blank" rel="noopener">CERNの素粒子物理</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="technology_research-大規模言語モデルの安全性評価フレームワークが提案--レッドチーミング自動化へ">
+          <summary>大規模言語モデルの安全性評価フレームワークが提案——レッドチーミング自動化へ <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">arXiv CS.AIに大規模言語モデル（LLM）のリスクを体系的に評価するフレームワークが発表された。このフレームワークはレッドチーミング（AIの脆弱性や危険な出力を意図的に引き出すテスト手法）のプロセスを自動化する手法を提示している。また同分野外では、NASAがArtemis III有人月面着陸ミッションが2026年第4四半期の予定通りに進行中であることを確認し、SpaceXのStarship HLS（月面着陸システム）が最終設計審査を通過したと発表した。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">GeminiやGPTシリーズの急速な高性能化に伴い、モデルの安全性を人手に頼らず継続的に検証する仕組みの必要性が高まっている。自動化されたレッドチーミングが実用化すれば、各国で進むAI規制への企業の対応コストを低減しつつ、安全性の底上げにつながる。Artemis IIIの進捗はAI・ロボティクス技術の宇宙応用という観点でも注目される。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">arXiv CS.AI</span> <span class="source-meta">（論文プレプリント）</span> — <a href="#mock17" target="_blank" rel="noopener">arXiv: Safety evaluation framework for large language models</a></li>
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">NASA News</span> <span class="source-meta">（宇宙機関）</span> — <a href="#mock17b" target="_blank" rel="noopener">NASA関連（NASA News）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="technology_research-量子コンピューティングの誤り訂正技術が進展--IBM・Google間の開発競争が加速">
+          <summary>量子コンピューティングの誤り訂正技術が進展——IBM・Google間の開発競争が加速 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">Nature Newsの報道によれば、量子コンピューティング分野でIBMとGoogleの開発競争が激化している。特に量子誤り訂正（量子ビットのエラーを検出・修正し、計算の信頼性を高める技術）において顕著な進展があり、実用的な量子計算の実現が従来の想定より近づいているとされる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">量子誤り訂正は、量子コンピュータが古典コンピュータを凌駕する実用的な計算を行うための最大のボトルネックとされてきた。この技術が成熟すれば、創薬シミュレーション、暗号解読、材料科学などの領域で革命的な計算能力が利用可能になる。AI大規模モデルの訓練・推論における計算需要の増大とも連動しており、次世代の計算インフラを巡る競争の焦点となっている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Nature News</span> <span class="source-meta">（科学誌）</span> — <a href="#mock16" target="_blank" rel="noopener">量子コンピューティング</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="health_medical" style="margin-bottom:40px;">
+        <h2 class="axis-title">🏥 医療・ヘルスケア</h2>
+        <p class="axis-summary">4件の注目トピック ／ 5件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 2</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関 1</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 1</span> <span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">WHOは薬剤耐性菌（AMR）による死亡が年間130万人に達するとの新データを公表し、新たな資金メカニズムの創設を提案した。米国ではCDCが幼稚園児のワクチン接種率が91.1%と過去10年で最低に落ち込み、麻疹の発生件数が前年比300%増加したと報告している。治療分野では、NEJMに掲載された第2相臨床試験で、CAR-T細胞療法（患者自身の免疫細胞を改変してがんを攻撃させる治療法）が膵臓がんに対し73%の完全寛解率を達成した。日本では厚労省が国産mRNA型インフルエンザワクチンを正式承認し、年内5000万回分の供給体制構築を目指すほか、アルツハイマー病治療薬レカネマブの保険適用が4月から開始された。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">AMRは2050年までに年間1000万人の死因となるとの予測もあり、WHOが資金メカニズムに踏み込んだことは、抗菌薬開発の市場インセンティブ不足という構造的課題への対応を加速させる狙いがある。米国のワクチン接種率低下は反ワクチン運動の影響が指摘されており、集団免疫の閾値（麻疹の場合95%）を下回る地域が増えることで、先進国でも感染症再興のリスクが現実化している。CAR-T療法はこれまで血液がんが主な適応だったが、固形がんである膵臓がんでの高い奏効率は治療パラダイムを変える可能性がある。日本の国産mRNAワクチン承認は、COVID-19で露呈した海外依存からの脱却を図るワクチン安全保障政策の成果であり、レカネマブの保険適用は認知症治療の新時代の幕開けとなる一方、年間約298万円という薬価が医療財政に与える影響も注視される。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">AMR対策では、2026年後半に予定されるWHO総会での資金メカニズム合意の行方が焦点となる。米国の麻疹流行については、秋の新学期に向けた各州の接種義務強化策の動向を追う必要がある。CAR-T膵臓がん治療は第3相試験への移行判断が今後1年以内に見込まれ、結果次第で固形がん免疫療法の開発競争が一段と激化する。日本ではレカネマブの処方実績データが夏以降に蓄積され、対象患者の拡大や薬価見直しの議論につながる可能性がある。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="health_medical-WHO-薬剤耐性菌による年間130万人死亡の新データを公表-米国では幼稚園児の接種率が過去10年最低に">
+          <summary>WHO、薬剤耐性菌による年間130万人死亡の新データを公表／米国では幼稚園児の接種率が過去10年最低に <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">WHOは薬剤耐性菌（AMR）が年間130万人の直接的な死因となっているとする新たなデータを発表し、開発資金の不足を補う新たな資金メカニズムの創設を提案した。一方、米CDCは米国の幼稚園児のワクチン接種率が91.1%と過去10年間で最低水準に低下したと報告し、麻疹の発生件数が前年比で300%増加していることを明らかにした。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">AMRは「サイレント・パンデミック」とも呼ばれ、既存の抗菌薬が効かなくなることで手術や化学療法など近代医療の基盤が脅かされる。米国の接種率低下と麻疹急増は、WHOが掲げる感染症撲滅目標との逆行を示しており、先進国における公衆衛生体制の脆弱性が改めて浮き彫りになっている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">WHO News</span> <span class="source-meta">（国際機関）</span> — <a href="#mock28" target="_blank" rel="noopener">WHO関連（WHO News）</a></li>
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">CDC Newsroom</span> <span class="source-meta">（公衆衛生機関）</span> — <a href="#mock29c" target="_blank" rel="noopener">CDC関連（CDC Newsroom）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="health_medical-CAR-T細胞療法-膵臓がん第2相試験で73-の完全寛解を達成">
+          <summary>CAR-T細胞療法、膵臓がん第2相試験で73%の完全寛解を達成 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">NEJMに掲載された第2相臨床試験の結果、CAR-T細胞療法が膵臓がん患者に対して73%の完全寛解率を示した。試験は米国と欧州の15施設で実施され、120人の患者が登録された。固形がんに対するCAR-T療法としては過去最高水準の奏効率となる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">膵臓がんは5年生存率が10%前後と極めて予後不良ながら有効な治療選択肢が限られてきた。CAR-T療法が固形がんでこれほどの成績を示したことは、血液がん領域に留まっていた免疫細胞療法の適応拡大に道を開くものであり、今後の第3相試験と規制当局の審査動向が注目される。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">NEJM</span> <span class="source-meta">（医学誌）</span> — <a href="#mock29b" target="_blank" rel="noopener">NEJM関連（NEJM）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="health_medical-厚労省-国産mRNA型インフルエンザワクチンを正式承認">
+          <summary>厚労省、国産mRNA型インフルエンザワクチンを正式承認</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">厚生労働省は国産のmRNA技術を用いたインフルエンザワクチンを正式に承認した。年内に5000万回分の供給体制を構築する計画で、mRNA技術による季節性インフルエンザワクチンの実用化は日本初となる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">COVID-19パンデミック時に海外製ワクチンへの依存が課題となったことを受け、日本政府はワクチンの国内製造基盤の強化を進めてきた。mRNAプラットフォームは変異株への迅速な対応が可能であり、将来的にはインフルエンザ以外の感染症への展開も期待される。国内バイオ産業の競争力強化にもつながる一歩である。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 医療・健康</span> <span class="source-meta">（公共放送）</span> — <a href="#mock27" target="_blank" rel="noopener">新型インフルエンザワクチン、国産mRNA型が承認</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="health_medical-アルツハイマー病治療薬レカネマブ-日本で4月から保険適用開始">
+          <summary>アルツハイマー病治療薬レカネマブ、日本で4月から保険適用開始</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">アルツハイマー病の原因物質とされるアミロイドβを除去する抗体医薬レカネマブの保険適用が4月から開始された。年間治療費は約298万円で、対象となる早期アルツハイマー病患者は推定数万人規模とされる。エーザイと米バイオジェンが共同開発した同薬は、疾患修飾型治療薬として日本で保険収載された初の薬剤となる。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本の認知症患者は約600万人と推計され、レカネマブは進行抑制が期待される初の本格的治療薬として大きな意義を持つ。一方で、年間約298万円の薬価は医療保険財政への圧迫が懸念されており、費用対効果の検証や対象患者の適切な選定基準が今後の重要な政策課題となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 医療・健康</span> <span class="source-meta">（公共放送）</span> — <a href="#mock29" target="_blank" rel="noopener">アルツハイマー新薬、日本で保険適用開始</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="society_labor" style="margin-bottom:40px;">
+        <h2 class="axis-title">👥 社会・労働・人口</h2>
+        <p class="axis-summary">3件の注目トピック ／ 4件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 3</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">日本の2025年出生数が前年比5.2%減の68万人と過去最少を更新し、少子化の加速が鮮明になった。一方、国内の外国人労働者数は200万人を初めて突破し、特定技能2号（より長期の在留・家族帯同が可能な在留資格）の対象拡大が増加を後押ししている。国際的には、UNHCRがスーダン・ミャンマー・コンゴ民主共和国の紛争を主因として強制避難民が史上最多に達したと報告した。国内労働環境では、大企業のリモートワーク定着率が65%に達し、コロナ後もハイブリッド勤務が主流となっている。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">日本の出生数減少と外国人労働者の急増は表裏一体の構造問題である。生産年齢人口の縮小が進む中、労働力の外国人依存度は今後さらに高まる見通しで、受入れ体制の整備が社会統合の鍵を握る。世界的に見ても、強制避難民の増加は受入れ国の労働市場・社会保障に直接影響し、日本も難民・移民政策の再検討を迫られる局面にある。リモートワークの定着は働き方の多様化を示す一方、大企業と中小企業の間でデジタル環境や制度整備に格差が生じており、労働市場の二極化リスクが指摘されている。これら三つの動向は、いずれも「誰がどこでどう働くか」という労働供給の根本構造に関わる点で相互に連関している。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">日本政府が検討を開始した少子化追加施策の具体案と、2026年度予算編成における関連予算の規模が最初の注視点となる。外国人労働者については、特定技能制度の次回運用見直し時期（2024年度の制度拡大後の実績評価）が重要で、在留資格別の受入れ実態データに注目すべきである。UNHCR関連では、2025年6月の世界難民の日前後に公表される年次統計報告が、各国の対応方針に影響を与える可能性がある。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="society_labor-2025年出生数が過去最少の68万人-外国人労働者は200万人突破">
+          <summary>2025年出生数が過去最少の68万人、外国人労働者は200万人突破</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">2025年の日本の出生数は前年比5.2%減の68万人となり、統計開始以来の過去最少を記録した。政府は少子化対策の追加施策の検討を開始している。同時に、国内の外国人労働者数が初めて200万人を突破し、人手不足を背景に過去最多を更新した。特定技能2号の対象分野拡大がこの増加に寄与している。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">出生数の減少ペースが加速する中、労働力確保の外国人依存が構造化しつつあり、受入れ制度と社会統合政策の整合性が問われる。NHKが両データを同時に報じたことは、少子化と移民政策を一体の課題として捉える視点が広がっていることを示唆している。今後の政策議論では、出生率回復策と外国人材の定着支援をどう両立させるかが焦点となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（2件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="#mock18" target="_blank" rel="noopener">2025年出生数、過去最少の68万人</a></li>
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="#mock20" target="_blank" rel="noopener">外国人労働者、200万人を突破</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor-強制避難民が史上最多を記録-スーダン・ミャンマー・コンゴが主因">
+          <summary>強制避難民が史上最多を記録、スーダン・ミャンマー・コンゴが主因 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">UNHCRの報告によれば、世界の強制避難民（紛争や迫害により故郷を追われた人々）の数が過去最多を更新した。主な要因はスーダン内戦の激化、ミャンマーの政情不安の長期化、コンゴ民主共和国東部の武力紛争の拡大である。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">避難民の増加は受入れ国の財政・社会保障・労働市場に波及し、欧州やアフリカ周辺国だけでなく、日本を含むアジア諸国にも難民・移民政策の再考を促す要因となる。特にミャンマー情勢は日本のODA政策や在留ミャンマー人の処遇に直結しており、国内の外国人労働者問題とも地続きの課題である。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UNHCR News</span> <span class="source-meta">（国際機関）</span> — <a href="#mock20b" target="_blank" rel="noopener">UNHCR関連（UNHCR News）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="society_labor-大企業のリモートワーク定着率65--中小企業との格差が課題に">
+          <summary>大企業のリモートワーク定着率65%、中小企業との格差が課題に</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">NHKの報道によると、大企業におけるリモートワーク定着率が65%に達し、コロナ禍後もハイブリッド勤務（出社と在宅の併用）が主流の働き方として定着した。一方、中小企業では導入率・定着率ともに大企業を大きく下回っており、企業規模による格差が浮き彫りになっている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">リモートワークの定着度合いは、人材獲得競争力や従業員の定着率に直結するため、中小企業の人手不足をさらに深刻化させるリスクがある。少子化で労働力が縮小する中、柔軟な働き方を提供できるかどうかが企業の存続を左右する要素になりつつあり、中小企業向けのデジタル環境整備支援策の充実が求められる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 社会</span> <span class="source-meta">（公共放送）</span> — <a href="#mock19" target="_blank" rel="noopener">リモートワーク定着率、大企業で65%に</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="environment_infrastructure" style="margin-bottom:40px;">
+        <h2 class="axis-title">🌍 環境・資源・インフラ</h2>
+        <p class="axis-summary">4件の注目トピック ／ 6件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 3</span> <span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関 2</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">東京証券取引所のカーボンクレジット市場が活況を呈し、GX（グリーントランスフォーメーション）関連投資の触媒となっている。アフリカではケニアが地熱・風力を中心に電力の90%を再生可能エネルギーで賄う実績を達成し、他のアフリカ諸国がこのモデルを研究対象としている。EUは域内でのリチウムおよびレアアース加工に拘束力ある目標を設定し、2030年までに戦略鉱物の少なくとも40%を欧州域内で加工する方針を打ち出した。一方、NASAの新たな衛星観測データによると、南極大陸は2025年に1,500億メートルトンの氷を喪失し、2015〜2024年の平均を20%上回った。日本では秋田沖で洋上風力発電の商用運転が開始された。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">カーボンクレジット市場の成長とEUの重要鉱物加工目標は、脱炭素と資源安全保障という二つの政策課題が同時に加速していることを示している。EUの40%域内加工目標は、中国に集中するレアアース精錬のサプライチェーンリスクへの対応であり、米国のIRA（インフレ抑制法）と並ぶ産業政策として国際的な資源獲得競争を激化させる可能性がある。ケニアの再エネ90%達成は、化石燃料インフラが未整備な途上国がリープフロッグ（段階飛ばし）型で再エネ移行を果たせることを実証した事例であり、Carbon BriefとUNEP Newsという異なる視点の報道が、先進国・途上国双方での移行加速を裏付けている。南極の氷床融解加速は海面上昇予測の上方修正につながる可能性があり、沿岸インフラ投資の再評価を迫る材料となる。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">EUの重要鉱物規制は2030年の目標達成に向けた具体的な実施計画が今後数カ月で提示される見通しであり、加盟国ごとの割当や補助金制度の詳細が焦点となる。東京証券取引所のカーボンクレジット市場については、2026年度のGX経済移行債の発行規模と取引量の推移が市場の持続性を測る指標となる。南極氷床のデータはIPCC（気候変動に関する政府間パネル）の次回評価報告書に反映される可能性が高く、海面上昇シナリオの改訂動向を注視すべきである。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="environment_infrastructure-カーボンクレジット市場の活況とEUの重要鉱物加工義務化-ケニアの再エネ90-達成">
+          <summary>カーボンクレジット市場の活況とEUの重要鉱物加工義務化、ケニアの再エネ90%達成 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">東京証券取引所のカーボンクレジット市場が急成長しており、GX関連投資を後押しする触媒となっている。ケニアは地熱・風力発電を主軸に電力供給の90%を再生可能エネルギーで達成し、アフリカ諸国の参考モデルとなっている。EUはリチウムやレアアースなど戦略鉱物の域内加工比率を2030年までに40%以上とする拘束力ある目標を設定した。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">Carbon Brief、UNEP、IEAの三者がそれぞれ異なる地域・テーマから報じており、脱炭素の潮流がアジア・アフリカ・欧州で同時に具体的政策として結実していることを示す。特にEUの加工義務化は中国依存のサプライチェーン再編を促し、日本のGX戦略や資源調達にも直接影響する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（3件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="#mock23" target="_blank" rel="noopener">気候・エネルギー・金融市場</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">UNEP News</span> <span class="source-meta">（国際機関）</span> — <a href="#mock23c" target="_blank" rel="noopener">アフリカ・気候・エネルギー</a></li>
+                <li><span class="cat-badge" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;">国際機関</span> <span class="source-name">IEA News</span> <span class="source-meta">（国際機関）</span> — <a href="#mock23d" target="_blank" rel="noopener">EUのEU動向</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="environment_infrastructure-南極の氷床融解が加速-2025年の喪失量は過去10年平均を20-超過">
+          <summary>南極の氷床融解が加速、2025年の喪失量は過去10年平均を20%超過 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">NASAの最新衛星観測により、南極大陸が2025年に1,500億メートルトンの氷を喪失したことが判明した。この数値は2015〜2024年の10年間平均を20%上回る。観測結果を受け、既存の海面上昇予測の修正が必要になる可能性がある。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">海面上昇の加速は沿岸都市のインフラ計画や保険市場に直接影響する。IPCCの将来シナリオが上方修正されれば、各国の適応策予算の大幅な見直しが避けられず、特に島嶼国や低地国への国際支援の枠組みにも波及する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">NASA Climate</span> <span class="source-meta">（宇宙機関）</span> — <a href="#mock23b" target="_blank" rel="noopener">NASAの宇宙</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="environment_infrastructure-EV・蓄電池分野の最新動向">
+          <summary>EV・蓄電池分野の最新動向 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">CleanTechnicaがEV・蓄電池分野の動向を報じた。電気自動車と定置型蓄電池の市場は世界的に拡大基調にあり、主要メーカー間の技術競争と価格低下が続いている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">EV・蓄電池はEUの重要鉱物政策とも密接に関連しており、リチウムやコバルトの調達・加工体制の変化が車載電池のコスト構造を左右する。再エネの変動吸収に不可欠な蓄電技術の進展は、電力系統の安定性確保にとって核心的な課題である。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">CleanTechnica</span> <span class="source-meta">（クリーンエネルギーメディア）</span> — <a href="#mock22" target="_blank" rel="noopener">EVのEV・蓄電池</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="environment_infrastructure-秋田沖で洋上風力発電が商用運転を開始">
+          <summary>秋田沖で洋上風力発電が商用運転を開始 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">秋田県沖の洋上風力発電プロジェクトが商用運転を開始した。日本における大規模洋上風力の商用化は初期段階にあり、Carbon Briefが海外の専門メディアとしてこの動向を取り上げた。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本政府は2030年までに洋上風力10GWの導入を掲げており、秋田沖の商用運転は国内サプライチェーン構築と地域経済への波及効果を検証する先行事例となる。海外メディアが報じたことは、日本の洋上風力市場が国際的な投資対象として注目されていることを示唆する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Carbon Brief</span> <span class="source-meta">（気候政策メディア）</span> — <a href="#mock21" target="_blank" rel="noopener">洋上風力発電、秋田沖で商用運転開始</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="education_academic" style="margin-bottom:40px;">
+        <h2 class="axis-title">🎓 学術・教育</h2>
+        <p class="axis-summary">5件の注目トピック ／ 5件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 3</span> <span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁 1</span> <span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">MITとハーバード大学の研究チームが、鎌状赤血球症の変異をin vivo（生体内）でCRISPR遺伝子編集により修正し、治療細胞の89%で成功したと発表した。韓国の研究チームが主張する銅硫化物化合物による室温超伝導については、3つの独立した研究機関が再現実験に着手し、厳格な査読が進んでいる。日本では文科省が博士課程学生への生活費支援を月額20万円に引き上げ、対象者を現行の3倍に拡大する方針を打ち出した。また東京大学と京都大学が生成AIを活用した文理融合型の個別最適化学習プログラムを共同開発し、2026年度後期からの導入を予定している。ノーベル賞受賞者グループは公的資金による研究成果を発表後6カ月以内に無料公開するよう求める公開書簡をScience Magazineを通じて発表した。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">CRISPR遺伝子編集の治療応用は、2023年に英国・米国で承認されたカスゲビー（Casgevy）に続く次世代治療として注目されており、今回のin vivoでの高い修正率は体外編集を不要にする可能性を示す画期的な成果である。室温超伝導の実現は、送電ロスの解消やMRI・量子コンピュータの飛躍的改善につながるため、2023年のLK-99騒動以来、科学界は慎重かつ注視している。日本の博士課程支援拡充とAI教育プログラムは、先進国の中で低水準にある日本の博士号取得者数（人口100万人あたり約120人、ドイツの約半分）を引き上げる政策的意図がある。オープンアクセス改革の要求は、論文購読料の高騰（大手出版社の年間購読料が数千万円規模に達する大学もある）と公的資金研究の成果還元という長年の課題を背景としている。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">CRISPR治療については2027年に予定される臨床試験の開始と、FDAおよびEMAの規制当局の対応が最大の注目点となる。室温超伝導の主張に対しては、独立3機関の再現実験結果が今後数カ月以内に公表される見込みであり、その成否が決定的な分岐点になる。日本の博士課程支援については2027年度予算編成での具体的な対象人数・財源確保の詳細発表を注視すべきである。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="education_academic-MIT・ハーバード大-生体内CRISPR編集で鎌状赤血球症の89-修正に成功">
+          <summary>MIT・ハーバード大、生体内CRISPR編集で鎌状赤血球症の89%修正に成功 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">MITとハーバード大学の共同研究チームが、鎌状赤血球症の原因となる遺伝子変異をin vivo（体内で直接行う）CRISPR遺伝子編集で修正することに成功した。治療を受けた細胞の89%で変異が修正されるという高い成功率を達成した。この成果に基づき、2027年のヒト臨床試験開始が計画されている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">現行のCRISPR治療（カスゲビーなど）は患者から細胞を取り出して体外で編集する手法であり、コストと負担が大きい。in vivoでの高効率な編集が実現すれば、治療の簡便化と対象疾患の大幅な拡大につながる。鎌状赤血球症は世界で年間約30万人が罹患する遺伝性疾患であり、アフリカ・南アジアへの医療アクセス改善にも直結する。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">EurekAlert!</span> <span class="source-meta">（学術プレスリリース）</span> — <a href="#mock32c" target="_blank" rel="noopener">CRISPR関連（EurekAlert!）</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="education_academic-ノーベル賞受賞者グループ-公的資金研究のオープンアクセス義務化を要求">
+          <summary>ノーベル賞受賞者グループ、公的資金研究のオープンアクセス義務化を要求 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">複数のノーベル賞受賞者が連名で公開書簡を発表し、公的資金で行われたすべての研究成果を発表後6カ月以内に無料公開するよう求めた。Science Magazineが書簡の全文を掲載し、学術出版の在り方に対する改革を訴えている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">学術論文の購読料高騰は世界的に問題となっており、研究機関の財政を圧迫している。ノーベル賞受賞者という科学界最高の権威からの要求は、エルゼビアやシュプリンガー・ネイチャーなど大手学術出版社のビジネスモデルに対する圧力を強める。米国NIHのパブリックアクセス方針やEUのプランSなど既存のオープンアクセス政策とも連動し、今後の制度設計に影響を与える可能性が高い。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Science Magazine</span> <span class="source-meta">（科学誌）</span> — <a href="#mock31" target="_blank" rel="noopener">Nobel laureate calls for open-access scientific publishing reform</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="education_academic-韓国チームの室温超伝導主張に3機関が再現実験を開始">
+          <summary>韓国チームの室温超伝導主張に3機関が再現実験を開始 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">韓国の研究チームが新たな銅硫化物化合物で室温超伝導を実現したと主張し、Nature Physicsに論文が投稿された。この主張に対して現在、厳格な査読が行われるとともに、3つの独立した研究機関が再現実験に着手している。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">室温超伝導は物理学における最大の未解決課題の一つであり、実現すればエネルギー伝送、医療機器、量子コンピュータなど広範な分野に革命的変化をもたらす。2023年のLK-99の事例では再現に失敗した経緯があり、科学界は今回の主張にも慎重な姿勢をとっている。独立機関による再現実験の結果が、主張の信頼性を左右する決定的な要素となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Nature Physics</span> <span class="source-meta">（科学誌）</span> — <a href="#mock32b" target="_blank" rel="noopener">Nature Physics: Room-temperature superconductor claim faces scrutiny</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="education_academic-文科省-博士課程学生への生活費支援を月額20万円に引き上げ・対象3倍に拡大">
+          <summary>文科省、博士課程学生への生活費支援を月額20万円に引き上げ・対象3倍に拡大</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">文部科学省は博士課程学生への生活費支援を月額20万円に引き上げる方針を発表した。支援対象者も現行の3倍に拡大する計画で、博士課程進学を経済的理由で断念する学生の減少を目指す。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本の博士号取得者数は主要先進国と比較して低水準にあり、研究力低下の一因とされてきた。月額20万円は生活費として一定の水準を確保できる金額であり、アルバイトに頼らず研究に専念できる環境整備として意義が大きい。産業界からの博士人材需要の高まりとも合致し、日本の科学技術競争力の回復に向けた重要な政策転換となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;">官公庁</span> <span class="source-name">文科省 新着情報</span> <span class="source-meta">（政府機関）</span> — <a href="#mock30" target="_blank" rel="noopener">文科省、博士課程支援を大幅拡充</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="education_academic-東大・京大が生成AI活用の文理融合型教育プログラムを共同開発-2026年度後期に導入">
+          <summary>東大・京大が生成AI活用の文理融合型教育プログラムを共同開発、2026年度後期に導入</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">東京大学と京都大学が、生成AIを活用した個別最適化学習プログラムを共同開発した。文理融合型のカリキュラムとして設計されており、2026年度後期からの導入を予定している。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">日本を代表する2大学の共同開発は、高等教育におけるAI活用の標準モデルとなる可能性がある。個別最適化学習は学生一人ひとりの理解度に応じた教育を可能にし、従来の一斉講義型教育の限界を超える試みである。文理融合型カリキュラムは、AI時代に求められる分野横断的な人材育成という国際的な潮流にも沿っている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">大学ジャーナル</span> <span class="source-meta">（高等教育メディア）</span> — <a href="#mock32" target="_blank" rel="noopener">東大・京大、AI活用の新教育プログラムを共同開発</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="culture_opinion" style="margin-bottom:40px;">
+        <h2 class="axis-title">🎭 文化・世論・消費行動</h2>
+        <p class="axis-summary">7件の注目トピック ／ 7件のソース記事</p>
+        <div class="source-distribution"><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア 4</span> <span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社 2</span> <span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関 1</span></div>
+        <div class="axis-overview-card">
+          <div class="summary-section">
+            <div class="summary-label label-summary">要約</div>
+            <p class="summary-text">任天堂がSwitch後継機「Nintendo Switch 2」を正式発表し、4K対応・後方互換性完全サポートで2026年秋に49,980円での発売を予定している。音楽分野では藤井風の3rdアルバムが発売初週で100万枚を突破し、Spotifyグローバルチャートで日本人アーティスト最高位を更新した。スポーツではドジャースの大谷翔平が4月時点で12本塁打・15盗塁を記録し、MLB史上初となるシーズン60本塁打・60盗塁ペースを維持している。一方、芸術分野では生成AIアートが国際美術展で初のグランプリを受賞し、著作権や芸術的価値をめぐる議論が再燃している。ヴェネツィア・ビエンナーレは2026年本展をアフリカ現代美術に焦点を当てると発表し、20カ国から50名以上のアーティストが参加予定である。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-bg">背景</div>
+            <p class="summary-text">Nintendo Switch 2の発表は、初代Switchが全世界で1億4,000万台以上を販売した成功を受けたもので、後方互換性の完全対応は既存ユーザーの移行障壁を大きく下げる戦略といえる。藤井風のグローバルでの躍進は、K-POPに続きJ-POPが海外ストリーミング市場で存在感を示し始めた潮流を象徴している。生成AIアートの受賞とヴェネツィア・ビエンナーレのアフリカ美術特集は、いずれも「誰が芸術を創り、誰が評価するのか」という根本的な問いを突きつけており、テクノロジーと多様性という二つの軸で美術界の価値観が揺らいでいる。Z世代の体験重視消費やサブスク疲れの傾向は、エンタメ・ゲーム業界のビジネスモデルにも直接影響し、任天堂の価格設定やサービス設計にも関わる構造的変化である。日本での18歳未満のSNS利用制限法案は、オーストラリアが先行して導入を進めた動きに追随するもので、デジタルネイティブ世代の消費行動や情報接触のあり方を制度面から規定しようとする国際的な潮流の一部である。</p>
+          </div>
+          <div class="summary-section">
+            <div class="summary-label label-outlook">展望</div>
+            <p class="summary-text">Nintendo Switch 2については2026年秋の発売に向けて、E3やNintendo Directでのローンチタイトル発表が注目される。藤井風のグローバル展開はBillboard Hot 100へのチャートインの可能性や海外ツアー発表が次の観測ポイントとなる。生成AIアートの著作権問題については、日本の文化庁が2026年度中に策定予定のAI創作物に関するガイドラインの内容が焦点であり、SNS利用制限法案も次の国会会期での審議動向を注視すべきである。</p>
+          </div>
+        </div>
+        
+        <details class="topic-detail" id="culture_opinion-日本で18歳未満のSNS利用を1日2時間に制限する法案が浮上">
+          <summary>日本で18歳未満のSNS利用を1日2時間に制限する法案が浮上 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">18歳未満のSNS利用を1日2時間に制限する法案が日本で提起された。オーストラリアが先行して未成年のSNS利用規制を進めており、日本もこれに続く形で法整備の検討に入った。Pew Researchが本動向を報じている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">未成年のデジタル利用規制は国際的な政策トレンドとなりつつあり、プラットフォーム企業のビジネスモデルや広告収益に直接影響する。Z世代の消費行動やコンテンツ接触経路にも変化をもたらす可能性があり、エンタメ業界全体の戦略にも波及しうる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#d1fae5;color:#065f46;border:1px solid #10b981;">研究機関</span> <span class="source-name">Pew Research</span> <span class="source-meta">（調査機関）</span> — <a href="#mock26" target="_blank" rel="noopener">SNS・情報環境</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-藤井風の3rdアルバムが初週ミリオン達成-Spotifyで日本人最高位を更新">
+          <summary>藤井風の3rdアルバムが初週ミリオン達成、Spotifyで日本人最高位を更新</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">藤井風の3rdアルバムが発売初週で100万枚を突破した。海外ストリーミング再生数も急増し、Spotifyグローバルチャートにおいて日本人アーティストとして歴代最高位を更新した。Billboard Japanが報じている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">J-POPアーティストがグローバルストリーミング市場で上位に食い込む事例は依然として稀であり、K-POP以外のアジア音楽の国際的な浸透可能性を示すケースとして注目される。レコード業界やプラットフォーム各社の日本市場戦略にも影響を与えうる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Billboard Japan</span> <span class="source-meta">（音楽メディア）</span> — <a href="#mock26c" target="_blank" rel="noopener">Billboard Japan: 藤井風の新アルバムが初週ミリオン達成</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-2026年ヴェネツィア・ビエンナーレがアフリカ現代美術を主題に決定">
+          <summary>2026年ヴェネツィア・ビエンナーレがアフリカ現代美術を主題に決定 <span class="lang-badge">EN</span></summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">ヴェネツィア・ビエンナーレが2026年の本展示をアフリカ現代美術に焦点を当てると発表した。20のアフリカ諸国から50名以上のアーティストが参加する予定で、The Art Newspaperが報じた。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">世界最大級の国際美術展がアフリカ美術を主題に据えることは、欧米中心だった現代美術の評価軸を転換する象徴的な動きである。アフリカのアート市場の成長やギャラリーの国際進出を後押しする契機となりうる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">The Art Newspaper</span> <span class="source-meta">（芸術メディア）</span> — <a href="#mock26e" target="_blank" rel="noopener">芸術</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-大谷翔平が4月時点で12本塁打・15盗塁-MLB史上初の60-60ペース">
+          <summary>大谷翔平が4月時点で12本塁打・15盗塁、MLB史上初の60-60ペース</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">ドジャースの大谷翔平が2026年シーズン4月時点で12本塁打・15盗塁を記録した。このペースが続けばシーズン60本塁打・60盗塁というMLB史上前例のない記録達成が視野に入る。Number Webが報じている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">2024年シーズンの50-50達成に続き、大谷が自らの記録をさらに更新する可能性が出てきたことで、MLB全体の注目度と放映権・スポンサー価値にも影響する。日本国内のスポーツ消費や関連グッズ市場への波及効果も大きい。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">Number Web (スポーツ)</span> <span class="source-meta">（スポーツメディア）</span> — <a href="#mock26d" target="_blank" rel="noopener">大谷翔平、MLB史上初の60本塁打・60盗塁ペースを維持</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-Nintendo-Switch-2正式発表-4K対応・後方互換で2026年秋に49-980円">
+          <summary>Nintendo Switch 2正式発表、4K対応・後方互換で2026年秋に49,980円</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">任天堂がSwitch後継機「Nintendo Switch 2」を正式発表した。4K映像出力に対応し、初代Switchソフトとの後方互換性を完全サポートする。発売は2026年秋、価格は49,980円と発表された。4Gamer.netが報じている。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">初代Switchの全世界累計販売台数は1億4,000万台を超えており、後継機の仕様と価格設定はゲーム業界全体の競争環境を左右する。後方互換性の完全対応は、ソニーやマイクロソフトの次世代機戦略にも影響を与える重要な差別化要素となる。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #6366f1;">専門メディア</span> <span class="source-name">4Gamer.net</span> <span class="source-meta">（ゲーム・エンタメメディア）</span> — <a href="#mock26b" target="_blank" rel="noopener">Nintendo Switch 2正式発表、後方互換性を完全サポート</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-生成AIアート作品が国際美術展で初のグランプリを受賞">
+          <summary>生成AIアート作品が国際美術展で初のグランプリを受賞</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">生成AI（テキストや画像を自動生成する人工知能技術）を用いて制作されたアート作品が、国際美術展で初めてグランプリを受賞した。この受賞を受け、AI作品の芸術的価値や著作権の帰属をめぐる議論が再燃している。NHKが報じた。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">2023年に米国のコロラド州美術展でAI作品が入賞して論争となった前例があるが、今回は国際規模の美術展での最高賞という点で影響の大きさが異なる。AI生成物の著作権保護や人間の創作者との公平性に関する法整備が各国で急務となっている。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="#mock24" target="_blank" rel="noopener">生成AIアート、国際美術展で初のグランプリ受賞</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="topic-detail" id="culture_opinion-Z世代の消費が-モノからコト-へさらにシフト-サブスク疲れの兆候も">
+          <summary>Z世代の消費が「モノからコト」へさらにシフト、サブスク疲れの兆候も</summary>
+          <div class="topic-detail-body">
+            <div class="summary-section">
+              <div class="summary-label label-key">何が起きたか</div>
+              <p class="summary-text">Z世代（1990年代後半〜2010年代前半生まれの世代）の消費行動において、物品購入よりも体験・イベントへの支出を重視する「コト消費」の傾向がさらに加速している。同時に、月額課金型サービス（サブスクリプション）に対する疲労感、いわゆる「サブスク疲れ」の兆候も報告されている。NHKが報じた。</p>
+            </div>
+            <div class="summary-section">
+              <div class="summary-label label-bg">なぜ重要か</div>
+              <p class="summary-text">体験重視消費の加速は、エンタメ・旅行・外食産業にとっては追い風だが、サブスク型ビジネスモデルに依存するストリーミングやゲーム業界には戦略の見直しを迫る。Nintendo Switch 2の買い切りモデルや、ライブ・フェス重視の音楽業界の方向性にも通じる構造的な消費変化である。</p>
+            </div>
+            <div class="sources-section">
+              <div class="sources-label">参照ソース（1件）</div>
+              <ul class="sources-list">
+                <li><span class="cat-badge" style="background:#dbeafe;color:#1e40af;border:1px solid #3b82f6;">通信社</span> <span class="source-name">NHK 文化・エンタメ</span> <span class="source-meta">（公共放送）</span> — <a href="#mock25" target="_blank" rel="noopener">Z世代の消費トレンド: 「体験重視」が加速</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+  </main>
+
+  <footer>
+    <p>masa-knowledge デイリーインテリジェンスレポート — 自動生成</p>
+    <p>ソース定義: intelligence-sources.json ／ トピッククラスタリング: ルールベース ／ ソース立ち位置分類: 自動</p>
+  </footer>
+</body>
+</html>
