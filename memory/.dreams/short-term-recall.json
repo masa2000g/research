@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-16T14:10:47.499Z",
+  "entries": {
+    "memory:memory/2026-04-06.md:4:7": {
+      "key": "memory:memory/2026-04-06.md:4:7",
+      "path": "memory/2026-04-06.md",
+      "startLine": 4,
+      "endLine": 7,
+      "source": "memory",
+      "snippet": "- Claude CLI (`claude`) が `/Users/takehara/.local/bin/claude` に存在することを確認し、`claude --help` で基本的な使い方（`-p`で非対話モード、`--add-dir` など）を把握した。今後ccに任せるタスクは、このCLI前提で設計する方針。 - Playwrightベースの`~/Projects/site-scraper`プロジェクトを準備（npm+playwrightインストール済み）。JSレンダリングサイトを理解する際の標準ルートとして使う前提を共有。 - あずさSOUL.mdを拡張: 生い立ち・学生時代・仕事・マイクとの関係・見た目を具体化し、「内部で完結する作業は勝手に進め、外部に影響する前に必ず承認を取る」行動原則を明文化した。 - 全体観: 稼働中/予定プロジェクトとして、(1)梓・楓二人体制とclaws運用、(2)OpenClawのcronルーティン、(3)research-pagesスキル、(4)site-scraper+my-akashic構想、(5)GitHubナレッジベース、(6)Google Form+スプシ勤怠 などを整理した。今後はGitHubまわりとcc連携を優先的に整えていく方針。",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5354622095823287,
+      "maxScore": 0.5354622095823287,
+      "firstRecalledAt": "2026-04-16T14:10:47.499Z",
+      "lastRecalledAt": "2026-04-16T14:10:47.499Z",
+      "queryHashes": [
+        "99573e8b6ef2"
+      ],
+      "recallDays": [
+        "2026-04-16"
+      ],
+      "conceptTags": [
+        "users/takehara",
+        "local/bin/claude",
+        "add-dir",
+        "projects/site-scraper",
+        "あずさsoul.mdを拡張",
+        "稼働中/予定プロジェクトとして",
+        "research-pagesスキル",
+        "site-scraper"
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+
+== デイリーインテリジェンス ビルダー v4 ==
+   日付: 2026-04-15
+   モード: ライブ (RSS取得)
+
+── normalized データ検出 → editorial + assemble 実行 ──
+
+── Stage 3: Editorial → staged/2026-04-15.json ──
+  クラスタリング...
+  🏛️ 政治・安全保障: 17 → 17トピック
+  ⚖️ 法規制・制度変更: 6 → 6トピック
+  📈 マクロ経済・市場: 12 → 12トピック
+  🏢 産業・企業動向: 12 → 12トピック
+  🔬 テクノロジー・研究: 23 → 23トピック
+  🏥 医療・ヘルスケア: 9 → 9トピック
+  👥 社会・労働・人口: 11 → 10トピック
+  🌍 環境・資源・インフラ: 3 → 3トピック
+  🎓 学術・教育: 8 → 8トピック
+  🎭 文化・世論・消費行動: 23 → 23トピック
+  claude CLI 呼び出し...
+    🏛️ 政治・安全保障...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約787字 / 背景928字
+    ⚖️ 法規制・制度変更...
+    → 要約366字 / 背景407字
+    📈 マクロ経済・市場...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約750字 / 背景846字
+    🏢 産業・企業動向...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約532字 / 背景572字
+    🔬 テクノロジー・研究...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約705字 / 背景842字
+    🏥 医療・ヘルスケア...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約475字 / 背景546字
+    👥 社会・労働・人口...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約598字 / 背景711字
+    🌍 環境・資源・インフラ...
+    → 要約303字 / 背景353字
+    🎓 学術・教育...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約785字 / 背景585字
+    🎭 文化・世論・消費行動...
+  ⚠ claude CLI エラー: spawnSync claude ETIMEDOUT
+    → 要約477字 / 背景556字
+  → staged 書出完了: /Users/takehara/Projects/masa-knowledge/data/staged/2026-04-15.json
+[充足判定] 全 10 軸が充足しています
+
+── Stage 4: Assemble → docs/daily-intelligence/2026-04-15.html ──
+  レポート: /Users/takehara/Projects/masa-knowledge/docs/daily-intelligence/2026-04-15.html
+  インデックス更新: 4件
+  → research-pages に同期: 5ファイル
+  🏛️ 政治・安全保障: 17トピック / 31記事
+  ⚖️ 法規制・制度変更: 6トピック / 16記事
+  📈 マクロ経済・市場: 12トピック / 23記事
+  🏢 産業・企業動向: 12トピック / 20記事
+  🔬 テクノロジー・研究: 23トピック / 57記事
+  🏥 医療・ヘルスケア: 9トピック / 17記事
+  👥 社会・労働・人口: 10トピック / 19記事
+  🌍 環境・資源・インフラ: 3トピック / 15記事
+  🎓 学術・教育: 8トピック / 15記事
+  🎭 文化・世論・消費行動: 23トピック / 35記事
+  合計: 123トピック / 248記事
+
+完了!
+  → research-pages にコピー: 5ファイル
+  → commit: Update daily intelligence: 2026-04-15
+  → push 完了
+  → HTTP 検証: 初回失敗、30秒後にリトライ…
+  → HTTP 検証失敗: https://takehara.github.io/research-pages/daily-intelligence/2026-04-15.html — HTTP 404
+  → HTTP 検証失敗: https://takehara.github.io/research-pages/daily-intelligence/index.html — HTTP 404
+
+== パイプラインサマリー ==
+  Stage            Status        Items   Duration(ms)
+  ──────────────── ────────── ──────── ──────────────
+  collect          skipped           0              0
+  normalize        skipped           0              0
+  editorial        success          10         593020
+  assemble         success           5             23
+  git-sync         success           5           1596
+  http-verify      failure           0          30354
+
+  結果: 一部失敗
+{"type":"pipeline-summary","results":[{"stage":"collect","status":"skipped","itemCount":0,"durationMs":0,"skipReason":"normalized データ検出"},{"stage":"normalize","status":"skipped","itemCount":0,"durationMs":0,"skipReason":"normalized データ検出"},{"stage":"editorial","status":"success","itemCount":10,"durationMs":593020},{"stage":"assemble","status":"success","itemCount":5,"durationMs":23},{"stage":"git-sync","status":"success","itemCount":5,"durationMs":1596},{"stage":"http-verify","status":"failure","itemCount":0,"durationMs":30354,"error":{"message":"HTTP 検証失敗: https://takehara.github.io/research-pages/daily-intelligence/2026-04-15.html (HTTP 404), https://takehara.github.io/research-pages/daily-intelligence/index.html (HTTP 404)","stack":"Error: HTTP 検証失敗: https://takehara.github.io/research-pages/daily-intelligence/2026-04-15.html (HTTP 404), https://takehara.github.io/research-pages/daily-intelligence/index.html (HTTP 404)\n    at verifyGitHubPages (/Users/takehara/Projects/masa-knowledge/scripts/pipeline.js:452:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async main (/Users/takehara/Projects/masa-knowledge/scripts/build_daily_intelligence.js:140:16)"}}]}

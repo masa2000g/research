@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>第1回: AIって結局何者？ + 自社プロジェクトのタネ出し</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 0; background: #111; color: #f5f5f5; }
+    section { padding: 40px 60px; min-height: 100vh; box-sizing: border-box; }
+    h1, h2 { margin-bottom: 0.5em; }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.8rem; }
+    p, li { font-size: 1.1rem; line-height: 1.6; }
+    .subtitle { color: #ccc; margin-bottom: 2em; }
+    .note { color: #aaa; font-size: 0.9rem; margin-top: 1em; }
+    .small { font-size: 0.95rem; }
+    .em { color: #ffb347; font-weight: bold; }
+    .slide { border-bottom: 1px solid #333; }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: タイトル -->
+  <section class="slide">
+    <h1>第1回: AIって結局何者？</h1>
+    <p class="subtitle">+ 自社プロジェクトのタネ出し</p>
+    <ul>
+      <li>この講座全体のゴール</li>
+      <li>「AIって何者か」をざっくり共有</li>
+      <li>自分の仕事でAIに手伝ってほしいところを見つける</li>
+    </ul>
+    <p class="note">※ このスライドは叩き台です。実際の講座の雰囲気に合わせて自由に編集してください。</p>
+  </section>
+
+  <!-- Slide 2: この講座のスタンス -->
+  <section class="slide">
+    <h2>この講座のスタンス</h2>
+    <ul>
+      <li>AIを<strong>無条件に推す</strong>講座ではありません</li>
+      <li>「どこで役立つか」と同時に「どこが危ないか」も扱います</li>
+      <li>目指すのは、AIと <span class="em">"うまく距離を取りながら付き合える"</span> こと</li>
+      <li>最終的に、各社で <span class="em">小さなAI活用プロジェクト</span> を1つ持ち帰るのがゴールです</li>
+    </ul>
+  </section>
+
+  <!-- Slide 3: 自己紹介（講師用） -->
+  <section class="slide">
+    <h2>講師自己紹介（マイク用）</h2>
+    <ul>
+      <li>名前・所属</li>
+      <li>これまで関わってきた仕事・領域</li>
+      <li>AIとの付き合い方（簡単なストーリー）</li>
+      <li>この講座で大事にしたいこと</li>
+    </ul>
+    <p class="note">※ 実際に話す内容はマイク側で肉付けしてください。</p>
+  </section>
+
+  <!-- Slide 4: 参加者チェックイン -->
+  <section class="slide">
+    <h2>チェックイン</h2>
+    <p>一人30〜40秒で、ざっくり教えてください。</p>
+    <ul>
+      <li>お名前・会社名</li>
+      <li>ふだんどんな仕事をしているか</li>
+      <li>AIに対する今の気持ち（「便利そう」「ちょっと怖い」「よく分からない」など1ワード）</li>
+    </ul>
+  </section>
+
+  <!-- Slide 5: この講座で扱う「AI」 -->
+  <section class="slide">
+    <h2>この講座で扱う「AI」</h2>
+    <ul>
+      <li>主役は <span class="em">生成AI（Generative AI）</span></li>
+      <li>文章・画像・音声などを「それっぽく」作るAI</li>
+      <li>代表例: ChatGPT, Claude, Gemini など</li>
+      <li>今回は <span class="em">「文章まわりの仕事を手伝うAI」</span> を中心に扱います</li>
+    </ul>
+  </section>
+
+  <!-- Slide 6: 生成AIのざっくり仕組み -->
+  <section class="slide">
+    <h2>生成AIのざっくり仕組み</h2>
+    <ul>
+      <li>大量のテキストを学習して、「次に来そうな言葉」を予測しているだけ</li>
+      <li>人間のように「理解している」わけではない</li>
+      <li><span class="em">統計的にもっともらしい文章を出す</span>仕組み</li>
+      <li>だからこそ、すごく賢く見えるときもあれば、変なミスもする</li>
+    </ul>
+  </section>
+
+  <!-- Slide 7: 得意なこと／苦手なこと -->
+  <section class="slide">
+    <h2>AIの得意なこと・苦手なこと</h2>
+    <h3>得意なこと</h3>
+    <ul>
+      <li>文章の要約・言い換え・整理</li>
+      <li>たたき台（ドラフト）の作成</li>
+      <li>アイデア出し・パターン出し</li>
+    </ul>
+    <h3>苦手なこと</h3>
+    <ul>
+      <li>最新の現場情報をその場で確認すること</li>
+      <li>本当に正しいかどうかを自分で判断すること</li>
+      <li>責任を取ること（判断の結果はあくまで人間が負う）</li>
+    </ul>
+  </section>
+
+  <!-- Slide 8: AIの答えは「出典不明なまとめ」 -->
+  <section class="slide">
+    <h2>AIの答えは「出典不明なまとめ」</h2>
+    <ul>
+      <li>AIは、インターネットなどのテキストから学習していますが…</li>
+      <li><span class="em">「この答えはどの記事のどの部分を引用したか」</span> までは基本的に教えてくれません</li>
+      <li>つまり、AIの答えは「どこから来たか分からない要約」です</li>
+      <li>だからこそ、<span class="em">人間が批判的に読む目</span>が大事になります</li>
+    </ul>
+  </section>
+
+  <!-- Slide 9: 今日のゴール -->
+  <section class="slide">
+    <h2>今日のゴール</h2>
+    <ul>
+      <li>「AIってこういうもの」と自分の言葉で説明できる</li>
+      <li>自分の仕事で「AIに手伝ってほしい作業」を1つ候補として挙げられる</li>
+      <li>AIの提案を、<span class="em">そのまま鵜呑みにしない</span>感覚を持つ</li>
+    </ul>
+  </section>
+
+  <!-- Slide 10: ハンズオン① 自分の仕事を説明してみる -->
+  <section class="slide">
+    <h2>ハンズオン①: 自分の仕事をAIに説明させてみる</h2>
+    <ol>
+      <li>自分の仕事を、1〜2行で書いてみる
+        <ul>
+          <li>例: 「私は〇〇会社で、××の受発注と顧客からの問い合わせ対応をしています。」</li>
+        </ul>
+      </li>
+      <li>その文章をAIに渡して「中学生にも分かるように説明して」とお願いする</li>
+      <li>出てきた説明を読んで、合っているところ／ズレているところに印をつける</li>
+    </ol>
+    <p class="note">→ 「AIは上手くまとめるけど、大事なニュアンスは抜けることもある」という体感をしてもらうパート。</p>
+  </section>
+
+  <!-- Slide 11: 共有タイム（ハンズオン①） -->
+  <section class="slide">
+    <h2>共有タイム</h2>
+    <ul>
+      <li>数名の方に、AIが作った説明文を共有してもらいます</li>
+      <li>みんなで「どこが上手いか」「どこが現場と違うか」を軽くコメント</li>
+      <li>業種ごとの違いも面白いポイントです</li>
+    </ul>
+  </section>
+
+  <!-- Slide 12: ハンズオン② 改善アイデアを出させる -->
+  <section class="slide">
+    <h2>ハンズオン②: 仕事の「楽にできそうな部分」を探す</h2>
+    <ol>
+      <li>自分の仕事の中で <span class="em">一番しんどい作業</span> を1つ書き出す
+        <ul>
+          <li>例: 「毎日、似たような問い合わせメールに返信している」</li>
+        </ul>
+      </li>
+      <li>AIに「この作業を楽にする方法を、AIを含めて5〜7個考えて」とお願いする</li>
+      <li>出てきた案を、「すぐできそう」「今は難しい」に分ける</li>
+    </ol>
+    <p class="note">→ AIの提案は玉石混交。その中から「拾う石」を選ぶのが人間の仕事、というメッセージにつなげる。</p>
+  </section>
+
+  <!-- Slide 13: プロジェクト候補を考える -->
+  <section class="slide">
+    <h2>ミニプロジェクトのタネを決めてみる</h2>
+    <p>この講座の中で、次のような「小さなAI活用プロジェクト」を育てていきます。</p>
+    <ul>
+      <li>例1: お問い合わせメールの「下書き」をAIに作らせる</li>
+      <li>例2: 簡単な日報のサマリをAIに書かせる</li>
+      <li>例3: タスクや商品一覧の「たたき台の表」をAIに作らせる</li>
+    </ul>
+    <p>今日のところは、<span class="em">「これを楽にしたいかも」くらいの仮の候補</span>で大丈夫です。</p>
+  </section>
+
+  <!-- Slide 14: プロジェクト候補ワーク -->
+  <section class="slide">
+    <h2>ワーク: あなたのミニプロジェクト候補</h2>
+    <ol>
+      <li>AIの改善案の中から、「現実的に試してみたいもの」を1つ選ぶ</li>
+      <li>それを一言でメモしてみる
+        <ul>
+          <li>例: 「問い合わせメールの下書きをAIで作る」</li>
+        </ul>
+      </li>
+      <li>できれば、その案を共有してみましょう</li>
+    </ol>
+    <p class="note">※ 第2回以降で「やっぱり変えたい」となってもOK。そのときは一緒に調整します。</p>
+  </section>
+
+  <!-- Slide 15: 今日のふりかえり＆質問 -->
+  <section class="slide">
+    <h2>今日のふりかえり</h2>
+    <ul>
+      <li>AIに自分の仕事を説明させてみて、どんな気づきがありましたか？</li>
+      <li>AIの提案の中で、「これはちょっと危ないかも」と感じたものはありましたか？</li>
+      <li>今日出たミニプロジェクト候補は、「社内で話してみてもよさそう」な内容ですか？</li>
+    </ul>
+    <p class="small">最後に1問だけ：<br>「今日一番、AIに任せすぎると危ないと思った瞬間」を1〜2行でメモしてみてください。</p>
+  </section>
+
+</body>
+</html>

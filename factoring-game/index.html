@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>因数分解バトル！</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
+:root{
+  --primary:#6C63FF;--secondary:#FF6584;--accent:#43E97B;
+  --bg:#F0EDFF;--card:#fff;--text:#333;--text-light:#777;
+}
+body{font-family:'M PLUS Rounded 1c','Hiragino Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;border:none;border-radius:12px;font-weight:700;transition:all .15s}
+button:active{transform:scale(.95)}
+
+/* ===== Screens ===== */
+.screen{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;animation:fadeIn .4s}
+.screen.active{display:flex}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Title */
+#title-screen{background:linear-gradient(135deg,#6C63FF 0%,#a78bfa 50%,#FF6584 100%);color:#fff;text-align:center}
+#title-screen h1{font-size:clamp(2rem,8vw,4rem);font-weight:900;text-shadow:3px 3px 0 rgba(0,0,0,.15);margin-bottom:8px}
+#title-screen .subtitle{font-size:clamp(1rem,3vw,1.4rem);opacity:.9;margin-bottom:40px}
+.title-emoji{font-size:clamp(3rem,10vw,5rem);margin-bottom:16px;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.btn-primary{background:#fff;color:var(--primary);font-size:1.2rem;padding:16px 48px;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.btn-primary:hover{box-shadow:0 6px 25px rgba(0,0,0,.25);transform:translateY(-2px)}
+.btn-secondary{background:rgba(255,255,255,.25);color:#fff;font-size:1rem;padding:12px 36px;margin-top:12px;border:2px solid rgba(255,255,255,.5)}
+
+/* How to play */
+#howto-screen{background:var(--bg)}
+.howto-card{background:var(--card);border-radius:20px;padding:32px;max-width:500px;width:100%;box-shadow:0 8px 30px rgba(108,99,255,.12)}
+.howto-card h2{color:var(--primary);font-size:1.5rem;margin-bottom:16px;text-align:center}
+.howto-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.95rem;line-height:1.6}
+.howto-item .icon{font-size:1.4rem;flex-shrink:0}
+.btn-start{background:var(--primary);color:#fff;font-size:1.1rem;padding:14px 40px;margin-top:20px;width:100%}
+
+/* Game */
+#game-screen{background:var(--bg);justify-content:flex-start;padding-top:16px}
+.game-header{width:100%;max-width:540px;display:flex;justify-content:space-between;align-items:center;padding:8px 4px;flex-wrap:wrap;gap:8px}
+.hp-bar{display:flex;gap:4px}
+.heart{font-size:1.5rem;transition:all .3s}
+.heart.lost{opacity:.2;transform:scale(.7)}
+.stat{background:var(--card);border-radius:10px;padding:6px 14px;font-size:.85rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.stat span{color:var(--primary)}
+.stage-label{width:100%;text-align:center;font-weight:900;font-size:1.1rem;color:var(--primary);margin:8px 0 0}
+.boss-label{color:var(--secondary);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+.timer-bar{width:100%;max-width:540px;height:8px;background:#e0e0e0;border-radius:4px;margin:12px 0;overflow:hidden}
+.timer-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--primary));border-radius:4px;transition:width .3s linear}
+.timer-fill.danger{background:linear-gradient(90deg,#ff4444,var(--secondary))}
+
+.question-card{background:var(--card);border-radius:20px;padding:28px 24px;max-width:540px;width:100%;box-shadow:0 8px 30px rgba(108,99,255,.1);text-align:center;margin-bottom:16px}
+.q-type{font-size:.8rem;color:var(--text-light);margin-bottom:8px;font-weight:700}
+.q-expression{font-size:clamp(1.4rem,5vw,2rem);font-weight:900;color:var(--primary);margin:12px 0;line-height:1.4}
+.q-prompt{font-size:.95rem;color:var(--text-light)}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:540px;width:100%}
+.choice-btn{background:var(--card);color:var(--text);font-size:clamp(.9rem,2.5vw,1.05rem);padding:14px 12px;border:3px solid #e8e6f0;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.05);font-weight:700;line-height:1.3}
+.choice-btn:hover{border-color:var(--primary);background:#f5f3ff}
+.choice-btn.correct{background:#d4f8e0;border-color:var(--accent);color:#1a7a3a}
+.choice-btn.wrong{background:#ffe0e6;border-color:var(--secondary);color:#c0392b}
+.choice-btn:disabled{cursor:default;opacity:.85}
+
+.feedback-area{max-width:540px;width:100%;min-height:90px;margin-top:12px;text-align:center}
+.feedback-msg{background:var(--card);border-radius:14px;padding:16px;font-size:.9rem;line-height:1.6;box-shadow:0 3px 12px rgba(0,0,0,.06);animation:fadeIn .3s}
+.feedback-msg.correct-fb{border-left:4px solid var(--accent)}
+.feedback-msg.wrong-fb{border-left:4px solid var(--secondary)}
+.feedback-msg .fb-title{font-weight:900;font-size:1.1rem;margin-bottom:4px}
+.hint-text{color:var(--text-light);font-size:.85rem;margin-top:6px}
+
+.combo-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;font-weight:900;color:var(--primary);pointer-events:none;animation:comboPop .8s forwards;z-index:100}
+@keyframes comboPop{0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}50%{transform:translate(-50%,-50%) scale(1.3)}100%{opacity:0;transform:translate(-50%,-80%) scale(1)}}
+
+/* Result */
+#result-screen{background:linear-gradient(135deg,#43E97B 0%,#38f9d7 100%);color:#fff;text-align:center}
+#result-screen.failed{background:linear-gradient(135deg,#ff6584 0%,#ff9a9e 100%)}
+.result-card{background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border-radius:24px;padding:36px 28px;max-width:460px;width:100%}
+.result-card h2{font-size:1.8rem;margin-bottom:16px}
+.result-stats{text-align:left;font-size:1rem;line-height:2}
+.result-stats b{display:inline-block;width:140px}
+.btn-retry{background:#fff;color:var(--primary);font-size:1.1rem;padding:14px 40px;margin-top:24px}
+.btn-review{background:rgba(255,255,255,.3);color:#fff;font-size:.95rem;padding:12px 32px;margin-top:10px;border:2px solid rgba(255,255,255,.5)}
+
+/* Review */
+#review-screen{background:var(--bg);justify-content:flex-start;padding-top:24px}
+.review-list{max-width:560px;width:100%;display:flex;flex-direction:column;gap:12px;padding-bottom:24px}
+.review-item{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.review-item.r-correct{border-left:4px solid var(--accent)}
+.review-item.r-wrong{border-left:4px solid var(--secondary)}
+.review-q{font-weight:700;font-size:1rem;margin-bottom:4px}
+.review-a{font-size:.9rem;color:var(--text-light)}
+.review-hint{font-size:.8rem;color:var(--primary);margin-top:4px}
+.btn-back{background:var(--primary);color:#fff;font-size:1rem;padding:12px 36px;margin:16px 0}
+
+/* Mobile */
+@media(max-width:480px){
+  .choices{grid-template-columns:1fr}
+  .game-header{font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TITLE ===== -->
+<div id="title-screen" class="screen active">
+  <div class="title-emoji">🧩</div>
+  <h1>因数分解バトル！</h1>
+  <p class="subtitle">式をバラバラにして、モンスターを倒せ！</p>
+  <button class="btn-primary" onclick="showScreen('howto-screen')">はじめる</button>
+  <button class="btn-secondary" onclick="showScreen('howto-screen')">あそびかた</button>
+</div>
+
+<!-- ===== HOW TO ===== -->
+<div id="howto-screen" class="screen">
+  <div class="howto-card">
+    <h2>🎮 あそびかた</h2>
+    <div class="howto-item"><span class="icon">📝</span><span>出された式を<b>因数分解</b>しよう！4つの選択肢から正しい答えを選んでね。</span></div>
+    <div class="howto-item"><span class="icon">❤️</span><span>HPは<b>3つ</b>。間違えると1つ減るよ。0になったらゲームオーバー！</span></div>
+    <div class="howto-item"><span class="icon">⏱️</span><span>1問ごとに<b>制限時間</b>あり。時間切れも1ダメージ！</span></div>
+    <div class="howto-item"><span class="icon">🔥</span><span>連続正解で<b>コンボ</b>発生！コンボが続くほど高得点！</span></div>
+    <div class="howto-item"><span class="icon">👹</span><span>最終ステージには<b>ボス</b>が登場！いろんなタイプの問題が混ざるよ。</span></div>
+    <div class="howto-item"><span class="icon">💡</span><span>間違えても大丈夫。<b>解き方のヒント</b>が出るから、次に活かそう！</span></div>
+    <button class="btn-start" onclick="startGame()">🚀 ゲームスタート！</button>
+  </div>
+</div>
+
+<!-- ===== GAME ===== -->
+<div id="game-screen" class="screen">
+  <div class="game-header">
+    <div class="hp-bar" id="hp-bar"></div>
+    <div class="stat">🔥 <span id="combo-count">0</span>コンボ</div>
+    <div class="stat">⭐ <span id="score-count">0</span>点</div>
+    <div class="stage-label" id="stage-label">ステージ 1</div>
+  </div>
+  <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
+  <div class="question-card">
+    <div class="q-type" id="q-type"></div>
+    <div class="q-expression" id="q-expression"></div>
+    <div class="q-prompt">↓ 因数分解した形を選ぼう ↓</div>
+  </div>
+  <div class="choices" id="choices"></div>
+  <div class="feedback-area" id="feedback-area"></div>
+</div>
+
+<!-- ===== RESULT ===== -->
+<div id="result-screen" class="screen">
+  <div class="result-card">
+    <div style="font-size:3rem;margin-bottom:8px" id="result-emoji"></div>
+    <h2 id="result-title"></h2>
+    <div class="result-stats" id="result-stats"></div>
+    <button class="btn-retry" onclick="startGame()">🔄 もう一度あそぶ</button>
+    <button class="btn-review" onclick="showReview()">📋 復習する</button>
+  </div>
+</div>
+
+<!-- ===== REVIEW ===== -->
+<div id="review-screen" class="screen">
+  <h2 style="color:var(--primary);margin-bottom:16px">📋 復習</h2>
+  <button class="btn-back" onclick="showScreen('result-screen')">← もどる</button>
+  <div class="review-list" id="review-list"></div>
+  <button class="btn-back" onclick="startGame()">🔄 もう一度あそぶ</button>
+</div>
+
+<script>
+// ========== GAME STATE ==========
+let hp, score, combo, maxCombo, stage, qIndex, timer, timerValue;
+let questions, currentQ, history, totalCorrect, totalWrong;
+const TIME_LIMIT = 25; // seconds
+const STAGE_COUNT = 5;
+const Q_PER_STAGE = 4;
+
+// ========== SCREENS ==========
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ========== QUESTION GENERATORS ==========
+// Type 1: Common factor  ax + ab = a(x + b)
+function genCommonFactor(hard) {
+  const a = randInt(2, hard ? 7 : 4);
+  const b = randInt(1, hard ? 9 : 5);
+  const c = randInt(1, hard ? 9 : 5);
+  // a*b*x + a*c = a(bx + c)
+  const coeff1 = a * b;
+  const coeff2 = a * c;
+  const expr = `${coeff1}x + ${coeff2}`;
+  const answer = b === 1 ? `${a}(x + ${c})` : `${a}(${b}x + ${c})`;
+  const hint = `${coeff1} と ${coeff2} の最大公約数を探そう。共通で割れる数は ${a} だね！`;
+  const distractors = genDistractorsCommon(a, b, c);
+  return { expr, answer, hint, type: '共通因数くくり出し', distractors };
+}
+
+function genDistractorsCommon(a, b, c) {
+  const d = [];
+  d.push(b === 1 ? `${a+1}(x + ${c})` : `${a+1}(${b}x + ${c})`);
+  d.push(b === 1 ? `${a}(x + ${c+1})` : `${a}(${b}x + ${c+1})`);
+  d.push(`${a*b}(x + ${c})`);
+  return shuffle(d).slice(0, 3);
+}
+
+// Type 2: Perfect square  x² + 2ax + a² = (x + a)²
+function genPerfectSquare(hard) {
+  const a = randInt(1, hard ? 8 : 5);
+  const sign = hard ? (Math.random() < 0.5 ? -1 : 1) : 1;
+  const mid = 2 * a * sign;
+  const expr = formatQuadratic(1, mid, a * a);
+  const answer = sign > 0 ? `(x + ${a})²` : `(x − ${a})²`;
+  const hint = sign > 0
+    ? `x² + 2·${a}·x + ${a}² の形だね。(x + ${a})² = x² + ${2*a}x + ${a*a} を確認してみよう！`
+    : `x² − 2·${a}·x + ${a}² の形だね。(x − ${a})² = x² − ${2*a}x + ${a*a} を確認してみよう！`;
+  const distractors = [];
+  distractors.push(sign > 0 ? `(x + ${a+1})²` : `(x − ${a+1})²`);
+  distractors.push(sign > 0 ? `(x − ${a})²` : `(x + ${a})²`);
+  distractors.push(`(x + ${a})(x − ${a})`);
+  return { expr, answer, hint, type: '完全平方式', distractors };
+}
+
+// Type 3: Difference of squares  x² - a² = (x+a)(x-a)
+function genDiffSquares(hard) {
+  const a = randInt(2, hard ? 9 : 6);
+  const expr = `x² − ${a * a}`;
+  const answer = `(x + ${a})(x − ${a})`;
+  const hint = `${a*a} = ${a}² だから、x² − ${a}² = (x + ${a})(x − ${a}) になるよ！`;
+  const distractors = [];
+  distractors.push(`(x + ${a})²`);
+  distractors.push(`(x − ${a})²`);
+  distractors.push(`(x + ${a+1})(x − ${a-1 || 1})`);
+  return { expr, answer, hint, type: '平方の差', distractors };
+}
+
+// Type 4: x² + bx + c = (x + p)(x + q) where p+q=b, p*q=c
+function genQuadTrinomial(hard) {
+  let p, q;
+  if (hard) {
+    p = randInt(-8, 8);
+    q = randInt(-8, 8);
+    while (p === 0 || q === 0 || p * q === 0) { p = randInt(-8, 8); q = randInt(-8, 8); }
+  } else {
+    p = randInt(1, 6);
+    q = randInt(1, 6);
+    if (Math.random() < 0.3) { p = -p; q = -q; }
+    if (Math.random() < 0.3) { if (Math.abs(p) > Math.abs(q)) p = -p; else q = -q; }
+  }
+  const b = p + q;
+  const c = p * q;
+  const expr = formatQuadratic(1, b, c);
+  const answer = formatFactored(p, q);
+  const hint = `足して ${b}、かけて ${c} になる2つの数を探そう。${p} と ${q} だね！`;
+  const distractors = genDistractorsTrinomial(p, q);
+  return { expr, answer, hint, type: 'たすきがけ（x² + bx + c 型）', distractors };
+}
+
+function genDistractorsTrinomial(p, q) {
+  const d = new Set();
+  d.add(formatFactored(p + 1, q));
+  d.add(formatFactored(p, q + 1));
+  d.add(formatFactored(-p, -q));
+  d.add(formatFactored(p - 1, q + 1));
+  d.delete(formatFactored(p, q)); // remove if accidentally matches
+  return shuffle([...d]).slice(0, 3);
+}
+
+// Type 5: ax² + bx + c with a > 1 (coefficient common factor first)
+function genWithCoeff(hard) {
+  const a = randInt(2, hard ? 5 : 3);
+  let p = randInt(1, 5);
+  let q = randInt(1, 5);
+  if (Math.random() < 0.4) p = -p;
+  if (Math.random() < 0.4) q = -q;
+  const b = a * (p + q);
+  const c = a * p * q;
+  const expr = formatQuadratic(a, b, c);
+  const inner = formatFactored(p, q);
+  const answer = `${a}${inner}`;
+  const hint = `まず全体から ${a} をくくり出そう！中身は足して ${p+q}、かけて ${p*q} になる数を探すよ。`;
+  const distractors = [];
+  distractors.push(`${a+1}${inner}`);
+  distractors.push(`${a}${formatFactored(p+1, q)}`);
+  distractors.push(`${a}${formatFactored(p, q+1)}`);
+  return { expr, answer, hint, type: '共通因数 + たすきがけ', distractors };
+}
+
+// ========== FORMAT HELPERS ==========
+function formatQuadratic(a, b, c) {
+  let s = '';
+  if (a === 1) s = 'x²';
+  else if (a === -1) s = '−x²';
+  else s = `${a}x²`;
+
+  if (b > 0) s += ` + ${b === 1 ? '' : b}x`;
+  else if (b < 0) s += ` − ${Math.abs(b) === 1 ? '' : Math.abs(b)}x`;
+
+  if (c > 0) s += ` + ${c}`;
+  else if (c < 0) s += ` − ${Math.abs(c)}`;
+
+  return s;
+}
+
+function formatFactored(p, q) {
+  const fmt = v => v >= 0 ? `x + ${v}` : `x − ${Math.abs(v)}`;
+  return `(${fmt(p)})(${fmt(q)})`;
+}
+
+function randInt(lo, hi) {
+  if (lo > hi) [lo, hi] = [hi, lo];
+  return Math.floor(Math.random() * (hi - lo + 1)) + lo;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ========== BUILD QUESTIONS ==========
+function buildQuestions() {
+  const qs = [];
+  // Stage 1: Common factor
+  for (let i = 0; i < Q_PER_STAGE; i++) qs.push(genCommonFactor(false));
+  // Stage 2: Perfect square
+  for (let i = 0; i < Q_PER_STAGE; i++) qs.push(genPerfectSquare(false));
+  // Stage 3: Difference of squares
+  for (let i = 0; i < Q_PER_STAGE; i++) qs.push(genDiffSquares(false));
+  // Stage 4: Trinomial
+  for (let i = 0; i < Q_PER_STAGE; i++) qs.push(genQuadTrinomial(false));
+  // Stage 5 Boss: Mixed hard
+  const generators = [genCommonFactor, genPerfectSquare, genDiffSquares, genQuadTrinomial, genWithCoeff];
+  for (let i = 0; i < Q_PER_STAGE; i++) qs.push(generators[i % generators.length](true));
+  return qs;
+}
+
+// ========== GAME LOGIC ==========
+function startGame() {
+  hp = 3; score = 0; combo = 0; maxCombo = 0;
+  stage = 1; qIndex = 0; totalCorrect = 0; totalWrong = 0;
+  history = [];
+  questions = buildQuestions();
+  showScreen('game-screen');
+  renderHP();
+  updateStats();
+  nextQuestion();
+}
+
+function renderHP() {
+  const bar = document.getElementById('hp-bar');
+  bar.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    const h = document.createElement('span');
+    h.className = 'heart' + (i >= hp ? ' lost' : '');
+    h.textContent = '❤️';
+    bar.appendChild(h);
+  }
+}
+
+function updateStats() {
+  document.getElementById('combo-count').textContent = combo;
+  document.getElementById('score-count').textContent = score;
+  const s = Math.floor(qIndex / Q_PER_STAGE) + 1;
+  stage = Math.min(s, STAGE_COUNT);
+  const label = document.getElementById('stage-label');
+  if (stage === STAGE_COUNT) {
+    label.textContent = '👹 BOSS STAGE 👹';
+    label.className = 'stage-label boss-label';
+  } else {
+    label.textContent = `ステージ ${stage} / ${STAGE_COUNT}`;
+    label.className = 'stage-label';
+  }
+}
+
+function nextQuestion() {
+  if (qIndex >= questions.length) { endGame(true); return; }
+  if (hp <= 0) { endGame(false); return; }
+
+  currentQ = questions[qIndex];
+  updateStats();
+  document.getElementById('q-type').textContent = `【${currentQ.type}】`;
+  document.getElementById('q-expression').textContent = currentQ.expr;
+  document.getElementById('feedback-area').innerHTML = '';
+
+  // Build choices
+  const opts = shuffle([currentQ.answer, ...currentQ.distractors.slice(0, 3)]);
+  const choicesEl = document.getElementById('choices');
+  choicesEl.innerHTML = '';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(opt, btn);
+    choicesEl.appendChild(btn);
+  });
+
+  // Timer
+  startTimer();
+}
+
+function startTimer() {
+  timerValue = TIME_LIMIT;
+  const fill = document.getElementById('timer-fill');
+  fill.style.width = '100%';
+  fill.classList.remove('danger');
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timerValue -= 0.1;
+    const pct = Math.max(0, (timerValue / TIME_LIMIT) * 100);
+    fill.style.width = pct + '%';
+    if (timerValue <= 7) fill.classList.add('danger');
+    if (timerValue <= 0) {
+      clearInterval(timer);
+      timeUp();
+    }
+  }, 100);
+}
+
+function timeUp() {
+  disableChoices();
+  hp--; combo = 0;
+  totalWrong++;
+  renderHP();
+  updateStats();
+  history.push({ q: currentQ, userAnswer: '（時間切れ）', correct: false });
+  showFeedback(false, '（時間切れ）');
+}
+
+function selectAnswer(opt, btn) {
+  clearInterval(timer);
+  disableChoices();
+  const isCorrect = (opt === currentQ.answer);
+
+  // Highlight buttons
+  document.querySelectorAll('.choice-btn').forEach(b => {
+    if (b.textContent === currentQ.answer) b.classList.add('correct');
+    if (b === btn && !isCorrect) b.classList.add('wrong');
+  });
+
+  if (isCorrect) {
+    combo++;
+    if (combo > maxCombo) maxCombo = combo;
+    const bonus = Math.min(combo, 5);
+    const timeBonus = Math.round(timerValue * 2);
+    const pts = 100 + bonus * 20 + timeBonus;
+    score += pts;
+    totalCorrect++;
+    if (combo >= 3) showComboPopup(combo);
+  } else {
+    hp--;
+    combo = 0;
+    totalWrong++;
+    renderHP();
+  }
+  updateStats();
+  history.push({ q: currentQ, userAnswer: opt, correct: isCorrect });
+  showFeedback(isCorrect, opt);
+}
+
+function disableChoices() {
+  document.querySelectorAll('.choice-btn').forEach(b => b.disabled = true);
+}
+
+function showFeedback(isCorrect, userAnswer) {
+  const area = document.getElementById('feedback-area');
+  const fb = document.createElement('div');
+  fb.className = 'feedback-msg ' + (isCorrect ? 'correct-fb' : 'wrong-fb');
+  if (isCorrect) {
+    const msgs = ['すごい！🎉', 'カンペキ！✨', 'ナイス！💪', 'その調子！🔥', 'バッチリ！⭐'];
+    fb.innerHTML = `<div class="fb-title">${msgs[Math.floor(Math.random()*msgs.length)]}</div>
+      <div>正解：<b>${currentQ.answer}</b></div>
+      <div class="hint-text">💡 ${currentQ.hint}</div>`;
+  } else {
+    fb.innerHTML = `<div class="fb-title">おしい！😢</div>
+      <div>きみの答え：${userAnswer}</div>
+      <div>正解：<b>${currentQ.answer}</b></div>
+      <div class="hint-text">💡 ${currentQ.hint}</div>`;
+  }
+  area.innerHTML = '';
+  area.appendChild(fb);
+
+  setTimeout(() => { qIndex++; nextQuestion(); }, isCorrect ? 1800 : 3000);
+}
+
+function showComboPopup(n) {
+  const pop = document.createElement('div');
+  pop.className = 'combo-popup';
+  pop.textContent = `🔥 ${n}コンボ！`;
+  document.body.appendChild(pop);
+  setTimeout(() => pop.remove(), 900);
+}
+
+// ========== END GAME ==========
+function endGame(cleared) {
+  clearInterval(timer);
+  const rs = document.getElementById('result-screen');
+  rs.className = 'screen active' + (cleared ? '' : ' failed');
+  showScreen('result-screen');
+
+  document.getElementById('result-emoji').textContent = cleared ? '🏆' : '💔';
+  document.getElementById('result-title').textContent = cleared ? 'クリアおめでとう！' : 'ゲームオーバー…';
+
+  const accuracy = totalCorrect + totalWrong > 0
+    ? Math.round((totalCorrect / (totalCorrect + totalWrong)) * 100) : 0;
+  const rank = accuracy >= 90 ? 'S' : accuracy >= 75 ? 'A' : accuracy >= 60 ? 'B' : accuracy >= 40 ? 'C' : 'D';
+
+  document.getElementById('result-stats').innerHTML = `
+    <div><b>スコア：</b>${score} 点</div>
+    <div><b>正解数：</b>${totalCorrect} / ${totalCorrect + totalWrong}</div>
+    <div><b>正答率：</b>${accuracy}%</div>
+    <div><b>最大コンボ：</b>${maxCombo}</div>
+    <div><b>ランク：</b><span style="font-size:1.5rem">${rank}</span></div>
+    <div><b>到達ステージ：</b>${stage} / ${STAGE_COUNT}</div>
+  `;
+}
+
+// ========== REVIEW ==========
+function showReview() {
+  showScreen('review-screen');
+  const list = document.getElementById('review-list');
+  list.innerHTML = '';
+
+  // Show wrong answers first
+  const sorted = [...history].sort((a, b) => a.correct - b.correct);
+  sorted.forEach((h, i) => {
+    const item = document.createElement('div');
+    item.className = 'review-item ' + (h.correct ? 'r-correct' : 'r-wrong');
+    item.innerHTML = `
+      <div class="review-q">${h.correct ? '⭕' : '❌'} ${h.q.expr}</div>
+      <div class="review-a">正解：<b>${h.q.answer}</b>${h.correct ? '' : `　きみの答え：${h.userAnswer}`}</div>
+      <div class="review-hint">💡 ${h.q.hint}</div>
+    `;
+    list.appendChild(item);
+  });
+}
+</script>
+</body>
+</html>
